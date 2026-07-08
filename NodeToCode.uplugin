@@ -1,0 +1,35 @@
+{
+    "FileVersion": 3,
+    "Version": 2,
+    "VersionName": "1.2.2-back2dead-sadnessinc",
+    "FriendlyName": "Node to Code - Back2Dead Fork",
+    "Description": "Node to Code fork for Back2Dead: AI-friendly Blueprint export and safe N2C_PATCH_V1 import. Original by Protospatial/Nick McClure; Back2Dead fork by sadnessinc.",
+    "Category": "Code Plugins",
+    "CreatedBy": "Protospatial / Nick McClure; Back2Dead fork by sadnessinc",
+    "CreatedByURL": "https://www.protospatial.com",
+    "DocsURL": "https://github.com/protospatial/NodeToCode/wiki",
+    "MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/865c44cc-4ff6-4fc1-9c19-6fbc6ac430eb",
+    "SupportURL": "https://www.protospatial.com/support",
+    "CanContainContent": true,
+    "IsBetaVersion": false,
+    "IsExperimentalVersion": false,
+    "Installed": false,
+    "Modules": [
+        {
+            "Name": "NodeToCode",
+            "Type": "Editor",
+            "LoadingPhase": "PostEngineInit",
+            "WhitelistPlatforms": [
+                "Win64",
+                "Mac"
+            ]
+        }
+    ],
+    "Plugins": [
+        {
+            "Name": "BlueprintAssist",
+            "Enabled": true,
+            "Optional": true
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+  "schema": "N2C_PATCH_V1",
+  "target_blueprint": "TestActor",
+  "description": "Back2Dead node2code test: member variables, function rename and categories/folders.",
+  "variables": [
+    {
+      "name": "B2D_Test_GlobalMessage",
+      "type": "String",
+      "default": "Created by N2C_PATCH_V1",
+      "category": "N2C/Test Variables"
+    },
+    {
+      "name": "B2D_Test_GlobalCounter",
+      "type": "Integer",
+      "default": 7,
+      "category": "N2C/Test Variables"
+    },
+    {
+      "name": "bB2D_Test_GlobalFlag",
+      "type": "Boolean",
+      "default": true,
+      "category": "N2C/Test Variables"
+    }
+  ],
+  "actions": [
+    {
+      "type": "rename_function",
+      "old_function_name": "B2D_Test_HelperMakeMessage",
+      "new_function_name": "B2D_Test_HelperMakeMessage_Renamed",
+      "category": "N2C/Test Helpers"
+    },
+    {
+      "type": "set_function_category",
+      "function_name": "B2D_Test_MainCallsHelper",
+      "category": "N2C/Test Main"
+    },
+    {
+      "type": "set_function_category",
+      "function_name": "TestFunction",
+      "category": "N2C/Test Existing"
+    }
+  ]
+}
