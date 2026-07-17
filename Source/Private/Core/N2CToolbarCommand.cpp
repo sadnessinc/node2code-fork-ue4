@@ -15,11 +15,11 @@ const FName FN2CToolbarCommand::CommandName_ExportAll = TEXT("NodeToCode_Back2De
 const FText FN2CToolbarCommand::CommandLabel_Export = NSLOCTEXT("NodeToCode", "Back2DeadExport", "Export N2C");
 const FText FN2CToolbarCommand::CommandLabel_Import = NSLOCTEXT("NodeToCode", "Back2DeadImport", "Import N2C");
 const FText FN2CToolbarCommand::CommandLabel_ProjectImport = NSLOCTEXT("NodeToCode", "Back2DeadProjectImport", "Import N2C");
-const FText FN2CToolbarCommand::CommandLabel_ExportAll = NSLOCTEXT("NodeToCode", "Back2DeadExportAll", "Export N2C");
+const FText FN2CToolbarCommand::CommandLabel_ExportAll = NSLOCTEXT("NodeToCode", "Back2DeadExportProject", "Export Project");
 const FText FN2CToolbarCommand::CommandTooltip_Export = NSLOCTEXT("NodeToCode", "Back2DeadExportTooltip", "Export current Blueprint as AI-friendly N2C_AI_EXPORT_V2 JSON and ZIP.");
 const FText FN2CToolbarCommand::CommandTooltip_Import = NSLOCTEXT("NodeToCode", "Back2DeadImportTooltip", "Import an N2C_PATCH_V1 JSON patch safely. Dry-run, confirmation, backup, apply, compile.");
 const FText FN2CToolbarCommand::CommandTooltip_ProjectImport = NSLOCTEXT("NodeToCode", "Back2DeadProjectImportTooltip", "Import an N2C_PROJECT_PATCH_V1 JSON patch from the main editor toolbar. Supports multiple Blueprint assets in one file.");
-const FText FN2CToolbarCommand::CommandTooltip_ExportAll = NSLOCTEXT("NodeToCode", "Back2DeadExportAllTooltip", "Export all project Blueprint assets into one N2C ZIP archive. May take a long time.");
+const FText FN2CToolbarCommand::CommandTooltip_ExportAll = NSLOCTEXT("NodeToCode", "Back2DeadExportProjectTooltip", "Export project assets into one N2C ZIP archive. Choose Blueprint, Niagara System, Enum and Struct in the export window.");
 
 FN2CToolbarCommand::FN2CToolbarCommand()
     : TCommands<FN2CToolbarCommand>(
@@ -61,8 +61,8 @@ void FN2CToolbarCommand::RegisterCommands()
 
     UI_COMMAND(
         ExportAllCommand,
-        "Export N2C",
-        "Export all project Blueprint assets into one N2C ZIP archive",
+        "Export Project",
+        "Export project assets into one N2C ZIP archive. Choose Blueprint, Niagara System, Enum and Struct in the export window",
         EUserInterfaceActionType::Button,
         FInputChord()
     );

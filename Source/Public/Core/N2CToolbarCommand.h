@@ -22,7 +22,7 @@ public:
     /** Level Editor button: load/apply an N2C_PROJECT_PATCH_V1 patch across multiple assets. */
     TSharedPtr<FUICommandInfo> ProjectImportCommand;
 
-    /** Level Editor button: export all project Blueprints into one ZIP. */
+    /** Level Editor button: open project export picker and export selected asset types into one ZIP. */
     TSharedPtr<FUICommandInfo> ExportAllCommand;
 
     static const FName CommandName_Export;

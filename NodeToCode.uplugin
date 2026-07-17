@@ -1,35 +1,37 @@
 {
-    "FileVersion": 3,
-    "Version": 2,
-    "VersionName": "1.2.2-back2dead-sadnessinc",
-    "FriendlyName": "Node to Code - Back2Dead Fork",
-    "Description": "Node to Code fork for Back2Dead: AI-friendly Blueprint export and safe N2C_PATCH_V1 import. Original by Protospatial/Nick McClure; Back2Dead fork by sadnessinc.",
-    "Category": "Code Plugins",
-    "CreatedBy": "Protospatial / Nick McClure; Back2Dead fork by sadnessinc",
-    "CreatedByURL": "https://www.protospatial.com",
-    "DocsURL": "https://github.com/protospatial/NodeToCode/wiki",
-    "MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/865c44cc-4ff6-4fc1-9c19-6fbc6ac430eb",
-    "SupportURL": "https://www.protospatial.com/support",
-    "CanContainContent": true,
-    "IsBetaVersion": false,
-    "IsExperimentalVersion": false,
-    "Installed": false,
-    "Modules": [
-        {
-            "Name": "NodeToCode",
-            "Type": "Editor",
-            "LoadingPhase": "PostEngineInit",
-            "WhitelistPlatforms": [
-                "Win64",
-                "Mac"
-            ]
-        }
-    ],
-    "Plugins": [
-        {
-            "Name": "BlueprintAssist",
-            "Enabled": true,
-            "Optional": true
-        }
-    ]
+  "FileVersion": 3,
+  "Version": 195,
+  "VersionName": "1.2.95-ue427-powershell-null-collection-selftest-hotfix",
+  "FriendlyName": "node2code",
+  "Description": "Exports supported Unreal Engine assets to AI-friendly JSON and imports AI-generated Blueprint JSON changes back into the project.",
+  "Category": "Code Plugins",
+  "CreatedBy": "sadnessinc",
+  "CreatedByURL": "https://github.com/sadnessinc",
+  "DocsURL": "https://github.com/sadnessinc/node2code-fork-ue4",
+  "SupportURL": "https://github.com/sadnessinc/node2code-fork-ue4/issues",
+  "CanContainContent": false,
+  "IsBetaVersion": false,
+  "IsExperimentalVersion": false,
+  "Installed": false,
+  "Modules": [
+    {
+      "Name": "NodeToCode",
+      "Type": "Editor",
+      "LoadingPhase": "PostEngineInit",
+      "WhitelistPlatforms": [
+        "Win64"
+      ]
+    }
+  ],
+  "Plugins": [
+    {
+      "Name": "BlueprintAssist",
+      "Enabled": true,
+      "Optional": true
+    },
+    {
+      "Name": "Niagara",
+      "Enabled": true
+    }
+  ]
 }

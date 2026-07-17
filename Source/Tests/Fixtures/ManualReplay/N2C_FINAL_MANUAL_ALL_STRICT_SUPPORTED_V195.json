@@ -1,0 +1,2720 @@
+{
+  "schema": "N2C_PROJECT_PATCH_V1",
+  "manual_test_schema": "N2C_FINAL_MANUAL_COVERAGE_V1",
+  "target_plugin_version": 195,
+  "target_plugin_version_name": "1.2.95-ue427-powershell-null-collection-selftest-hotfix",
+  "test_root": "/Game/N2C_FinalManual",
+  "description": "Final positive manual import patch for every metadata-stable node family accepted by strict Version 195 sandbox preflight, all production-safe member-variable categories/containers, function and graph boundaries, Widget/AI/BT subclasses, and representative UE4.27 exec/data/wildcard/literal/linked connection paths. Version 195 adds the mandatory exhaustive import contract matrix (117 cases, two fresh UE sessions, idempotent reapply) as the reusable release gate for future importer changes. Version 195 fixes the Windows PowerShell 5.1 null/scalar collection-count helper without changing durable graph import_scope identities.",
+  "preconditions": [
+    {
+      "asset": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor",
+      "required_parent_class": "/Script/Engine.Actor",
+      "required_compiled_members_before_import": [
+        {
+          "kind": "SCS component",
+          "name": "N2C_Box",
+          "class": "/Script/Engine.BoxComponent",
+          "reason": "K2Node_ComponentBoundEvent strict preflight resolves the component property from the compiled/skeleton class."
+        },
+        {
+          "kind": "Event Dispatcher",
+          "name": "N2C_OnFinal",
+          "reason": "Multicast delegate nodes resolve the dispatcher property from the compiled/skeleton class."
+        }
+      ],
+      "setup_note": "Create these two prerequisites in BP_N2C_FinalActor, Compile and Save once before importing. The JSON also contains idempotent add/update actions for them, but UE4.27 strict dry-run cannot bootstrap and consume newly compiled class members inside the same project-wide preflight."
+    },
+    {
+      "asset": "/Game/N2C_FinalManual/WBP_N2C_FinalWidget.WBP_N2C_FinalWidget",
+      "required_parent_class": "/Script/UMG.UserWidget",
+      "required_blueprint_type": "WidgetBlueprint"
+    },
+    {
+      "asset": "/Game/N2C_FinalManual/BP_N2C_FinalAIController.BP_N2C_FinalAIController",
+      "required_parent_class": "/Script/AIModule.AIController"
+    },
+    {
+      "asset": "/Game/N2C_FinalManual/BTT_N2C_Final.BTT_N2C_Final",
+      "required_parent_class": "/Script/AIModule.BTTask_BlueprintBase"
+    },
+    {
+      "asset": "/Game/N2C_FinalManual/BTS_N2C_Final.BTS_N2C_Final",
+      "required_parent_class": "/Script/AIModule.BTService_BlueprintBase"
+    },
+    {
+      "asset": "/Game/N2C_FinalManual/BTD_N2C_Final.BTD_N2C_Final",
+      "required_parent_class": "/Script/AIModule.BTDecorator_BlueprintBase"
+    },
+    {
+      "asset": "/Game/N2C_FinalManual/ST_N2C_Final.ST_N2C_Final",
+      "required_type": "UserDefinedStruct",
+      "required_fields": [
+        {
+          "name": "IntValue",
+          "type": "int"
+        },
+        {
+          "name": "NameValue",
+          "type": "name"
+        },
+        {
+          "name": "VectorValue",
+          "type": "struct",
+          "struct_path": "/Script/CoreUObject.Vector"
+        }
+      ]
+    },
+    {
+      "asset": "/Game/N2C_FinalManual/DT_N2C_Final.DT_N2C_Final",
+      "required_type": "DataTable",
+      "row_struct": "/Game/N2C_FinalManual/ST_N2C_Final.ST_N2C_Final",
+      "required_rows": [
+        "RowA"
+      ]
+    },
+    {
+      "project_setting": "InputAction",
+      "name": "N2C_FinalAction",
+      "suggested_key": "F9"
+    },
+    {
+      "project_setting": "InputAxis",
+      "name": "N2C_FinalAxis",
+      "suggested_key": "MouseX",
+      "scale": 1.0
+    }
+  ],
+  "strict_scope": {
+    "included": "verified, metadata-stable positive Blueprint import paths that normal strict UI import can apply",
+    "not_included": [
+      {
+        "node": "K2Node_MacroInstance / StandardMacros aliases",
+        "reason": "requires durable graph GUID/signature/tunnel/wildcard identity exported from the exact local UE4.27 StandardMacros asset; automated fresh-process tests already PASS"
+      },
+      {
+        "node": "K2Node_Timeline",
+        "reason": "coverage status is supported_untested and strict preflight blocks it without developer override"
+      },
+      {
+        "node": "K2Node_AddComponent",
+        "reason": "coverage status is supported_untested and strict preflight blocks it; SCS component import is included instead"
+      },
+      {
+        "node": "K2Node_InputTouchEvent, K2Node_EaseFunction, K2Node_CallMaterialParameterCollectionFunction",
+        "reason": "constructor branches exist but Version 195 strict coverage does not classify them as verified"
+      },
+      {
+        "node": "AnimGraph LocalRefPose and full AnimGraph",
+        "reason": "deferred in the release gate and requires a skeleton-bound Animation Blueprint"
+      },
+      {
+        "node": "Niagara graph/module recreation",
+        "reason": "separate Niagara schema; full round-trip remains deferred"
+      },
+      {
+        "node": "comment/layout nodes",
+        "reason": "cosmetic-only and intentionally not imported"
+      }
+    ]
+  },
+  "manual_acceptance": [
+    "Import from the main Level Editor toolbar because this is N2C_PROJECT_PATCH_V1.",
+    "Dry-run must report allowed=1 for every asset entry after the compiled N2C_Box and N2C_OnFinal prerequisites exist.",
+    "Apply, compile and save every target without Blueprint compiler errors.",
+    "Close the editor, reopen the project and compile all six target Blueprints again.",
+    "Export the folder /Game/N2C_FinalManual and compare variables, defaults, node identities, pins and links.",
+    "Repeat the same import once; it must not duplicate functions, dispatchers, components, macro/collapsed graphs or built-in events.",
+    "After the repeated import, close UE again, reopen the project, compile all six targets and export once more; structural counts and links must remain unchanged."
+  ],
+  "assets": [
+    {
+      "blueprint_path": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor",
+      "variables": [
+        {
+          "name": "N2C_Bool",
+          "type": "bool",
+          "category": "N2C/Final/Scalars",
+          "default_value": "true",
+          "flags": {
+            "instance_editable": true
+          }
+        },
+        {
+          "name": "N2C_Int",
+          "type": "int",
+          "category": "N2C/Final/Scalars",
+          "default_value": "42",
+          "flags": {
+            "instance_editable": true,
+            "save_game": true
+          }
+        },
+        {
+          "name": "N2C_Float",
+          "type": "float",
+          "category": "N2C/Final/Scalars",
+          "default_value": "3.5",
+          "flags": {
+            "instance_editable": true
+          }
+        },
+        {
+          "name": "N2C_Name",
+          "type": "name",
+          "category": "N2C/Final/Scalars",
+          "default_value": "Alpha"
+        },
+        {
+          "name": "N2C_String",
+          "type": "string",
+          "category": "N2C/Final/Scalars",
+          "default_value": "N2C final manual string"
+        },
+        {
+          "name": "N2C_Text",
+          "type": "text",
+          "category": "N2C/Final/Scalars",
+          "default_value": "N2C final manual text"
+        },
+        {
+          "name": "N2C_RawByte",
+          "type": "byte",
+          "category": "N2C/Final/Scalars",
+          "default_value": "37"
+        },
+        {
+          "name": "N2C_InputEvent",
+          "type": "enum",
+          "enum_path": "/Script/Engine.EInputEvent",
+          "category": "N2C/Final/Enums",
+          "default_value": "IE_Pressed"
+        },
+        {
+          "name": "N2C_Vector",
+          "type": "struct",
+          "struct_path": "/Script/CoreUObject.Vector",
+          "category": "N2C/Final/Structs",
+          "default_value": "(X=1.0,Y=2.0,Z=3.0)"
+        },
+        {
+          "name": "N2C_Rotator",
+          "type": "struct",
+          "struct_path": "/Script/CoreUObject.Rotator",
+          "category": "N2C/Final/Structs",
+          "default_value": "(Pitch=10.0,Yaw=20.0,Roll=30.0)"
+        },
+        {
+          "name": "N2C_Transform",
+          "type": "struct",
+          "struct_path": "/Script/CoreUObject.Transform",
+          "category": "N2C/Final/Structs"
+        },
+        {
+          "name": "N2C_CustomRow",
+          "type": "struct",
+          "struct_path": "/Game/N2C_FinalManual/ST_N2C_Final.ST_N2C_Final",
+          "category": "N2C/Final/Structs"
+        },
+        {
+          "name": "N2C_Actor",
+          "type": "object",
+          "sub_category_object": "/Script/Engine.Actor",
+          "category": "N2C/Final/References"
+        },
+        {
+          "name": "N2C_ActorClass",
+          "type": "class",
+          "sub_category_object": "/Script/Engine.Actor",
+          "category": "N2C/Final/References"
+        },
+        {
+          "name": "N2C_WidgetClass",
+          "type": "class",
+          "sub_category_object": "/Script/UMG.UserWidget",
+          "category": "N2C/Final/References"
+        },
+        {
+          "name": "N2C_DataTable",
+          "type": "object",
+          "sub_category_object": "/Script/Engine.DataTable",
+          "category": "N2C/Final/References",
+          "default_value": "/Game/N2C_FinalManual/DT_N2C_Final.DT_N2C_Final"
+        },
+        {
+          "name": "N2C_SoftActor",
+          "type": "softobject",
+          "sub_category_object": "/Script/Engine.Actor",
+          "category": "N2C/Final/References"
+        },
+        {
+          "name": "N2C_SoftActorClass",
+          "type": "softclass",
+          "sub_category_object": "/Script/Engine.Actor",
+          "category": "N2C/Final/References"
+        },
+        {
+          "name": "N2C_IntArray",
+          "type": "int",
+          "container": "Array",
+          "category": "N2C/Final/Containers",
+          "default_value": "(1,2,3)"
+        },
+        {
+          "name": "N2C_NameSet",
+          "type": "name",
+          "container": "Set",
+          "category": "N2C/Final/Containers",
+          "default_value": "(Alpha,Beta)"
+        },
+        {
+          "name": "N2C_NameToInt",
+          "type": "name",
+          "container": "Map",
+          "value_type": {
+            "type": "int"
+          },
+          "category": "N2C/Final/Containers",
+          "default_value": "((Alpha,1),(Beta,2))"
+        },
+        {
+          "name": "N2C_ActorArray",
+          "type": "object",
+          "sub_category_object": "/Script/Engine.Actor",
+          "container": "Array",
+          "category": "N2C/Final/Containers"
+        }
+      ],
+      "actions": [
+        {
+          "type": "add_event_dispatcher",
+          "name": "N2C_OnFinal"
+        },
+        {
+          "type": "add_scs_components",
+          "components": [
+            {
+              "component_name": "N2C_Box",
+              "component_class": "/Script/Engine.BoxComponent",
+              "relative_location": {
+                "x": 0,
+                "y": 0,
+                "z": 50
+              },
+              "relative_rotation": {
+                "pitch": 0,
+                "yaw": 0,
+                "roll": 0
+              },
+              "relative_scale": {
+                "x": 1,
+                "y": 1,
+                "z": 1
+              },
+              "template_defaults": {
+                "BoxExtent": "(X=32.0,Y=32.0,Z=32.0)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "add_or_replace_function",
+          "function_name": "N2C_Final_Impure",
+          "category": "N2C/Final/Functions",
+          "replace_body": true,
+          "function_flags": {
+            "access": "public",
+            "pure": false,
+            "const": false
+          },
+          "inputs": [
+            {
+              "name": "Amount",
+              "type": "int"
+            },
+            {
+              "name": "Label",
+              "type": "string"
+            },
+            {
+              "name": "Target",
+              "type": "object",
+              "sub_category_object": "/Script/Engine.Actor"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "Result",
+              "type": "int"
+            },
+            {
+              "name": "Message",
+              "type": "string"
+            }
+          ],
+          "local_variables": [
+            {
+              "name": "LocalCounter",
+              "type": "int"
+            },
+            {
+              "name": "LocalText",
+              "type": "string"
+            }
+          ],
+          "nodes": [
+            {
+              "id": "Entry",
+              "type": "Entry",
+              "pos_x": 0,
+              "pos_y": 0
+            },
+            {
+              "id": "Return",
+              "type": "Return",
+              "pos_x": 600,
+              "pos_y": 0,
+              "pin_defaults": {
+                "Result": "7",
+                "Message": "Impure OK"
+              }
+            }
+          ],
+          "exec_edges": [
+            {
+              "from_node_id": "Entry",
+              "from_pin": "then",
+              "to_node_id": "Return",
+              "to_pin": "execute"
+            }
+          ],
+          "data_edges": []
+        },
+        {
+          "type": "add_or_replace_function",
+          "function_name": "N2C_Final_Pure",
+          "category": "N2C/Final/Functions",
+          "replace_body": true,
+          "function_flags": {
+            "access": "public",
+            "pure": true,
+            "const": true
+          },
+          "inputs": [
+            {
+              "name": "InputValue",
+              "type": "float"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "Message",
+              "type": "string"
+            }
+          ],
+          "nodes": [
+            {
+              "id": "Entry",
+              "type": "Entry",
+              "pos_x": 0,
+              "pos_y": 0
+            },
+            {
+              "id": "Return",
+              "type": "Return",
+              "pos_x": 600,
+              "pos_y": 0,
+              "pin_defaults": {
+                "Message": "Pure OK"
+              }
+            }
+          ],
+          "exec_edges": [
+            {
+              "from_node_id": "Entry",
+              "from_pin": "then",
+              "to_node_id": "Return",
+              "to_pin": "execute"
+            }
+          ],
+          "data_edges": []
+        },
+        {
+          "type": "add_or_replace_function",
+          "function_name": "N2C_Final_MultipleResults",
+          "category": "N2C/Final/Functions",
+          "replace_body": true,
+          "function_flags": {
+            "access": "public",
+            "pure": false,
+            "const": false
+          },
+          "inputs": [
+            {
+              "name": "Condition",
+              "type": "bool"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "Outcome",
+              "type": "int"
+            }
+          ],
+          "nodes": [
+            {
+              "id": "Entry",
+              "type": "Entry",
+              "pos_x": 0,
+              "pos_y": 0
+            },
+            {
+              "id": "Branch",
+              "type": "K2Node_IfThenElse",
+              "pos_x": 260,
+              "pos_y": 0
+            },
+            {
+              "id": "ReturnA",
+              "type": "Return",
+              "pos_x": 600,
+              "pos_y": -120,
+              "pin_defaults": {
+                "Outcome": "1"
+              }
+            },
+            {
+              "id": "ReturnB",
+              "type": "Return",
+              "create_new": true,
+              "pos_x": 600,
+              "pos_y": 120,
+              "pin_defaults": {
+                "Outcome": "2"
+              }
+            }
+          ],
+          "exec_edges": [
+            {
+              "from_node_id": "Entry",
+              "from_pin": "then",
+              "to_node_id": "Branch",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "Branch",
+              "from_pin": "then",
+              "to_node_id": "ReturnA",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "Branch",
+              "from_pin": "else",
+              "to_node_id": "ReturnB",
+              "to_pin": "execute"
+            }
+          ],
+          "data_edges": [
+            {
+              "from_node_id": "Entry",
+              "from_pin": "Condition",
+              "to_node_id": "Branch",
+              "to_pin": "Condition"
+            }
+          ]
+        },
+        {
+          "type": "add_or_replace_function",
+          "function_name": "N2C_Final_DelegateHandler",
+          "category": "N2C/Final/Functions",
+          "replace_body": true,
+          "function_flags": {
+            "access": "private",
+            "pure": false,
+            "const": false
+          },
+          "nodes": [
+            {
+              "id": "Entry",
+              "type": "Entry",
+              "pos_x": 0,
+              "pos_y": 0
+            },
+            {
+              "id": "Return",
+              "type": "Return",
+              "pos_x": 450,
+              "pos_y": 0
+            }
+          ],
+          "exec_edges": [
+            {
+              "from_node_id": "Entry",
+              "from_pin": "then",
+              "to_node_id": "Return",
+              "to_pin": "execute"
+            }
+          ],
+          "data_edges": []
+        },
+        {
+          "type": "add_macro",
+          "macro_name": "N2C_FinalMacro",
+          "owner_blueprint_path": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor",
+          "owning_graph_identity": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor|macro|N2C_FinalMacro|/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor:N2C_FinalMacro",
+          "owning_graph_kind": "macro",
+          "nodes": [
+            {
+              "id": "BoundaryEntry",
+              "type": "K2Node_Tunnel",
+              "owner_blueprint_path": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor",
+              "owning_graph_identity": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor|macro|N2C_FinalMacro|/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor:N2C_FinalMacro",
+              "owning_graph_kind": "macro",
+              "owning_graph_name": "N2C_FinalMacro",
+              "owning_graph_path": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor:N2C_FinalMacro",
+              "tunnel_role": "entry",
+              "can_have_inputs": false,
+              "can_have_outputs": true,
+              "editable": true,
+              "graph_boundary_fingerprint": "fixture_declared_exact_persistence_compare",
+              "user_defined_pin_signature": [
+                {
+                  "name": "Exec",
+                  "direction": "output",
+                  "pin_type": {
+                    "category": "exec"
+                  }
+                },
+                {
+                  "name": "Value",
+                  "direction": "output",
+                  "pin_type": {
+                    "category": "int"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "BoundaryExit",
+              "type": "K2Node_Tunnel",
+              "owner_blueprint_path": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor",
+              "owning_graph_identity": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor|macro|N2C_FinalMacro|/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor:N2C_FinalMacro",
+              "owning_graph_kind": "macro",
+              "owning_graph_name": "N2C_FinalMacro",
+              "owning_graph_path": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor:N2C_FinalMacro",
+              "tunnel_role": "exit",
+              "can_have_inputs": true,
+              "can_have_outputs": false,
+              "editable": true,
+              "graph_boundary_fingerprint": "fixture_declared_exact_persistence_compare",
+              "user_defined_pin_signature": [
+                {
+                  "name": "Then",
+                  "direction": "input",
+                  "pin_type": {
+                    "category": "exec"
+                  }
+                },
+                {
+                  "name": "Result",
+                  "direction": "input",
+                  "pin_type": {
+                    "category": "int"
+                  }
+                }
+              ]
+            }
+          ],
+          "exec_edges": [
+            {
+              "from": "BoundaryEntry",
+              "from_pin": "Exec",
+              "to": "BoundaryExit",
+              "to_pin": "Then"
+            }
+          ],
+          "data_edges": [
+            {
+              "from": "BoundaryEntry",
+              "from_pin": "Value",
+              "to": "BoundaryExit",
+              "to_pin": "Result"
+            }
+          ]
+        },
+        {
+          "type": "create_collapsed_graph",
+          "collapsed_graph_name": "N2C_FinalCollapsed",
+          "owner_blueprint_path": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor",
+          "owning_graph_identity": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor|event_graph|EventGraph|/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor:EventGraph",
+          "owning_graph_kind": "event_graph",
+          "nodes": [
+            {
+              "id": "BoundaryEntry",
+              "type": "K2Node_Tunnel",
+              "owner_blueprint_path": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor",
+              "owning_graph_identity": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor|collapsed_graph|N2C_FinalCollapsed|/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor:EventGraph.N2C_FinalCollapsed",
+              "owning_graph_kind": "collapsed_graph",
+              "owning_graph_name": "N2C_FinalCollapsed",
+              "owning_graph_path": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor:EventGraph.N2C_FinalCollapsed",
+              "tunnel_role": "entry",
+              "can_have_inputs": false,
+              "can_have_outputs": true,
+              "editable": true,
+              "graph_boundary_fingerprint": "fixture_declared_exact_persistence_compare",
+              "user_defined_pin_signature": [
+                {
+                  "name": "Exec",
+                  "direction": "output",
+                  "pin_type": {
+                    "category": "exec"
+                  }
+                },
+                {
+                  "name": "Value",
+                  "direction": "output",
+                  "pin_type": {
+                    "category": "int"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "BoundaryExit",
+              "type": "K2Node_Tunnel",
+              "owner_blueprint_path": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor",
+              "owning_graph_identity": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor|collapsed_graph|N2C_FinalCollapsed|/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor:EventGraph.N2C_FinalCollapsed",
+              "owning_graph_kind": "collapsed_graph",
+              "owning_graph_name": "N2C_FinalCollapsed",
+              "owning_graph_path": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor:EventGraph.N2C_FinalCollapsed",
+              "tunnel_role": "exit",
+              "can_have_inputs": true,
+              "can_have_outputs": false,
+              "editable": true,
+              "graph_boundary_fingerprint": "fixture_declared_exact_persistence_compare",
+              "user_defined_pin_signature": [
+                {
+                  "name": "Then",
+                  "direction": "input",
+                  "pin_type": {
+                    "category": "exec"
+                  }
+                },
+                {
+                  "name": "Result",
+                  "direction": "input",
+                  "pin_type": {
+                    "category": "int"
+                  }
+                }
+              ]
+            }
+          ],
+          "exec_edges": [
+            {
+              "from": "BoundaryEntry",
+              "from_pin": "Exec",
+              "to": "BoundaryExit",
+              "to_pin": "Then"
+            }
+          ],
+          "data_edges": [
+            {
+              "from": "BoundaryEntry",
+              "from_pin": "Value",
+              "to": "BoundaryExit",
+              "to_pin": "Result"
+            }
+          ],
+          "graph_name": "EventGraph",
+          "bound_graph_identity": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor|collapsed_graph|N2C_FinalCollapsed|/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor:EventGraph.N2C_FinalCollapsed",
+          "bound_graph_kind": "collapsed_graph",
+          "composite_node_id": "Composite",
+          "outer_to_inner_pin_mapping": [
+            {
+              "outer_pin": "Exec",
+              "inner_tunnel_role": "entry",
+              "inner_pin": "Exec"
+            },
+            {
+              "outer_pin": "Value",
+              "inner_tunnel_role": "entry",
+              "inner_pin": "Value"
+            },
+            {
+              "outer_pin": "Then",
+              "inner_tunnel_role": "exit",
+              "inner_pin": "Then"
+            },
+            {
+              "outer_pin": "Result",
+              "inner_tunnel_role": "exit",
+              "inner_pin": "Result"
+            }
+          ]
+        },
+        {
+          "type": "patch_graph",
+          "graph_name": "EventGraph",
+          "nodes": [
+            {
+              "id": "Begin",
+              "type": "K2Node_Event",
+              "pos_x": 0,
+              "pos_y": 0,
+              "event_name": "ReceiveBeginPlay",
+              "event_owner_class": "/Script/Engine.Actor",
+              "event_is_override": true
+            },
+            {
+              "id": "ParentBegin",
+              "type": "K2Node_CallParentFunction",
+              "pos_x": 260,
+              "pos_y": 0,
+              "function_path": "/Script/Engine.Actor.ReceiveBeginPlay",
+              "function_owner_class": "/Script/Engine.Actor",
+              "function_name": "ReceiveBeginPlay"
+            },
+            {
+              "id": "Sequence",
+              "type": "K2Node_ExecutionSequence",
+              "pos_x": 520,
+              "pos_y": 0
+            },
+            {
+              "id": "GetBool",
+              "type": "K2Node_VariableGet",
+              "pos_x": 520,
+              "pos_y": -220,
+              "member_name": "N2C_Bool"
+            },
+            {
+              "id": "Branch",
+              "type": "K2Node_IfThenElse",
+              "pos_x": 800,
+              "pos_y": -80
+            },
+            {
+              "id": "PrintTrue",
+              "type": "K2Node_CallFunction",
+              "pos_x": 1080,
+              "pos_y": -160,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Branch TRUE",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "PrintFalse",
+              "type": "K2Node_CallFunction",
+              "pos_x": 1080,
+              "pos_y": 0,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Branch FALSE",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "PrintSequence",
+              "type": "K2Node_CallFunction",
+              "pos_x": 800,
+              "pos_y": 150,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Sequence second output",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "SetEvent",
+              "type": "K2Node_CustomEvent",
+              "pos_x": 0,
+              "pos_y": 420,
+              "event_name": "N2C_Test_VariableSet"
+            },
+            {
+              "id": "GetInt",
+              "type": "K2Node_VariableGet",
+              "pos_x": 260,
+              "pos_y": 520,
+              "member_name": "N2C_Int"
+            },
+            {
+              "id": "SetInt",
+              "type": "K2Node_VariableSet",
+              "pos_x": 520,
+              "pos_y": 420,
+              "member_name": "N2C_Int"
+            },
+            {
+              "id": "PrintSet",
+              "type": "K2Node_CallFunction",
+              "pos_x": 800,
+              "pos_y": 420,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Variable Set",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "SelectEvent",
+              "type": "K2Node_CustomEvent",
+              "pos_x": 0,
+              "pos_y": 800,
+              "event_name": "N2C_Test_Select"
+            },
+            {
+              "id": "GetSelectIndex",
+              "type": "K2Node_VariableGet",
+              "pos_x": 260,
+              "pos_y": 950,
+              "member_name": "N2C_Bool"
+            },
+            {
+              "id": "GetStringA",
+              "type": "K2Node_VariableGet",
+              "pos_x": 260,
+              "pos_y": 1080,
+              "member_name": "N2C_String"
+            },
+            {
+              "id": "GetStringB",
+              "type": "K2Node_VariableGet",
+              "pos_x": 260,
+              "pos_y": 1210,
+              "member_name": "N2C_String"
+            },
+            {
+              "id": "Select",
+              "type": "K2Node_Select",
+              "pos_x": 560,
+              "pos_y": 950,
+              "index_pin_type": {
+                "type": "bool"
+              },
+              "option_count": 2
+            },
+            {
+              "id": "PrintSelect",
+              "type": "K2Node_CallFunction",
+              "pos_x": 880,
+              "pos_y": 800,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Select",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "KnotEvent",
+              "type": "K2Node_CustomEvent",
+              "pos_x": 0,
+              "pos_y": 1420,
+              "event_name": "N2C_Test_Knot"
+            },
+            {
+              "id": "Knot",
+              "type": "K2Node_Knot",
+              "pos_x": 560,
+              "pos_y": 1500
+            },
+            {
+              "id": "PrintKnot",
+              "type": "K2Node_CallFunction",
+              "pos_x": 880,
+              "pos_y": 1420,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Knot",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "CastEvent",
+              "type": "K2Node_CustomEvent",
+              "pos_x": 0,
+              "pos_y": 1780,
+              "event_name": "N2C_Test_Cast"
+            },
+            {
+              "id": "Self",
+              "type": "K2Node_Self",
+              "pos_x": 260,
+              "pos_y": 1910
+            },
+            {
+              "id": "Cast",
+              "type": "K2Node_DynamicCast",
+              "pos_x": 520,
+              "pos_y": 1780,
+              "class_path": "/Script/Engine.Actor"
+            },
+            {
+              "id": "PrintCast",
+              "type": "K2Node_CallFunction",
+              "pos_x": 820,
+              "pos_y": 1780,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Dynamic Cast",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "GetActorLocation",
+              "type": "K2Node_CallFunction",
+              "pos_x": 1100,
+              "pos_y": 620,
+              "function_path": "/Script/Engine.Actor.K2_GetActorLocation",
+              "function_owner_class": "/Script/Engine.Actor",
+              "function_name": "K2_GetActorLocation"
+            },
+            {
+              "id": "MemberActorLocation",
+              "type": "K2Node_CallFunctionOnMember",
+              "pos_x": 1100,
+              "pos_y": 820,
+              "function_path": "/Script/Engine.Actor.K2_GetActorLocation",
+              "function_owner_class": "/Script/Engine.Actor",
+              "function_name": "K2_GetActorLocation",
+              "member_variable_name": "N2C_Actor"
+            },
+            {
+              "id": "InterfaceMessage",
+              "type": "K2Node_Message",
+              "pos_x": 1100,
+              "pos_y": 1040,
+              "function_path": "/Script/UMG.UserListEntry.BP_OnEntryReleased",
+              "function_owner_class": "/Script/UMG.UserListEntry",
+              "function_name": "BP_OnEntryReleased"
+            }
+          ],
+          "exec_edges": [
+            {
+              "from_node_id": "Begin",
+              "from_pin": "then",
+              "to_node_id": "ParentBegin",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "ParentBegin",
+              "from_pin": "then",
+              "to_node_id": "Sequence",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "Sequence",
+              "from_pin": "then_0",
+              "to_node_id": "Branch",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "Sequence",
+              "from_pin": "then_1",
+              "to_node_id": "PrintSequence",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "Branch",
+              "from_pin": "then",
+              "to_node_id": "PrintTrue",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "Branch",
+              "from_pin": "else",
+              "to_node_id": "PrintFalse",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "SetEvent",
+              "from_pin": "then",
+              "to_node_id": "SetInt",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "SetInt",
+              "from_pin": "then",
+              "to_node_id": "PrintSet",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "SelectEvent",
+              "from_pin": "then",
+              "to_node_id": "PrintSelect",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "KnotEvent",
+              "from_pin": "then",
+              "to_node_id": "PrintKnot",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "CastEvent",
+              "from_pin": "then",
+              "to_node_id": "Cast",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "Cast",
+              "from_pin": "then",
+              "to_node_id": "PrintCast",
+              "to_pin": "execute"
+            }
+          ],
+          "data_edges": [
+            {
+              "from_node_id": "GetBool",
+              "from_pin": "N2C_Bool",
+              "to_node_id": "Branch",
+              "to_pin": "Condition"
+            },
+            {
+              "from_node_id": "GetInt",
+              "from_pin": "N2C_Int",
+              "to_node_id": "SetInt",
+              "to_pin": "N2C_Int"
+            },
+            {
+              "from_node_id": "GetSelectIndex",
+              "from_pin": "N2C_Bool",
+              "to_node_id": "Select",
+              "to_pin": "Index"
+            },
+            {
+              "from_node_id": "GetStringA",
+              "from_pin": "N2C_String",
+              "to_node_id": "Select",
+              "to_pin": "Option 0"
+            },
+            {
+              "from_node_id": "GetStringB",
+              "from_pin": "N2C_String",
+              "to_node_id": "Select",
+              "to_pin": "Option 1"
+            },
+            {
+              "from_node_id": "Select",
+              "from_pin": "ReturnValue",
+              "to_node_id": "PrintSelect",
+              "to_pin": "InString"
+            },
+            {
+              "from_node_id": "GetStringA",
+              "from_pin": "N2C_String",
+              "to_node_id": "Knot",
+              "to_pin": "InputPin"
+            },
+            {
+              "from_node_id": "Knot",
+              "from_pin": "OutputPin",
+              "to_node_id": "PrintKnot",
+              "to_pin": "InString"
+            },
+            {
+              "from_node_id": "Self",
+              "from_pin": "self",
+              "to_node_id": "Cast",
+              "to_pin": "Object"
+            }
+          ],
+          "import_scope": "V193/BP_N2C_FinalActor/EventGraph/01-Begin-ParentBegin-Sequence"
+        },
+        {
+          "type": "patch_graph",
+          "graph_name": "EventGraph",
+          "nodes": [
+            {
+              "id": "ArrayEvent",
+              "type": "K2Node_CustomEvent",
+              "pos_x": 0,
+              "pos_y": 0,
+              "event_name": "N2C_Test_ArrayFunctions"
+            },
+            {
+              "id": "MakeArray",
+              "type": "K2Node_MakeArray",
+              "pos_x": 280,
+              "pos_y": 160,
+              "input_count": 3,
+              "value_pin_type": {
+                "type": "int"
+              },
+              "pin_defaults": {
+                "[0]": "1",
+                "[1]": "2",
+                "[2]": "3"
+              }
+            },
+            {
+              "id": "GetArrayCopy",
+              "type": "K2Node_GetArrayItem",
+              "pos_x": 620,
+              "pos_y": -180,
+              "return_by_ref": false,
+              "pin_defaults": {
+                "Dimension 1": "0"
+              }
+            },
+            {
+              "id": "GetArrayRef",
+              "type": "K2Node_GetArrayItem",
+              "pos_x": 620,
+              "pos_y": 0,
+              "return_by_ref": true,
+              "pin_defaults": {
+                "Dimension 1": "1"
+              }
+            },
+            {
+              "id": "ArrayGetAlias",
+              "type": "ArrayGet",
+              "pos_x": 620,
+              "pos_y": 180,
+              "pin_defaults": {
+                "Index": "0"
+              }
+            },
+            {
+              "id": "ArrayLength",
+              "type": "ArrayLength",
+              "pos_x": 620,
+              "pos_y": 360
+            },
+            {
+              "id": "ArrayContains",
+              "type": "ArrayContains",
+              "pos_x": 620,
+              "pos_y": 540,
+              "pin_defaults": {
+                "ItemToFind": "2"
+              }
+            },
+            {
+              "id": "ArrayFind",
+              "type": "ArrayFind",
+              "pos_x": 620,
+              "pos_y": 720,
+              "pin_defaults": {
+                "ItemToFind": "2"
+              }
+            },
+            {
+              "id": "ArrayAdd",
+              "type": "ArrayAdd",
+              "pos_x": 980,
+              "pos_y": -180,
+              "pin_defaults": {
+                "NewItem": "4"
+              }
+            },
+            {
+              "id": "ArrayAddUnique",
+              "type": "ArrayAddUnique",
+              "pos_x": 980,
+              "pos_y": 0,
+              "pin_defaults": {
+                "NewItem": "4"
+              }
+            },
+            {
+              "id": "ArraySet",
+              "type": "ArraySet",
+              "pos_x": 980,
+              "pos_y": 180,
+              "pin_defaults": {
+                "Index": "0",
+                "Item": "9",
+                "bSizeToFit": "true"
+              }
+            },
+            {
+              "id": "ArrayRemove",
+              "type": "ArrayRemove",
+              "pos_x": 980,
+              "pos_y": 360,
+              "pin_defaults": {
+                "IndexToRemove": "0"
+              }
+            },
+            {
+              "id": "ArrayRemoveItem",
+              "type": "ArrayRemoveItem",
+              "pos_x": 980,
+              "pos_y": 540,
+              "pin_defaults": {
+                "Item": "2"
+              }
+            },
+            {
+              "id": "ArrayClear",
+              "type": "ArrayClear",
+              "pos_x": 980,
+              "pos_y": 720
+            },
+            {
+              "id": "ExplicitCallArray",
+              "type": "K2Node_CallArrayFunction",
+              "pos_x": 620,
+              "pos_y": 900,
+              "function_path": "/Script/Engine.KismetArrayLibrary.Array_Length",
+              "function_owner_class": "/Script/Engine.KismetArrayLibrary",
+              "function_name": "Array_Length"
+            },
+            {
+              "id": "GetIntA",
+              "type": "K2Node_VariableGet",
+              "pos_x": 0,
+              "pos_y": 900,
+              "member_name": "N2C_Int"
+            },
+            {
+              "id": "GetIntB",
+              "type": "K2Node_VariableGet",
+              "pos_x": 0,
+              "pos_y": 1040,
+              "member_name": "N2C_Int"
+            },
+            {
+              "id": "AddInts",
+              "type": "K2Node_CommutativeAssociativeBinaryOperator",
+              "pos_x": 320,
+              "pos_y": 1010,
+              "function_path": "/Script/Engine.KismetMathLibrary.Add_IntInt",
+              "function_owner_class": "/Script/Engine.KismetMathLibrary",
+              "function_name": "Add_IntInt"
+            },
+            {
+              "id": "IntToString",
+              "type": "K2Node_CallFunction",
+              "pos_x": 980,
+              "pos_y": 900,
+              "function_path": "/Script/Engine.KismetStringLibrary.Conv_IntToString",
+              "function_owner_class": "/Script/Engine.KismetStringLibrary",
+              "function_name": "Conv_IntToString"
+            },
+            {
+              "id": "PrintLength",
+              "type": "K2Node_CallFunction",
+              "pos_x": 1280,
+              "pos_y": 900,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Array Length",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "DelayEvent",
+              "type": "K2Node_CustomEvent",
+              "pos_x": 0,
+              "pos_y": 1260,
+              "event_name": "N2C_Test_Delay"
+            },
+            {
+              "id": "Delay",
+              "type": "Delay",
+              "pos_x": 300,
+              "pos_y": 1260,
+              "pin_defaults": {
+                "Duration": "0.05"
+              }
+            },
+            {
+              "id": "PrintDelay",
+              "type": "K2Node_CallFunction",
+              "pos_x": 620,
+              "pos_y": 1260,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Delay completed",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "ArraySequence",
+              "type": "K2Node_ExecutionSequence",
+              "pos_x": 280,
+              "pos_y": 0,
+              "output_count": 2
+            },
+            {
+              "id": "GetIntArray",
+              "type": "K2Node_VariableGet",
+              "pos_x": 650,
+              "pos_y": 1080,
+              "member_name": "N2C_IntArray"
+            }
+          ],
+          "exec_edges": [
+            {
+              "from_node_id": "ArrayEvent",
+              "from_pin": "then",
+              "to_node_id": "ArraySequence",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "ArraySequence",
+              "from_pin": "then_0",
+              "to_node_id": "ArrayAdd",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "ArraySequence",
+              "from_pin": "then_1",
+              "to_node_id": "PrintLength",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "ArrayAdd",
+              "from_pin": "then",
+              "to_node_id": "ArrayAddUnique",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "ArrayAddUnique",
+              "from_pin": "then",
+              "to_node_id": "ArraySet",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "ArraySet",
+              "from_pin": "then",
+              "to_node_id": "ArrayRemove",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "ArrayRemove",
+              "from_pin": "then",
+              "to_node_id": "ArrayRemoveItem",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "ArrayRemoveItem",
+              "from_pin": "then",
+              "to_node_id": "ArrayClear",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "DelayEvent",
+              "from_pin": "then",
+              "to_node_id": "Delay",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "Delay",
+              "from_pin": "then",
+              "to_node_id": "PrintDelay",
+              "to_pin": "execute"
+            }
+          ],
+          "data_edges": [
+            {
+              "from_node_id": "MakeArray",
+              "from_pin": "Array",
+              "to_node_id": "GetArrayCopy",
+              "to_pin": "Array"
+            },
+            {
+              "from_node_id": "MakeArray",
+              "from_pin": "Array",
+              "to_node_id": "GetArrayRef",
+              "to_pin": "Array"
+            },
+            {
+              "from_node_id": "MakeArray",
+              "from_pin": "Array",
+              "to_node_id": "ArrayGetAlias",
+              "to_pin": "TargetArray"
+            },
+            {
+              "from_node_id": "MakeArray",
+              "from_pin": "Array",
+              "to_node_id": "ArrayLength",
+              "to_pin": "TargetArray"
+            },
+            {
+              "from_node_id": "MakeArray",
+              "from_pin": "Array",
+              "to_node_id": "ArrayContains",
+              "to_pin": "TargetArray"
+            },
+            {
+              "from_node_id": "MakeArray",
+              "from_pin": "Array",
+              "to_node_id": "ArrayFind",
+              "to_pin": "TargetArray"
+            },
+            {
+              "from_node_id": "GetIntArray",
+              "from_pin": "N2C_IntArray",
+              "to_node_id": "ArrayAdd",
+              "to_pin": "TargetArray"
+            },
+            {
+              "from_node_id": "GetIntArray",
+              "from_pin": "N2C_IntArray",
+              "to_node_id": "ArrayAddUnique",
+              "to_pin": "TargetArray"
+            },
+            {
+              "from_node_id": "GetIntArray",
+              "from_pin": "N2C_IntArray",
+              "to_node_id": "ArraySet",
+              "to_pin": "TargetArray"
+            },
+            {
+              "from_node_id": "GetIntArray",
+              "from_pin": "N2C_IntArray",
+              "to_node_id": "ArrayRemove",
+              "to_pin": "TargetArray"
+            },
+            {
+              "from_node_id": "GetIntArray",
+              "from_pin": "N2C_IntArray",
+              "to_node_id": "ArrayRemoveItem",
+              "to_pin": "TargetArray"
+            },
+            {
+              "from_node_id": "GetIntArray",
+              "from_pin": "N2C_IntArray",
+              "to_node_id": "ArrayClear",
+              "to_pin": "TargetArray"
+            },
+            {
+              "from_node_id": "MakeArray",
+              "from_pin": "Array",
+              "to_node_id": "ExplicitCallArray",
+              "to_pin": "TargetArray"
+            },
+            {
+              "from_node_id": "GetIntA",
+              "from_pin": "N2C_Int",
+              "to_node_id": "AddInts",
+              "to_pin": "A"
+            },
+            {
+              "from_node_id": "GetIntB",
+              "from_pin": "N2C_Int",
+              "to_node_id": "AddInts",
+              "to_pin": "B"
+            },
+            {
+              "from_node_id": "ArrayLength",
+              "from_pin": "ReturnValue",
+              "to_node_id": "IntToString",
+              "to_pin": "InInt"
+            },
+            {
+              "from_node_id": "IntToString",
+              "from_pin": "ReturnValue",
+              "to_node_id": "PrintLength",
+              "to_pin": "InString"
+            }
+          ],
+          "import_scope": "V193/BP_N2C_FinalActor/EventGraph/02-ArrayEvent-MakeArray-GetArrayCopy"
+        },
+        {
+          "type": "patch_graph",
+          "graph_name": "EventGraph",
+          "nodes": [
+            {
+              "id": "MakeStruct",
+              "type": "K2Node_MakeStruct",
+              "pos_x": 0,
+              "pos_y": 0,
+              "struct_path": "/Game/N2C_FinalManual/ST_N2C_Final.ST_N2C_Final",
+              "member_pin_identity": [
+                {
+                  "pin_name": "IntValue"
+                },
+                {
+                  "pin_name": "NameValue"
+                },
+                {
+                  "pin_name": "VectorValue"
+                }
+              ],
+              "pin_defaults": {
+                "IntValue": "7",
+                "NameValue": "Alpha",
+                "VectorValue": "(X=1.0,Y=2.0,Z=3.0)"
+              }
+            },
+            {
+              "id": "SetFields",
+              "type": "K2Node_SetFieldsInStruct",
+              "pos_x": 300,
+              "pos_y": 0,
+              "struct_path": "/Game/N2C_FinalManual/ST_N2C_Final.ST_N2C_Final",
+              "member_pin_identity": [
+                {
+                  "pin_name": "IntValue"
+                },
+                {
+                  "pin_name": "NameValue"
+                },
+                {
+                  "pin_name": "VectorValue"
+                }
+              ],
+              "show_all_fields": true,
+              "pin_defaults": {
+                "IntValue": "9",
+                "NameValue": "Beta"
+              }
+            },
+            {
+              "id": "BreakStruct",
+              "type": "K2Node_BreakStruct",
+              "pos_x": 620,
+              "pos_y": 0,
+              "struct_path": "/Game/N2C_FinalManual/ST_N2C_Final.ST_N2C_Final",
+              "member_pin_identity": [
+                {
+                  "pin_name": "IntValue"
+                },
+                {
+                  "pin_name": "NameValue"
+                },
+                {
+                  "pin_name": "VectorValue"
+                }
+              ]
+            },
+            {
+              "id": "EnumLiteral",
+              "type": "K2Node_EnumLiteral",
+              "pos_x": 0,
+              "pos_y": 420,
+              "enum_path": "/Script/Engine.EInputEvent",
+              "enum_value": "IE_Pressed"
+            },
+            {
+              "id": "EnumName",
+              "type": "K2Node_GetEnumeratorNameAsString",
+              "pos_x": 300,
+              "pos_y": 420,
+              "enum_path": "/Script/Engine.EInputEvent"
+            },
+            {
+              "id": "EnumCast",
+              "type": "K2Node_CastByteToEnum",
+              "pos_x": 300,
+              "pos_y": 600,
+              "enum_path": "/Script/Engine.EInputEvent"
+            },
+            {
+              "id": "GetRawByte",
+              "type": "K2Node_VariableGet",
+              "pos_x": 0,
+              "pos_y": 600,
+              "member_name": "N2C_RawByte"
+            },
+            {
+              "id": "GetEnum",
+              "type": "K2Node_VariableGet",
+              "pos_x": 0,
+              "pos_y": 780,
+              "member_name": "N2C_InputEvent"
+            },
+            {
+              "id": "EnumEqual",
+              "type": "K2Node_EnumEquality",
+              "pos_x": 300,
+              "pos_y": 780,
+              "enum_path": "/Script/Engine.EInputEvent"
+            },
+            {
+              "id": "EnumNotEqual",
+              "type": "K2Node_EnumInequality",
+              "pos_x": 300,
+              "pos_y": 960,
+              "enum_path": "/Script/Engine.EInputEvent"
+            },
+            {
+              "id": "SwitchEvent",
+              "type": "K2Node_CustomEvent",
+              "pos_x": 0,
+              "pos_y": 1160,
+              "event_name": "N2C_Test_SwitchEnum"
+            },
+            {
+              "id": "SwitchEnum",
+              "type": "K2Node_SwitchEnum",
+              "pos_x": 300,
+              "pos_y": 1160,
+              "enum_path": "/Script/Engine.EInputEvent",
+              "enum_cases": []
+            },
+            {
+              "id": "PrintSwitch",
+              "type": "K2Node_CallFunction",
+              "pos_x": 620,
+              "pos_y": 1160,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Switch Enum",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "ForEachEnumEvent",
+              "type": "K2Node_CustomEvent",
+              "pos_x": 0,
+              "pos_y": 1420,
+              "event_name": "N2C_Test_ForEachEnum"
+            },
+            {
+              "id": "ForEachEnum",
+              "type": "K2Node_ForEachElementInEnum",
+              "pos_x": 300,
+              "pos_y": 1420,
+              "enum_path": "/Script/Engine.EInputEvent"
+            },
+            {
+              "id": "PrintEnumLoop",
+              "type": "K2Node_CallFunction",
+              "pos_x": 620,
+              "pos_y": 1360,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Enum loop body",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "PrintEnumDone",
+              "type": "K2Node_CallFunction",
+              "pos_x": 620,
+              "pos_y": 1510,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Enum loop completed",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "LiteralRowEvent",
+              "type": "K2Node_CustomEvent",
+              "pos_x": 0,
+              "pos_y": 1780,
+              "event_name": "N2C_Test_LiteralDataTable"
+            },
+            {
+              "id": "LiteralGetRow",
+              "type": "K2Node_GetDataTableRow",
+              "pos_x": 300,
+              "pos_y": 1780,
+              "data_table_path": "/Game/N2C_FinalManual/DT_N2C_Final.DT_N2C_Final",
+              "row_struct_path": "/Game/N2C_FinalManual/ST_N2C_Final.ST_N2C_Final",
+              "row_name_default": "RowA"
+            },
+            {
+              "id": "PrintRowFound",
+              "type": "K2Node_CallFunction",
+              "pos_x": 650,
+              "pos_y": 1720,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Literal row found",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "PrintRowMissing",
+              "type": "K2Node_CallFunction",
+              "pos_x": 650,
+              "pos_y": 1870,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Literal row missing",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "LinkedRowEvent",
+              "type": "K2Node_CustomEvent",
+              "pos_x": 0,
+              "pos_y": 2160,
+              "event_name": "N2C_Test_LinkedDataTable"
+            },
+            {
+              "id": "GetTable",
+              "type": "K2Node_VariableGet",
+              "pos_x": 300,
+              "pos_y": 2300,
+              "member_name": "N2C_DataTable"
+            },
+            {
+              "id": "LinkedGetRow",
+              "type": "K2Node_GetDataTableRow",
+              "pos_x": 580,
+              "pos_y": 2160,
+              "data_table_pin_linked": true,
+              "row_struct_path": "/Game/N2C_FinalManual/ST_N2C_Final.ST_N2C_Final",
+              "row_name_default": "RowA"
+            },
+            {
+              "id": "SetRow",
+              "type": "K2Node_VariableSet",
+              "pos_x": 920,
+              "pos_y": 2160,
+              "member_name": "N2C_CustomRow"
+            }
+          ],
+          "exec_edges": [
+            {
+              "from_node_id": "SwitchEvent",
+              "from_pin": "then",
+              "to_node_id": "SwitchEnum",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "SwitchEnum",
+              "from_pin": "IE_Pressed",
+              "to_node_id": "PrintSwitch",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "ForEachEnumEvent",
+              "from_pin": "then",
+              "to_node_id": "ForEachEnum",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "ForEachEnum",
+              "from_pin": "LoopBody",
+              "to_node_id": "PrintEnumLoop",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "ForEachEnum",
+              "from_pin": "then",
+              "to_node_id": "PrintEnumDone",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "LiteralRowEvent",
+              "from_pin": "then",
+              "to_node_id": "LiteralGetRow",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "LiteralGetRow",
+              "from_pin": "then",
+              "to_node_id": "PrintRowFound",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "LiteralGetRow",
+              "from_pin": "RowNotFound",
+              "to_node_id": "PrintRowMissing",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "LinkedRowEvent",
+              "from_pin": "then",
+              "to_node_id": "LinkedGetRow",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "LinkedGetRow",
+              "from_pin": "then",
+              "to_node_id": "SetRow",
+              "to_pin": "execute"
+            }
+          ],
+          "data_edges": [
+            {
+              "from_node_id": "MakeStruct",
+              "from_pin": "ST_N2C_Final",
+              "to_node_id": "SetFields",
+              "to_pin": "StructRef"
+            },
+            {
+              "from_node_id": "SetFields",
+              "from_pin": "StructOut",
+              "to_node_id": "BreakStruct",
+              "to_pin": "ST_N2C_Final"
+            },
+            {
+              "from_node_id": "EnumLiteral",
+              "from_pin": "ReturnValue",
+              "to_node_id": "EnumName",
+              "to_pin": "Enumerator"
+            },
+            {
+              "from_node_id": "GetRawByte",
+              "from_pin": "N2C_RawByte",
+              "to_node_id": "EnumCast",
+              "to_pin": "Byte"
+            },
+            {
+              "from_node_id": "GetEnum",
+              "from_pin": "N2C_InputEvent",
+              "to_node_id": "EnumEqual",
+              "to_pin": "A"
+            },
+            {
+              "from_node_id": "EnumLiteral",
+              "from_pin": "ReturnValue",
+              "to_node_id": "EnumEqual",
+              "to_pin": "B"
+            },
+            {
+              "from_node_id": "GetEnum",
+              "from_pin": "N2C_InputEvent",
+              "to_node_id": "EnumNotEqual",
+              "to_pin": "A"
+            },
+            {
+              "from_node_id": "EnumLiteral",
+              "from_pin": "ReturnValue",
+              "to_node_id": "EnumNotEqual",
+              "to_pin": "B"
+            },
+            {
+              "from_node_id": "GetEnum",
+              "from_pin": "N2C_InputEvent",
+              "to_node_id": "SwitchEnum",
+              "to_pin": "Selection"
+            },
+            {
+              "from_node_id": "GetTable",
+              "from_pin": "N2C_DataTable",
+              "to_node_id": "LinkedGetRow",
+              "to_pin": "DataTable"
+            },
+            {
+              "from_node_id": "LinkedGetRow",
+              "from_pin": "ReturnValue",
+              "to_node_id": "SetRow",
+              "to_pin": "N2C_CustomRow"
+            }
+          ],
+          "import_scope": "V193/BP_N2C_FinalActor/EventGraph/03-MakeStruct-SetFields-BreakStruct"
+        },
+        {
+          "type": "patch_graph",
+          "graph_name": "EventGraph",
+          "nodes": [
+            {
+              "id": "DelegateEvent",
+              "type": "K2Node_CustomEvent",
+              "pos_x": 0,
+              "pos_y": 0,
+              "event_name": "N2C_Test_Delegates"
+            },
+            {
+              "id": "CreateDelegate",
+              "type": "K2Node_CreateDelegate",
+              "pos_x": 280,
+              "pos_y": 140,
+              "function_name": "N2C_Final_DelegateHandler",
+              "selected_function_name": "N2C_Final_DelegateHandler"
+            },
+            {
+              "id": "AddDelegate",
+              "type": "K2Node_AddDelegate",
+              "pos_x": 580,
+              "pos_y": 0,
+              "delegate_name": "N2C_OnFinal",
+              "delegate_property": "N2C_OnFinal",
+              "delegate_owner_class": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor_C",
+              "delegate_owner_class_path": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor_C"
+            },
+            {
+              "id": "CallDelegate",
+              "type": "K2Node_CallDelegate",
+              "pos_x": 880,
+              "pos_y": 0,
+              "delegate_name": "N2C_OnFinal",
+              "delegate_property": "N2C_OnFinal",
+              "delegate_owner_class": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor_C",
+              "delegate_owner_class_path": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor_C"
+            },
+            {
+              "id": "RemoveDelegate",
+              "type": "K2Node_RemoveDelegate",
+              "pos_x": 1180,
+              "pos_y": 0,
+              "delegate_name": "N2C_OnFinal",
+              "delegate_property": "N2C_OnFinal",
+              "delegate_owner_class": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor_C",
+              "delegate_owner_class_path": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor_C"
+            },
+            {
+              "id": "ClearDelegate",
+              "type": "K2Node_ClearDelegate",
+              "pos_x": 1480,
+              "pos_y": 0,
+              "delegate_name": "N2C_OnFinal",
+              "delegate_property": "N2C_OnFinal",
+              "delegate_owner_class": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor_C",
+              "delegate_owner_class_path": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor_C"
+            },
+            {
+              "id": "AssignDelegate",
+              "type": "K2Node_AssignDelegate",
+              "pos_x": 580,
+              "pos_y": 300,
+              "delegate_name": "N2C_OnFinal",
+              "delegate_property": "N2C_OnFinal",
+              "delegate_owner_class": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor_C",
+              "delegate_owner_class_path": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor_C"
+            },
+            {
+              "id": "BoundOverlap",
+              "type": "K2Node_ComponentBoundEvent",
+              "pos_x": 0,
+              "pos_y": 600,
+              "component_property_name": "N2C_Box",
+              "delegate_name": "OnComponentBeginOverlap",
+              "delegate_property": "OnComponentBeginOverlap",
+              "delegate_owner_class": "/Script/Engine.PrimitiveComponent"
+            },
+            {
+              "id": "PrintOverlap",
+              "type": "K2Node_CallFunction",
+              "pos_x": 320,
+              "pos_y": 600,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Component overlap event",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            }
+          ],
+          "exec_edges": [
+            {
+              "from_node_id": "DelegateEvent",
+              "from_pin": "then",
+              "to_node_id": "AddDelegate",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "AddDelegate",
+              "from_pin": "then",
+              "to_node_id": "CallDelegate",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "CallDelegate",
+              "from_pin": "then",
+              "to_node_id": "RemoveDelegate",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "RemoveDelegate",
+              "from_pin": "then",
+              "to_node_id": "ClearDelegate",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "BoundOverlap",
+              "from_pin": "then",
+              "to_node_id": "PrintOverlap",
+              "to_pin": "execute"
+            }
+          ],
+          "data_edges": [
+            {
+              "from_node_id": "CreateDelegate",
+              "from_pin": "OutputDelegate",
+              "to_node_id": "AddDelegate",
+              "to_pin": "Delegate"
+            },
+            {
+              "from_node_id": "CreateDelegate",
+              "from_pin": "OutputDelegate",
+              "to_node_id": "RemoveDelegate",
+              "to_pin": "Delegate"
+            }
+          ],
+          "import_scope": "V193/BP_N2C_FinalActor/EventGraph/04-DelegateEvent-CreateDelegate-AddDelegate"
+        },
+        {
+          "type": "patch_graph",
+          "graph_name": "EventGraph",
+          "nodes": [
+            {
+              "id": "InputAction",
+              "type": "K2Node_InputAction",
+              "pos_x": 0,
+              "pos_y": 0,
+              "input_action_name": "N2C_FinalAction",
+              "consume_input": true,
+              "execute_when_paused": false,
+              "override_parent_binding": true
+            },
+            {
+              "id": "PrintActionPressed",
+              "type": "K2Node_CallFunction",
+              "pos_x": 330,
+              "pos_y": -80,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Input Action Pressed",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "PrintActionReleased",
+              "type": "K2Node_CallFunction",
+              "pos_x": 330,
+              "pos_y": 80,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Input Action Released",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "InputKey",
+              "type": "K2Node_InputKey",
+              "pos_x": 0,
+              "pos_y": 300,
+              "key_name": "SpaceBar",
+              "shift": false,
+              "ctrl": false,
+              "alt": false,
+              "cmd": false,
+              "consume_input": true,
+              "execute_when_paused": false,
+              "override_parent_binding": true
+            },
+            {
+              "id": "PrintKey",
+              "type": "K2Node_CallFunction",
+              "pos_x": 330,
+              "pos_y": 300,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "SpaceBar",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "InputAxis",
+              "type": "K2Node_InputAxisEvent",
+              "pos_x": 0,
+              "pos_y": 600,
+              "input_axis_name": "N2C_FinalAxis",
+              "consume_input": true,
+              "execute_when_paused": false,
+              "override_parent_binding": true
+            },
+            {
+              "id": "AxisToString",
+              "type": "K2Node_CallFunction",
+              "pos_x": 330,
+              "pos_y": 720,
+              "function_path": "/Script/Engine.KismetStringLibrary.Conv_FloatToString",
+              "function_owner_class": "/Script/Engine.KismetStringLibrary",
+              "function_name": "Conv_FloatToString"
+            },
+            {
+              "id": "PrintAxis",
+              "type": "K2Node_CallFunction",
+              "pos_x": 650,
+              "pos_y": 600,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Input Axis",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "InputAxisKey",
+              "type": "K2Node_InputAxisKeyEvent",
+              "pos_x": 0,
+              "pos_y": 900,
+              "key_name": "MouseX",
+              "consume_input": true,
+              "execute_when_paused": false,
+              "override_parent_binding": true
+            },
+            {
+              "id": "PrintAxisKey",
+              "type": "K2Node_CallFunction",
+              "pos_x": 330,
+              "pos_y": 900,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Axis Key",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "SpawnEvent",
+              "type": "K2Node_CustomEvent",
+              "pos_x": 0,
+              "pos_y": 1220,
+              "event_name": "N2C_Test_SpawnActor"
+            },
+            {
+              "id": "MakeSpawnTransform",
+              "type": "K2Node_CallFunction",
+              "pos_x": 330,
+              "pos_y": 1390,
+              "function_path": "/Script/Engine.KismetMathLibrary.MakeTransform",
+              "function_owner_class": "/Script/Engine.KismetMathLibrary",
+              "function_name": "MakeTransform",
+              "pin_defaults": {
+                "Location": "(X=0.0,Y=0.0,Z=0.0)",
+                "Rotation": "(Pitch=0.0,Yaw=0.0,Roll=0.0)",
+                "Scale": "(X=1.0,Y=1.0,Z=1.0)"
+              }
+            },
+            {
+              "id": "SpawnActor",
+              "type": "K2Node_SpawnActorFromClass",
+              "pos_x": 330,
+              "pos_y": 1220,
+              "pin_defaults": {
+                "Class": "/Script/Engine.Actor"
+              }
+            },
+            {
+              "id": "SetSpawnedActor",
+              "type": "K2Node_VariableSet",
+              "pos_x": 680,
+              "pos_y": 1220,
+              "member_name": "N2C_Actor"
+            },
+            {
+              "id": "PrintSpawn",
+              "type": "K2Node_CallFunction",
+              "pos_x": 980,
+              "pos_y": 1220,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Spawn Actor",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "WidgetLiteralEvent",
+              "type": "K2Node_CustomEvent",
+              "pos_x": 0,
+              "pos_y": 1580,
+              "event_name": "N2C_Test_CreateWidgetLiteral"
+            },
+            {
+              "id": "CreateWidgetLiteral",
+              "type": "K2Node_CreateWidget",
+              "pos_x": 330,
+              "pos_y": 1580,
+              "class_path": "/Script/UMG.UserWidget"
+            },
+            {
+              "id": "PrintWidgetLiteral",
+              "type": "K2Node_CallFunction",
+              "pos_x": 680,
+              "pos_y": 1580,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Create Widget literal",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "WidgetLinkedEvent",
+              "type": "K2Node_CustomEvent",
+              "pos_x": 0,
+              "pos_y": 1920,
+              "event_name": "N2C_Test_CreateWidgetLinked"
+            },
+            {
+              "id": "GetWidgetClass",
+              "type": "K2Node_VariableGet",
+              "pos_x": 330,
+              "pos_y": 2070,
+              "member_name": "N2C_WidgetClass"
+            },
+            {
+              "id": "CreateWidgetLinked",
+              "type": "K2Node_CreateWidget",
+              "pos_x": 620,
+              "pos_y": 1920,
+              "class_pin_linked": true,
+              "result_class_path": "/Script/UMG.UserWidget"
+            },
+            {
+              "id": "PrintWidgetLinked",
+              "type": "K2Node_CallFunction",
+              "pos_x": 980,
+              "pos_y": 1920,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Create Widget linked",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            }
+          ],
+          "exec_edges": [
+            {
+              "from_node_id": "InputAction",
+              "from_pin": "Pressed",
+              "to_node_id": "PrintActionPressed",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "InputAction",
+              "from_pin": "Released",
+              "to_node_id": "PrintActionReleased",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "InputKey",
+              "from_pin": "Pressed",
+              "to_node_id": "PrintKey",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "InputAxis",
+              "from_pin": "then",
+              "to_node_id": "PrintAxis",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "InputAxisKey",
+              "from_pin": "then",
+              "to_node_id": "PrintAxisKey",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "SpawnEvent",
+              "from_pin": "then",
+              "to_node_id": "SpawnActor",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "SpawnActor",
+              "from_pin": "then",
+              "to_node_id": "SetSpawnedActor",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "SetSpawnedActor",
+              "from_pin": "then",
+              "to_node_id": "PrintSpawn",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "WidgetLiteralEvent",
+              "from_pin": "then",
+              "to_node_id": "CreateWidgetLiteral",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "CreateWidgetLiteral",
+              "from_pin": "then",
+              "to_node_id": "PrintWidgetLiteral",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "WidgetLinkedEvent",
+              "from_pin": "then",
+              "to_node_id": "CreateWidgetLinked",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "CreateWidgetLinked",
+              "from_pin": "then",
+              "to_node_id": "PrintWidgetLinked",
+              "to_pin": "execute"
+            }
+          ],
+          "data_edges": [
+            {
+              "from_node_id": "InputAxis",
+              "from_pin": "AxisValue",
+              "to_node_id": "AxisToString",
+              "to_pin": "InFloat"
+            },
+            {
+              "from_node_id": "AxisToString",
+              "from_pin": "ReturnValue",
+              "to_node_id": "PrintAxis",
+              "to_pin": "InString"
+            },
+            {
+              "from_node_id": "SpawnActor",
+              "from_pin": "ReturnValue",
+              "to_node_id": "SetSpawnedActor",
+              "to_pin": "N2C_Actor"
+            },
+            {
+              "from_node_id": "GetWidgetClass",
+              "from_pin": "N2C_WidgetClass",
+              "to_node_id": "CreateWidgetLinked",
+              "to_pin": "Class"
+            },
+            {
+              "from_node_id": "MakeSpawnTransform",
+              "from_pin": "ReturnValue",
+              "to_node_id": "SpawnActor",
+              "to_pin": "SpawnTransform"
+            }
+          ],
+          "import_scope": "V193/BP_N2C_FinalActor/EventGraph/05-InputAction-PrintActionPressed-PrintActionReleased"
+        }
+      ]
+    },
+    {
+      "blueprint_path": "/Game/N2C_FinalManual/WBP_N2C_FinalWidget.WBP_N2C_FinalWidget",
+      "actions": [
+        {
+          "type": "patch_graph",
+          "graph_name": "EventGraph",
+          "nodes": [
+            {
+              "id": "Construct",
+              "type": "K2Node_Event",
+              "pos_x": 0,
+              "pos_y": 0,
+              "event_name": "Construct",
+              "event_owner_class": "/Script/UMG.UserWidget",
+              "event_is_override": true
+            },
+            {
+              "id": "PrintConstruct",
+              "type": "K2Node_CallFunction",
+              "pos_x": 320,
+              "pos_y": 0,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Widget Construct",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "PreConstruct",
+              "type": "K2Node_Event",
+              "pos_x": 0,
+              "pos_y": 300,
+              "event_name": "PreConstruct",
+              "event_owner_class": "/Script/UMG.UserWidget",
+              "event_is_override": true
+            },
+            {
+              "id": "PreBranch",
+              "type": "K2Node_IfThenElse",
+              "pos_x": 320,
+              "pos_y": 300
+            },
+            {
+              "id": "PrintDesign",
+              "type": "K2Node_CallFunction",
+              "pos_x": 620,
+              "pos_y": 220,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Widget Design Time",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "PrintRuntime",
+              "type": "K2Node_CallFunction",
+              "pos_x": 620,
+              "pos_y": 380,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "Widget Runtime",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "CreateWidget",
+              "type": "K2Node_CreateWidget",
+              "pos_x": 0,
+              "pos_y": 650,
+              "class_path": "/Script/UMG.UserWidget"
+            }
+          ],
+          "exec_edges": [
+            {
+              "from_node_id": "Construct",
+              "from_pin": "then",
+              "to_node_id": "PrintConstruct",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "PreConstruct",
+              "from_pin": "then",
+              "to_node_id": "PreBranch",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "PreBranch",
+              "from_pin": "then",
+              "to_node_id": "PrintDesign",
+              "to_pin": "execute"
+            },
+            {
+              "from_node_id": "PreBranch",
+              "from_pin": "else",
+              "to_node_id": "PrintRuntime",
+              "to_pin": "execute"
+            }
+          ],
+          "data_edges": [
+            {
+              "from_node_id": "PreConstruct",
+              "from_pin": "IsDesignTime",
+              "to_node_id": "PreBranch",
+              "to_pin": "Condition"
+            }
+          ],
+          "import_scope": "V193/WBP_N2C_FinalWidget/EventGraph/01-Construct-PrintConstruct-PreConstruct"
+        }
+      ]
+    },
+    {
+      "blueprint_path": "/Game/N2C_FinalManual/BP_N2C_FinalAIController.BP_N2C_FinalAIController",
+      "actions": [
+        {
+          "type": "patch_graph",
+          "graph_name": "EventGraph",
+          "nodes": [
+            {
+              "id": "Possess",
+              "type": "K2Node_Event",
+              "pos_x": 0,
+              "pos_y": 0,
+              "event_name": "ReceivePossess",
+              "event_owner_class": "/Script/AIModule.AIController",
+              "event_is_override": true
+            },
+            {
+              "id": "PrintPossess",
+              "type": "K2Node_CallFunction",
+              "pos_x": 330,
+              "pos_y": 0,
+              "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+              "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+              "function_name": "PrintString",
+              "pin_defaults": {
+                "InString": "AI possessed pawn",
+                "bPrintToScreen": true,
+                "bPrintToLog": true,
+                "Duration": "2.0"
+              }
+            },
+            {
+              "id": "Self",
+              "type": "K2Node_Self",
+              "pos_x": 0,
+              "pos_y": 300
+            }
+          ],
+          "exec_edges": [
+            {
+              "from_node_id": "Possess",
+              "from_pin": "then",
+              "to_node_id": "PrintPossess",
+              "to_pin": "execute"
+            }
+          ],
+          "data_edges": [],
+          "import_scope": "V193/BP_N2C_FinalAIController/EventGraph/01-Possess-PrintPossess-Self"
+        }
+      ]
+    },
+    {
+      "blueprint_path": "/Game/N2C_FinalManual/BTT_N2C_Final.BTT_N2C_Final",
+      "actions": [
+        {
+          "type": "patch_graph",
+          "graph_name": "EventGraph",
+          "nodes": [
+            {
+              "id": "Self",
+              "type": "K2Node_Self",
+              "pos_x": 0,
+              "pos_y": 0
+            }
+          ],
+          "exec_edges": [],
+          "data_edges": [],
+          "import_scope": "V193/BTT_N2C_Final/EventGraph/01-Self"
+        }
+      ]
+    },
+    {
+      "blueprint_path": "/Game/N2C_FinalManual/BTS_N2C_Final.BTS_N2C_Final",
+      "actions": [
+        {
+          "type": "patch_graph",
+          "graph_name": "EventGraph",
+          "nodes": [
+            {
+              "id": "Self",
+              "type": "K2Node_Self",
+              "pos_x": 0,
+              "pos_y": 0
+            }
+          ],
+          "exec_edges": [],
+          "data_edges": [],
+          "import_scope": "V193/BTS_N2C_Final/EventGraph/01-Self"
+        }
+      ]
+    },
+    {
+      "blueprint_path": "/Game/N2C_FinalManual/BTD_N2C_Final.BTD_N2C_Final",
+      "actions": [
+        {
+          "type": "patch_graph",
+          "graph_name": "EventGraph",
+          "nodes": [
+            {
+              "id": "Self",
+              "type": "K2Node_Self",
+              "pos_x": 0,
+              "pos_y": 0
+            }
+          ],
+          "exec_edges": [],
+          "data_edges": [],
+          "import_scope": "V193/BTD_N2C_Final/EventGraph/01-Self"
+        }
+      ]
+    }
+  ],
+  "expected_counts": {
+    "unique_target_blueprints": 6,
+    "project_asset_entries": 6,
+    "actions": 18,
+    "member_variables": 22,
+    "nodes": 136,
+    "distinct_node_type_tokens": 56,
+    "exec_edges": 62,
+    "data_edges": 48
+  },
+  "graph_identity_rules": {
+    "collapsed_graph_bound_graph_identity": "Use either the exact export identity or the canonical identity that omits the generated .K2Node_Composite_<n> object segment. Version 195 canonicalizes that unstable segment during dry-run and repeat import.",
+    "canonical_example": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor|collapsed_graph|N2C_FinalCollapsed|/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor:EventGraph.N2C_FinalCollapsed",
+    "exact_export_example": "/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor|collapsed_graph|N2C_FinalCollapsed|/Game/N2C_FinalManual/BP_N2C_FinalActor.BP_N2C_FinalActor:EventGraph.K2Node_Composite_0.N2C_FinalCollapsed",
+    "rule": "Never treat the generated K2Node_Composite numeric suffix as a durable identity.",
+    "stable_import_scope_versioning": "The V193/ prefixes in import_scope are retained intentionally as durable identities. Do not rename them when bumping the plugin version, or repeat import can create duplicate graph nodes."
+  },
+  "pin_identity_rules": {
+    "make_struct_output": "Use the exact StructType object name from export (for example ST_N2C_Final). UE4.27 K2Node_MakeStruct does not allocate ReturnValue.",
+    "break_struct_input": "Use the same exact StructType object name from export. UE4.27 K2Node_BreakStruct does not allocate a generic Struct pin.",
+    "set_fields_in_struct": "Use StructRef for input and StructOut for output.",
+    "select_options": "Use Option 0 and Option 1 internal PinNames for a non-enum Select. A/B and False/True are compatibility aliases only.",
+    "spawn_actor_transform": "UE4.27 SpawnActorFromClass requires SpawnTransform to be connected. Use KismetMathLibrary.MakeTransform.ReturnValue or another transform output; do not encode SpawnTransform as an unconnected pin default.",
+    "rotator_defaults": "AI JSON may use UE ImportText such as (Pitch=10.0,Yaw=20.0,Roll=30.0), but the importer must convert Vector/Rotator values to UE4.27 K2 pin format before schema-native default conversion; compiled member persistence is verified from the generated-class CDO and exporter, not from a non-empty FBPVariableDescription::DefaultValue."
+  }
+}

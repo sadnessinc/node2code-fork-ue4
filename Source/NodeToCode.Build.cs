@@ -9,15 +9,12 @@ public class NodeToCode : ModuleRules
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
         
-		PublicIncludePaths.AddRange(
-			new string[] {
-			}
-		);
-        
-		PrivateIncludePaths.AddRange(
-			new string[] {
-			}
-		);
+		// UE4.27 NiagaraNodeParameterMapSet/Get are NO_API editor-private classes.
+		// Their headers can be included from NiagaraEditor/Private, but calling StaticClass()
+		// or using FGraphNodeCreator<UNiagaraNodeParameterMapSet/Get> from this external
+		// plugin produces LNK2019. Keep typed private graph creation disabled and create
+		// these nodes only by runtime UClass lookup / reflection fallback.
+		PublicDefinitions.Add("N2C_WITH_NIAGARA_PRIVATE_GRAPH_API=0");
         
 		PublicDependencyModuleNames.AddRange(
 			new string[]
@@ -33,7 +30,6 @@ public class NodeToCode : ModuleRules
 				"SlateCore",
 				"Kismet",
 				"GraphEditor",
-				"HTTP",
 				"ApplicationCore",
 				"Projects",
 				"EditorStyle",
@@ -41,7 +37,14 @@ public class NodeToCode : ModuleRules
 				"ContentBrowser",
 				"DesktopPlatform",
 				"LevelEditor",
-				"AssetRegistry"
+				"AssetRegistry",
+				"Niagara",
+				"NiagaraCore",
+				"NiagaraEditor",
+				"UMG",
+				"UMGEditor",
+				"AnimGraph",
+				"AIModule"
 			}
 		);
 

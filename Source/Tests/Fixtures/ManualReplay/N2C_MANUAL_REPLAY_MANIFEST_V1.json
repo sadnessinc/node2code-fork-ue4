@@ -1,0 +1,211 @@
+{
+  "schema": "N2C_MANUAL_REPLAY_MANIFEST_V1",
+  "version": 195,
+  "version_name": "1.2.95-ue427-powershell-null-collection-selftest-hotfix",
+  "case_count": 23,
+  "process_order": [
+    "main",
+    "restore_first",
+    "restore_second"
+  ],
+  "claims": "Legacy 21-case ManualReplay plus two restore processes remain mandatory after the 117-case import contract matrix. Every contract case is applied, compiled and saved, verified after a fresh UE process, reapplied with semantic no-duplicate verification, then verified after a second fresh UE process before cleanup.",
+  "fixtures": [
+    "raw_byte_positive.json",
+    "enum_missing_negative.json"
+  ],
+  "cases": [
+    {
+      "id": "flow_arrays",
+      "test": "NodeToCode.ManualReplay.FlowAndArrays",
+      "expected": "PASS_PERSISTED",
+      "process": "main",
+      "assertion": "executable BeginPlay → Sequence → Branch flow plus typed MakeArray/GetArrayItem and persisted member containers"
+    },
+    {
+      "id": "struct_datatable",
+      "test": "NodeToCode.ManualReplay.StructAndDataTable",
+      "expected": "PASS_PERSISTED",
+      "process": "main",
+      "assertion": "canonical MakeStruct/BreakStruct pins, connected SetFields, literal/linked GetDataTableRow persistence, and schema-native DataTable object storage (`DefaultObject` with empty `DefaultValue`) after fresh reopen"
+    },
+    {
+      "id": "enum",
+      "test": "NodeToCode.ManualReplay.Enum",
+      "expected": "PASS_PERSISTED",
+      "process": "main",
+      "assertion": "enum comparisons, switch and utility nodes"
+    },
+    {
+      "id": "contextual_eventgraph",
+      "test": "NodeToCode.ManualReplay.ContextualEventGraph",
+      "expected": "PASS_PERSISTED",
+      "process": "main",
+      "assertion": "contextual BeginPlay/key flow plus schema-native scalar/struct/class defaults, linked MakeTransform -> SpawnActor compile/save/reopen, incompatible class rejection, malformed Rotator rejection, and unlinked SpawnTransform rejection"
+    },
+    {
+      "id": "delegates",
+      "test": "NodeToCode.ManualReplay.Delegates",
+      "expected": "PASS_PERSISTED",
+      "process": "main",
+      "assertion": "same-patch handler function creation, canonical CreateDelegate.OutputDelegate links, legacy Delegate alias compatibility, dispatcher operations, compile/save/reopen, and ComponentBoundEvent"
+    },
+    {
+      "id": "function_boundaries",
+      "test": "NodeToCode.ManualReplay.FunctionBoundaries",
+      "expected": "PASS_PERSISTED",
+      "process": "main",
+      "assertion": "impure/pure internal Entry-to-Result exec and multiple results"
+    },
+    {
+      "id": "standard_macros",
+      "test": "NodeToCode.ManualReplay.StandardMacros",
+      "expected": "PASS_PERSISTED",
+      "process": "main",
+      "assertion": "DoOnce/ForLoop/ForEachLoop durable identities"
+    },
+    {
+      "id": "graph_boundaries",
+      "test": "NodeToCode.ManualReplay.GraphBoundaries",
+      "expected": "PASS_PERSISTED",
+      "process": "main",
+      "assertion": "macro/collapsed Tunnel/Composite identity, schema-native unlinked boundary-pin defaults, repeat import without duplicates, save/unload/fresh reopen"
+    },
+    {
+      "id": "widget",
+      "test": "NodeToCode.ManualReplay.Widget",
+      "expected": "PASS_PERSISTED",
+      "process": "main",
+      "assertion": "Widget Blueprint parent and CreateWidget/event nodes"
+    },
+    {
+      "id": "ai_controller",
+      "test": "NodeToCode.ManualReplay.AIController",
+      "expected": "PASS_PERSISTED",
+      "process": "main",
+      "assertion": "AIController Blueprint parent and contextual event"
+    },
+    {
+      "id": "bt_task",
+      "test": "NodeToCode.ManualReplay.BTTask",
+      "expected": "PASS_PERSISTED",
+      "process": "main",
+      "assertion": "BTTask_BlueprintBase class-specific Blueprint round trip"
+    },
+    {
+      "id": "bt_service",
+      "test": "NodeToCode.ManualReplay.BTService",
+      "expected": "PASS_PERSISTED",
+      "process": "main",
+      "assertion": "BTService_BlueprintBase class-specific Blueprint round trip"
+    },
+    {
+      "id": "bt_decorator",
+      "test": "NodeToCode.ManualReplay.BTDecorator",
+      "expected": "PASS_PERSISTED",
+      "process": "main",
+      "assertion": "BTDecorator_BlueprintBase class-specific Blueprint round trip"
+    },
+    {
+      "id": "preflight_no_mutation",
+      "test": "NodeToCode.ManualReplay.PreflightRejectsWithoutMutation",
+      "expected": "REJECT_HASH_EQUAL",
+      "process": "main",
+      "assertion": "strict rejection before transaction"
+    },
+    {
+      "id": "sandbox_pin_preflight",
+      "test": "NodeToCode.ManualReplay.SandboxPinPreflight",
+      "expected": "BAD_PIN_REJECTED_GOOD_KNOT_PERSISTED",
+      "process": "main",
+      "assertion": "transient sandbox rejects a missing pin before target mutation, then canonical Knot InputPin/OutputPin connections compile and save"
+    },
+    {
+      "id": "rollback_after_mutation",
+      "test": "NodeToCode.ManualReplay.RollbackAfterMutation",
+      "expected": "FAIL_ROLLBACK_PASS",
+      "process": "main",
+      "assertion": "test-only post-mutation fault, real editor Undo"
+    },
+    {
+      "id": "rollback_structural_equality",
+      "test": "NodeToCode.ManualReplay.RollbackStructuralEquality",
+      "expected": "FAIL_HASH_EQUAL",
+      "process": "main",
+      "assertion": "before/after structural snapshot hash equality"
+    },
+    {
+      "id": "dialog_diagnostics",
+      "test": "NodeToCode.ManualReplay.DialogDiagnostics",
+      "expected": "PASS",
+      "process": "main",
+      "assertion": "structured guard/rollback diagnostics map to readable text"
+    },
+    {
+      "id": "toolbar_commands",
+      "test": "NodeToCode.ManualReplay.ToolbarCommands",
+      "expected": "PASS",
+      "process": "main",
+      "assertion": "four registered command contracts"
+    },
+    {
+      "id": "raw_byte",
+      "test": "NodeToCode.ManualReplay.RawByteDefaultReopenExport",
+      "expected": "PASS_PERSISTED_EXPORTED",
+      "process": "main",
+      "assertion": "raw uint8 has no UEnum subtype and keeps default 37",
+      "assertions": [
+        "Rotator member default is canonicalized through UE4.27 UScriptStruct ImportText/ExportText",
+        "Rotator default compiles, saves, reopens in a fresh process and exports non-empty canonical text",
+        "malformed struct member default is rejected before mutation with member_default_import_text_invalid"
+      ]
+    },
+    {
+      "id": "missing_enum",
+      "test": "NodeToCode.ManualReplay.MissingEnumReject",
+      "expected": "REJECT_BEFORE_MUTATION",
+      "process": "main",
+      "assertion": "enum-backed byte requires resolvable UEnum"
+    },
+    {
+      "id": "restore_first",
+      "test": "NodeToCode.RestoreFirstPass.ManualReplayPendingRestore",
+      "expected": "QUEUE_REAL_UASSET_RESTORE",
+      "process": "restore_first",
+      "assertion": "mutate/save target and queue baseline .uasset for startup-only restore"
+    },
+    {
+      "id": "restore_second",
+      "test": "NodeToCode.RestoreSecondPass.ManualReplayPendingRestore",
+      "expected": "PASS_BYTES_EQUAL",
+      "process": "restore_second",
+      "assertion": "new UE process startup applies manifest before asset reopen and verifies bytes/compile"
+    }
+  ],
+  "plugin_version": 195,
+  "contract_matrix": {
+    "schema": "N2C_IMPORT_CONTRACT_MATRIX_V1",
+    "case_count": 117,
+    "process_order": [
+      "contract_apply",
+      "contract_verify_fresh",
+      "contract_reapply",
+      "contract_verify_fresh_second",
+      "contract_cleanup"
+    ],
+    "filters": [
+      "NodeToCode.ContractMatrix.Apply",
+      "NodeToCode.ContractMatrix.VerifyFreshFirst",
+      "NodeToCode.ContractMatrix.Reapply",
+      "NodeToCode.ContractMatrix.VerifyFreshSecond",
+      "NodeToCode.ContractMatrix.Cleanup"
+    ],
+    "runtime_case_executions": 469,
+    "fresh_process_boundaries": 2,
+    "coverage": {
+      "supported_actions": 38,
+      "node_constructor_families": 63,
+      "runtime_guards": 29,
+      "negative_no_mutation_cases": 36
+    }
+  }
+}

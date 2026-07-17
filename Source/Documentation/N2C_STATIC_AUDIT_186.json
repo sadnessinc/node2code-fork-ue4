@@ -1,0 +1,42 @@
+{
+  "schema": "N2C_STATIC_AUDIT_SUMMARY_V1",
+  "version": 186,
+  "version_name": "1.2.86-ue427-struct-pin-identity-candidate",
+  "result": "PASS",
+  "scope": "Static source/package validation only; no UE4 C++ build or Editor automation for Version 186.",
+  "validated_utc": "2026-07-16T07:08:32.827612+00:00",
+  "checks": {
+    "required_files": "PASS",
+    "json_parse": "PASS (18/18)",
+    "cpp_header_csharp_lexical_balance": "PASS (72/72)",
+    "powershell_delimiter_balance": "PASS (9/9)",
+    "ue427_reference_headers": {
+      "status": "PASS",
+      "checked_headers": 106,
+      "missing": []
+    },
+    "final_manual_pin_contract": {
+      "result": "PASS",
+      "errors": [],
+      "counters": {
+        "make_struct_edges": 1,
+        "set_fields_in_edges": 1,
+        "break_struct_edges": 1,
+        "set_fields_out_edges": 1
+      }
+    },
+    "package_manifest": "PASS"
+  },
+  "runtime_status": {
+    "verified_baseline": "Version 185: UE4.27.2 build PASS, Main ManualReplay 21/21 PASS, restore first/second PASS.",
+    "version_186_build": "NOT_RUN",
+    "version_186_main_automation": "NOT_RUN",
+    "version_186_restore_first_second": "NOT_RUN"
+  },
+  "changes_under_test": [
+    "Canonical MakeStruct and BreakStruct struct pin identities use StructType->GetFName().",
+    "Compatibility aliases ReturnValue/Struct resolve narrowly to one struct pin.",
+    "Connected MakeStruct -> SetFieldsInStruct -> BreakStruct persistence regression.",
+    "Legacy alias compatibility regression."
+  ]
+}

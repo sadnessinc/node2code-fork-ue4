@@ -1,0 +1,30 @@
+{
+  "schema": "N2C_HOTFIX_172_FIXTURE_MANIFEST_V1",
+  "version": 172,
+  "cases": [
+    {
+      "id": "setfields_friendly_guid",
+      "expected": "PASS"
+    },
+    {
+      "id": "setfields_missing_member",
+      "expected": "REJECT_BEFORE_MUTATION"
+    },
+    {
+      "id": "datatable_linked_typed_output",
+      "expected": "PASS_AND_PERSIST_AFTER_REOPEN"
+    },
+    {
+      "id": "datatable_linked_no_output",
+      "expected": "REJECT_BEFORE_MUTATION"
+    },
+    {
+      "id": "edge_missing_pin",
+      "expected": "ROLLBACK_SNAPSHOT_PASS_OR_DISK_FALLBACK_QUEUED"
+    },
+    {
+      "id": "array_delay_alias_coverage",
+      "expected": "PREFLIGHT_PASS"
+    }
+  ]
+}

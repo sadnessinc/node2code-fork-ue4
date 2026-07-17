@@ -2,7 +2,10 @@
 
 #pragma once
 
-#include "Interfaces/IPluginManager.h"
+#include "CoreMinimal.h"
+#include "Styling/SlateStyle.h"
+#include "Styling/ISlateStyle.h"
+#include "Brushes/SlateImageBrush.h"
 
 class N2CStyle : public FSlateStyleSet
 {

@@ -1,0 +1,16 @@
+{
+  "schema": "N2C_PATCH_V1",
+  "target_blueprint": "${TARGET}",
+  "actions": [
+    {
+      "type": "add_member_variables",
+      "variables": [
+        {
+          "name": "N2C_RawByte",
+          "type": "byte",
+          "default_value": "37"
+        }
+      ]
+    }
+  ]
+}

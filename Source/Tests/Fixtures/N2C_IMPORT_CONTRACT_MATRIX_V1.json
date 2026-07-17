@@ -1,0 +1,6443 @@
+{
+  "schema": "N2C_IMPORT_CONTRACT_MATRIX_V1",
+  "version": 195,
+  "purpose": "Every currently supported importer mutation family, canonical node constructor family, public action alias, pin/default storage family, and known reject-before-mutation guard is mapped to a mandatory runtime or legacy regression. Every matrix case runs Apply -> fresh-process Verify -> Reapply -> second fresh-process Verify.",
+  "phases": [
+    "apply",
+    "verify_fresh",
+    "reapply",
+    "verify_fresh_second",
+    "cleanup"
+  ],
+  "case_count": 117,
+  "cases": [
+    {
+      "id": "action_patch_animation_graph_wrong_asset_reject",
+      "family": "aliases",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_animation_graph",
+            "graph_name": "AnimGraph",
+            "nodes": [
+              {
+                "id": "Pose",
+                "type": "AnimGraphNode_LocalRefPose"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/action_patch_animation_graph_wrong_asset_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": "The action token is recognized but must reject an incompatible non-Animation Blueprint before mutation."
+    },
+    {
+      "id": "action_patch_event_graph",
+      "family": "aliases",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_event_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Self",
+                "type": "K2Node_Self"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/action_patch_event_graph/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_Self"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "action_patch_widget_graph",
+      "family": "aliases",
+      "fixture_kind": "widget",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_widget_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Self",
+                "type": "K2Node_Self"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/action_patch_widget_graph/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_Self"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "alias_add_event_dispatchers",
+      "family": "aliases",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_event_dispatchers",
+            "dispatchers": [
+              {
+                "name": "N2C_AliasDispatcher"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "dispatchers_present": [
+          "N2C_AliasDispatcher"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "alias_add_event_graph_nodes",
+      "family": "aliases",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_event_graph_nodes",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Self",
+                "type": "K2Node_Self"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/alias_add_event_graph_nodes/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_Self"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "alias_add_member_variables",
+      "family": "aliases",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_member_variables",
+            "variables": [
+              {
+                "name": "N2C_AliasVar",
+                "type": "int",
+                "default_value": "1"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_AliasVar"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "alias_add_nodes_to_graph",
+      "family": "aliases",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_nodes_to_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Self",
+                "type": "K2Node_Self"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/alias_add_nodes_to_graph/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_Self"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "alias_add_variables",
+      "family": "aliases",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_variables",
+            "variables": [
+              {
+                "name": "N2C_AliasVar",
+                "type": "int",
+                "default_value": "1"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_AliasVar"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "alias_delete_dispatcher",
+      "family": "aliases",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_event_dispatcher",
+            "name": "N2C_AliasDispatcher"
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "delete_dispatcher",
+            "name": "N2C_AliasDispatcher"
+          }
+        ]
+      },
+      "expected": {
+        "dispatchers_absent": [
+          "N2C_AliasDispatcher"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "alias_delete_dispatchers",
+      "family": "aliases",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_event_dispatcher",
+            "name": "N2C_AliasDispatcher"
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "delete_dispatchers",
+            "names": [
+              "N2C_AliasDispatcher"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "dispatchers_absent": [
+          "N2C_AliasDispatcher"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "alias_delete_event_dispatchers",
+      "family": "aliases",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_event_dispatcher",
+            "name": "N2C_AliasDispatcher"
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "delete_event_dispatchers",
+            "names": [
+              "N2C_AliasDispatcher"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "dispatchers_absent": [
+          "N2C_AliasDispatcher"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "alias_delete_event_graph_nodes",
+      "family": "aliases",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Event",
+                "type": "K2Node_CustomEvent",
+                "event_name": "N2C_AliasEvent"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/alias_delete_event_graph_nodes/setup_patch/01"
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "delete_event_graph_nodes",
+            "graph_name": "EventGraph",
+            "names": [
+              "N2C_AliasEvent"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "custom_events_absent": [
+          "N2C_AliasEvent"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "alias_delete_functions",
+      "family": "aliases",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_or_replace_function",
+            "function_name": "N2C_AliasFunction",
+            "category": "N2C/Contract",
+            "replace_body": true,
+            "function_flags": {
+              "access": "public",
+              "pure": false,
+              "const": false
+            },
+            "nodes": [
+              {
+                "id": "Entry",
+                "type": "Entry"
+              },
+              {
+                "id": "Return",
+                "type": "Return"
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "Entry",
+                "from_pin": "then",
+                "to": "Return",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": []
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "delete_functions",
+            "names": [
+              "N2C_AliasFunction"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "functions_absent": [
+          "N2C_AliasFunction"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "alias_delete_macros",
+      "family": "aliases",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_macro",
+            "macro_name": "N2C_ContractMacro",
+            "owner_blueprint_path": "${TARGET_PATH}",
+            "owning_graph_identity": "${TARGET_PATH}|macro|N2C_ContractMacro|${TARGET_PATH}:N2C_ContractMacro",
+            "owning_graph_kind": "macro",
+            "nodes": [
+              {
+                "id": "BoundaryEntry",
+                "type": "K2Node_Tunnel",
+                "owner_blueprint_path": "${TARGET_PATH}",
+                "owning_graph_identity": "${TARGET_PATH}|macro|N2C_ContractMacro|${TARGET_PATH}:N2C_ContractMacro",
+                "owning_graph_kind": "macro",
+                "owning_graph_name": "N2C_ContractMacro",
+                "owning_graph_path": "${TARGET_PATH}:N2C_ContractMacro",
+                "tunnel_role": "entry",
+                "can_have_inputs": false,
+                "can_have_outputs": true,
+                "editable": true,
+                "graph_boundary_fingerprint": "contract_matrix",
+                "user_defined_pin_signature": [
+                  {
+                    "name": "Exec",
+                    "direction": "output",
+                    "pin_type": {
+                      "category": "exec"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "BoundaryExit",
+                "type": "K2Node_Tunnel",
+                "owner_blueprint_path": "${TARGET_PATH}",
+                "owning_graph_identity": "${TARGET_PATH}|macro|N2C_ContractMacro|${TARGET_PATH}:N2C_ContractMacro",
+                "owning_graph_kind": "macro",
+                "owning_graph_name": "N2C_ContractMacro",
+                "owning_graph_path": "${TARGET_PATH}:N2C_ContractMacro",
+                "tunnel_role": "exit",
+                "can_have_inputs": true,
+                "can_have_outputs": false,
+                "editable": true,
+                "graph_boundary_fingerprint": "contract_matrix",
+                "user_defined_pin_signature": [
+                  {
+                    "name": "Then",
+                    "direction": "input",
+                    "pin_type": {
+                      "category": "exec"
+                    }
+                  }
+                ]
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "BoundaryEntry",
+                "from_pin": "Exec",
+                "to": "BoundaryExit",
+                "to_pin": "Then"
+              }
+            ],
+            "data_edges": []
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "delete_macros",
+            "names": [
+              "N2C_ContractMacro"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "macros_absent": [
+          "N2C_ContractMacro"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "alias_delete_member_variable",
+      "family": "aliases",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "delete_member_variable",
+            "name": "N2C_AliasDelete"
+          }
+        ]
+      },
+      "expected": {
+        "variables_absent": [
+          "N2C_AliasDelete"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": "",
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_AliasDelete",
+            "type": "int",
+            "default_value": "1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "alias_delete_member_variables",
+      "family": "aliases",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "delete_member_variables",
+            "names": [
+              "N2C_AliasDelete"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "variables_absent": [
+          "N2C_AliasDelete"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": "",
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_AliasDelete",
+            "type": "int",
+            "default_value": "1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "alias_delete_variables",
+      "family": "aliases",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_AliasDelete",
+            "type": "int",
+            "default_value": "1"
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "delete_variables",
+            "names": [
+              "N2C_AliasDelete"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "variables_absent": [
+          "N2C_AliasDelete"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "alias_import_scs_hierarchy",
+      "family": "aliases",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "import_scs_hierarchy",
+            "components": [
+              {
+                "component_name": "N2C_ContractBox",
+                "component_class": "/Script/Engine.BoxComponent",
+                "relative_location": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 50
+                },
+                "relative_rotation": {
+                  "pitch": 0,
+                  "yaw": 0,
+                  "roll": 0
+                },
+                "relative_scale": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "template_defaults": {
+                  "BoxExtent": "(X=20,Y=20,Z=20)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "scs_components_present": [
+          "N2C_ContractBox"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "alias_move_function_category",
+      "family": "aliases",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_or_replace_function",
+            "function_name": "N2C_AliasFunction",
+            "category": "N2C/Contract",
+            "replace_body": true,
+            "function_flags": {
+              "access": "public",
+              "pure": false,
+              "const": false
+            },
+            "nodes": [
+              {
+                "id": "Entry",
+                "type": "Entry"
+              },
+              {
+                "id": "Return",
+                "type": "Return"
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "Entry",
+                "from_pin": "then",
+                "to": "Return",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": []
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "move_function_to_category",
+            "function_name": "N2C_AliasFunction",
+            "category": "N2C/Alias"
+          }
+        ]
+      },
+      "expected": {
+        "functions_present": [
+          "N2C_AliasFunction"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "delegate_bind_call_remove",
+      "family": "delegates",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_event_dispatcher",
+            "name": "N2C_OnContract"
+          },
+          {
+            "type": "add_or_replace_function",
+            "function_name": "N2C_DelegateHandler",
+            "category": "N2C/Contract",
+            "replace_body": true,
+            "function_flags": {
+              "access": "private",
+              "pure": false,
+              "const": false
+            },
+            "nodes": [
+              {
+                "id": "Entry",
+                "type": "Entry"
+              },
+              {
+                "id": "Return",
+                "type": "Return"
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "Entry",
+                "from_pin": "then",
+                "to": "Return",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": []
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Event",
+                "type": "K2Node_CustomEvent",
+                "event_name": "N2C_DelegateTest"
+              },
+              {
+                "id": "Create",
+                "type": "K2Node_CreateDelegate",
+                "function_name": "N2C_DelegateHandler",
+                "selected_function_name": "N2C_DelegateHandler"
+              },
+              {
+                "id": "Add",
+                "type": "K2Node_AddDelegate",
+                "delegate_name": "N2C_OnContract",
+                "delegate_property": "N2C_OnContract",
+                "delegate_owner_class": "${TARGET_CLASS}",
+                "delegate_owner_class_path": "${TARGET_CLASS}"
+              },
+              {
+                "id": "Call",
+                "type": "K2Node_CallDelegate",
+                "delegate_name": "N2C_OnContract",
+                "delegate_property": "N2C_OnContract",
+                "delegate_owner_class": "${TARGET_CLASS}",
+                "delegate_owner_class_path": "${TARGET_CLASS}"
+              },
+              {
+                "id": "Remove",
+                "type": "K2Node_RemoveDelegate",
+                "delegate_name": "N2C_OnContract",
+                "delegate_property": "N2C_OnContract",
+                "delegate_owner_class": "${TARGET_CLASS}",
+                "delegate_owner_class_path": "${TARGET_CLASS}"
+              },
+              {
+                "id": "Clear",
+                "type": "K2Node_ClearDelegate",
+                "delegate_name": "N2C_OnContract",
+                "delegate_property": "N2C_OnContract",
+                "delegate_owner_class": "${TARGET_CLASS}",
+                "delegate_owner_class_path": "${TARGET_CLASS}"
+              }
+            ],
+            "exec_edges": [
+              {
+                "from_node_id": "Event",
+                "from_pin": "then",
+                "to_node_id": "Add",
+                "to_pin": "execute"
+              },
+              {
+                "from_node_id": "Add",
+                "from_pin": "then",
+                "to_node_id": "Call",
+                "to_pin": "execute"
+              },
+              {
+                "from_node_id": "Call",
+                "from_pin": "then",
+                "to_node_id": "Remove",
+                "to_pin": "execute"
+              },
+              {
+                "from_node_id": "Remove",
+                "from_pin": "then",
+                "to_node_id": "Clear",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": [
+              {
+                "from_node_id": "Create",
+                "from_pin": "OutputDelegate",
+                "to_node_id": "Add",
+                "to_pin": "Delegate"
+              },
+              {
+                "from_node_id": "Create",
+                "from_pin": "OutputDelegate",
+                "to_node_id": "Remove",
+                "to_pin": "Delegate"
+              }
+            ],
+            "import_scope": "ContractMatrix/delegate_bind_call_remove/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_CreateDelegate",
+          "K2Node_AddDelegate",
+          "K2Node_CallDelegate",
+          "K2Node_RemoveDelegate",
+          "K2Node_ClearDelegate"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "delegate_component_bound",
+      "family": "delegates",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_scs_components",
+            "components": [
+              {
+                "component_name": "N2C_ContractBox",
+                "component_class": "/Script/Engine.BoxComponent",
+                "relative_location": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 50
+                },
+                "relative_rotation": {
+                  "pitch": 0,
+                  "yaw": 0,
+                  "roll": 0
+                },
+                "relative_scale": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "template_defaults": {
+                  "BoxExtent": "(X=20,Y=20,Z=20)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Bound",
+                "type": "K2Node_ComponentBoundEvent",
+                "component_property_name": "N2C_ContractBox",
+                "delegate_name": "OnComponentBeginOverlap",
+                "delegate_property": "OnComponentBeginOverlap",
+                "delegate_owner_class": "/Script/Engine.PrimitiveComponent"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/delegate_component_bound/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_ComponentBoundEvent"
+        ],
+        "scs_components_present": [
+          "N2C_ContractBox"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "delegate_delete_dispatcher",
+      "family": "delegates",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_event_dispatcher",
+            "name": "N2C_OnContract"
+          },
+          {
+            "type": "add_or_replace_function",
+            "function_name": "N2C_DelegateHandler",
+            "category": "N2C/Contract",
+            "replace_body": true,
+            "function_flags": {
+              "access": "private",
+              "pure": false,
+              "const": false
+            },
+            "nodes": [
+              {
+                "id": "Entry",
+                "type": "Entry"
+              },
+              {
+                "id": "Return",
+                "type": "Return"
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "Entry",
+                "from_pin": "then",
+                "to": "Return",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": []
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "delete_event_dispatcher",
+            "name": "N2C_OnContract"
+          }
+        ]
+      },
+      "expected": {
+        "dispatchers_absent": [
+          "N2C_OnContract"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "delegate_missing_identity_reject",
+      "family": "delegates",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Add",
+                "type": "K2Node_AddDelegate"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/delegate_missing_identity_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "delegate"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "fn_add_impure",
+      "family": "functions",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_or_replace_function",
+            "function_name": "N2C_ContractFunction",
+            "category": "N2C/Contract",
+            "replace_body": true,
+            "function_flags": {
+              "access": "public",
+              "pure": false,
+              "const": false
+            },
+            "nodes": [
+              {
+                "id": "Entry",
+                "type": "Entry"
+              },
+              {
+                "id": "Return",
+                "type": "Return"
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "Entry",
+                "from_pin": "then",
+                "to": "Return",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": []
+          }
+        ]
+      },
+      "expected": {
+        "functions_present": [
+          "N2C_ContractFunction"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "fn_add_pure",
+      "family": "functions",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_or_replace_function",
+            "function_name": "N2C_ContractPure",
+            "category": "N2C/Contract",
+            "replace_body": true,
+            "function_flags": {
+              "access": "public",
+              "pure": true,
+              "const": true
+            },
+            "nodes": [
+              {
+                "id": "Entry",
+                "type": "Entry"
+              },
+              {
+                "id": "Return",
+                "type": "Return",
+                "pin_defaults": {
+                  "Result": "7"
+                }
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "Entry",
+                "from_pin": "then",
+                "to": "Return",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": [],
+            "outputs": [
+              {
+                "name": "Result",
+                "type": "int"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "functions_present": [
+          "N2C_ContractPure"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "fn_category",
+      "family": "functions",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_or_replace_function",
+            "function_name": "N2C_ContractFunction",
+            "category": "N2C/Contract",
+            "replace_body": true,
+            "function_flags": {
+              "access": "public",
+              "pure": false,
+              "const": false
+            },
+            "nodes": [
+              {
+                "id": "Entry",
+                "type": "Entry"
+              },
+              {
+                "id": "Return",
+                "type": "Return"
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "Entry",
+                "from_pin": "then",
+                "to": "Return",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": []
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "set_function_category",
+            "function_name": "N2C_ContractFunction",
+            "category": "N2C/Changed"
+          }
+        ]
+      },
+      "expected": {
+        "functions_present": [
+          "N2C_ContractFunction"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "fn_delete",
+      "family": "functions",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_or_replace_function",
+            "function_name": "N2C_ContractFunction",
+            "category": "N2C/Contract",
+            "replace_body": true,
+            "function_flags": {
+              "access": "public",
+              "pure": false,
+              "const": false
+            },
+            "nodes": [
+              {
+                "id": "Entry",
+                "type": "Entry"
+              },
+              {
+                "id": "Return",
+                "type": "Return"
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "Entry",
+                "from_pin": "then",
+                "to": "Return",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": []
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "delete_function",
+            "function_name": "N2C_ContractFunction"
+          }
+        ]
+      },
+      "expected": {
+        "functions_absent": [
+          "N2C_ContractFunction"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "fn_invalid_name_reject",
+      "family": "functions",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_or_replace_function",
+            "function_name": "Bad Function Name",
+            "nodes": []
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "safe function_name"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "fn_missing_replace_reject",
+      "family": "functions",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "replace_function_body",
+            "function_name": "N2C_DoesNotExist",
+            "nodes": [
+              {
+                "id": "Entry",
+                "type": "Entry"
+              },
+              {
+                "id": "Return",
+                "type": "Return"
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "Entry",
+                "from_pin": "then",
+                "to": "Return",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": []
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "replace_function_body requires an existing function graph"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "fn_multiple_results",
+      "family": "functions",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_or_replace_function",
+            "function_name": "N2C_ContractMulti",
+            "category": "N2C/Contract",
+            "replace_body": true,
+            "function_flags": {
+              "access": "public",
+              "pure": false,
+              "const": false
+            },
+            "inputs": [
+              {
+                "name": "Condition",
+                "type": "bool"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "Outcome",
+                "type": "int"
+              }
+            ],
+            "nodes": [
+              {
+                "id": "Entry",
+                "type": "Entry"
+              },
+              {
+                "id": "Branch",
+                "type": "K2Node_IfThenElse"
+              },
+              {
+                "id": "A",
+                "type": "Return",
+                "pin_defaults": {
+                  "Outcome": "1"
+                }
+              },
+              {
+                "id": "B",
+                "type": "Return",
+                "create_new": true,
+                "pin_defaults": {
+                  "Outcome": "2"
+                }
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "Entry",
+                "from_pin": "then",
+                "to": "Branch",
+                "to_pin": "execute"
+              },
+              {
+                "from": "Branch",
+                "from_pin": "then",
+                "to": "A",
+                "to_pin": "execute"
+              },
+              {
+                "from": "Branch",
+                "from_pin": "else",
+                "to": "B",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": [
+              {
+                "from": "Entry",
+                "from_pin": "Condition",
+                "to": "Branch",
+                "to_pin": "Condition"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "functions_present": [
+          "N2C_ContractMulti"
+        ],
+        "node_classes_present": [
+          "K2Node_FunctionResult"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "fn_params_locals",
+      "family": "functions",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_or_replace_function",
+            "function_name": "N2C_ContractParams",
+            "category": "N2C/Contract",
+            "replace_body": true,
+            "function_flags": {
+              "access": "public",
+              "pure": false,
+              "const": false
+            },
+            "nodes": [
+              {
+                "id": "Entry",
+                "type": "Entry"
+              },
+              {
+                "id": "Return",
+                "type": "Return",
+                "pin_defaults": {
+                  "Result": "11"
+                }
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "Entry",
+                "from_pin": "then",
+                "to": "Return",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": [],
+            "inputs": [
+              {
+                "name": "Amount",
+                "type": "int"
+              },
+              {
+                "name": "Label",
+                "type": "string"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "Result",
+                "type": "int"
+              }
+            ],
+            "local_variables": [
+              {
+                "name": "LocalCounter",
+                "type": "int"
+              },
+              {
+                "name": "LocalName",
+                "type": "name"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "functions_present": [
+          "N2C_ContractParams"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "fn_rename",
+      "family": "functions",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_or_replace_function",
+            "function_name": "N2C_ContractFunction",
+            "category": "N2C/Contract",
+            "replace_body": true,
+            "function_flags": {
+              "access": "public",
+              "pure": false,
+              "const": false
+            },
+            "nodes": [
+              {
+                "id": "Entry",
+                "type": "Entry"
+              },
+              {
+                "id": "Return",
+                "type": "Return"
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "Entry",
+                "from_pin": "then",
+                "to": "Return",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": []
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "rename_function",
+            "old_function_name": "N2C_ContractFunction",
+            "new_function_name": "N2C_RenamedFunction"
+          }
+        ]
+      },
+      "expected": {
+        "functions_present": [
+          "N2C_RenamedFunction"
+        ],
+        "functions_absent": [
+          "N2C_ContractFunction"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "fn_replace_body",
+      "family": "functions",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_or_replace_function",
+            "function_name": "N2C_ContractFunction",
+            "category": "N2C/Contract",
+            "replace_body": true,
+            "function_flags": {
+              "access": "public",
+              "pure": false,
+              "const": false
+            },
+            "nodes": [
+              {
+                "id": "Entry",
+                "type": "Entry"
+              },
+              {
+                "id": "Return",
+                "type": "Return"
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "Entry",
+                "from_pin": "then",
+                "to": "Return",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": []
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "replace_function_body",
+            "function_name": "N2C_ContractFunction",
+            "category": "N2C/Contract",
+            "replace_body": true,
+            "function_flags": {
+              "access": "public",
+              "pure": false,
+              "const": false
+            },
+            "nodes": [
+              {
+                "id": "Entry",
+                "type": "Entry"
+              },
+              {
+                "id": "Return",
+                "type": "Return"
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "Entry",
+                "from_pin": "then",
+                "to": "Return",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": []
+          }
+        ]
+      },
+      "expected": {
+        "functions_present": [
+          "N2C_ContractFunction"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "collapsed_create",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "create_collapsed_graph",
+            "owner_blueprint_path": "${TARGET_PATH}",
+            "owning_graph_identity": "${TARGET_PATH}|event_graph|EventGraph|${TARGET_PATH}:EventGraph",
+            "owning_graph_kind": "event_graph",
+            "nodes": [
+              {
+                "id": "BoundaryEntry",
+                "type": "K2Node_Tunnel",
+                "owner_blueprint_path": "${TARGET_PATH}",
+                "owning_graph_identity": "${TARGET_PATH}|collapsed_graph|N2C_ContractCollapsed|${TARGET_PATH}:EventGraph.N2C_ContractCollapsed",
+                "owning_graph_kind": "collapsed_graph",
+                "owning_graph_name": "N2C_ContractCollapsed",
+                "owning_graph_path": "${TARGET_PATH}:EventGraph.N2C_ContractCollapsed",
+                "tunnel_role": "entry",
+                "can_have_inputs": false,
+                "can_have_outputs": true,
+                "editable": true,
+                "graph_boundary_fingerprint": "contract_matrix",
+                "user_defined_pin_signature": [
+                  {
+                    "name": "Exec",
+                    "direction": "output",
+                    "pin_type": {
+                      "category": "exec"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "BoundaryExit",
+                "type": "K2Node_Tunnel",
+                "owner_blueprint_path": "${TARGET_PATH}",
+                "owning_graph_identity": "${TARGET_PATH}|collapsed_graph|N2C_ContractCollapsed|${TARGET_PATH}:EventGraph.N2C_ContractCollapsed",
+                "owning_graph_kind": "collapsed_graph",
+                "owning_graph_name": "N2C_ContractCollapsed",
+                "owning_graph_path": "${TARGET_PATH}:EventGraph.N2C_ContractCollapsed",
+                "tunnel_role": "exit",
+                "can_have_inputs": true,
+                "can_have_outputs": false,
+                "editable": true,
+                "graph_boundary_fingerprint": "contract_matrix",
+                "user_defined_pin_signature": [
+                  {
+                    "name": "Then",
+                    "direction": "input",
+                    "pin_type": {
+                      "category": "exec"
+                    }
+                  }
+                ]
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "BoundaryEntry",
+                "from_pin": "Exec",
+                "to": "BoundaryExit",
+                "to_pin": "Then"
+              }
+            ],
+            "data_edges": [],
+            "collapsed_graph_name": "N2C_ContractCollapsed",
+            "graph_name": "EventGraph",
+            "bound_graph_identity": "${TARGET_PATH}|collapsed_graph|N2C_ContractCollapsed|${TARGET_PATH}:EventGraph.N2C_ContractCollapsed",
+            "bound_graph_kind": "collapsed_graph",
+            "outer_to_inner_pin_mapping": [
+              {
+                "outer_pin": "Exec",
+                "inner_tunnel_role": "entry",
+                "inner_pin": "Exec"
+              },
+              {
+                "outer_pin": "Then",
+                "inner_tunnel_role": "exit",
+                "inner_pin": "Then"
+              }
+            ],
+            "composite_node_id": "Composite"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_Composite"
+        ],
+        "graphs_present": [
+          "N2C_ContractCollapsed"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "collapsed_replace",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "create_collapsed_graph",
+            "owner_blueprint_path": "${TARGET_PATH}",
+            "owning_graph_identity": "${TARGET_PATH}|event_graph|EventGraph|${TARGET_PATH}:EventGraph",
+            "owning_graph_kind": "event_graph",
+            "nodes": [
+              {
+                "id": "BoundaryEntry",
+                "type": "K2Node_Tunnel",
+                "owner_blueprint_path": "${TARGET_PATH}",
+                "owning_graph_identity": "${TARGET_PATH}|collapsed_graph|N2C_ContractCollapsed|${TARGET_PATH}:EventGraph.N2C_ContractCollapsed",
+                "owning_graph_kind": "collapsed_graph",
+                "owning_graph_name": "N2C_ContractCollapsed",
+                "owning_graph_path": "${TARGET_PATH}:EventGraph.N2C_ContractCollapsed",
+                "tunnel_role": "entry",
+                "can_have_inputs": false,
+                "can_have_outputs": true,
+                "editable": true,
+                "graph_boundary_fingerprint": "contract_matrix",
+                "user_defined_pin_signature": [
+                  {
+                    "name": "Exec",
+                    "direction": "output",
+                    "pin_type": {
+                      "category": "exec"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "BoundaryExit",
+                "type": "K2Node_Tunnel",
+                "owner_blueprint_path": "${TARGET_PATH}",
+                "owning_graph_identity": "${TARGET_PATH}|collapsed_graph|N2C_ContractCollapsed|${TARGET_PATH}:EventGraph.N2C_ContractCollapsed",
+                "owning_graph_kind": "collapsed_graph",
+                "owning_graph_name": "N2C_ContractCollapsed",
+                "owning_graph_path": "${TARGET_PATH}:EventGraph.N2C_ContractCollapsed",
+                "tunnel_role": "exit",
+                "can_have_inputs": true,
+                "can_have_outputs": false,
+                "editable": true,
+                "graph_boundary_fingerprint": "contract_matrix",
+                "user_defined_pin_signature": [
+                  {
+                    "name": "Then",
+                    "direction": "input",
+                    "pin_type": {
+                      "category": "exec"
+                    }
+                  }
+                ]
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "BoundaryEntry",
+                "from_pin": "Exec",
+                "to": "BoundaryExit",
+                "to_pin": "Then"
+              }
+            ],
+            "data_edges": [],
+            "collapsed_graph_name": "N2C_ContractCollapsed",
+            "graph_name": "EventGraph",
+            "bound_graph_identity": "${TARGET_PATH}|collapsed_graph|N2C_ContractCollapsed|${TARGET_PATH}:EventGraph.N2C_ContractCollapsed",
+            "bound_graph_kind": "collapsed_graph",
+            "outer_to_inner_pin_mapping": [
+              {
+                "outer_pin": "Exec",
+                "inner_tunnel_role": "entry",
+                "inner_pin": "Exec"
+              },
+              {
+                "outer_pin": "Then",
+                "inner_tunnel_role": "exit",
+                "inner_pin": "Then"
+              }
+            ],
+            "composite_node_id": "Composite"
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "replace_collapsed_graph",
+            "owner_blueprint_path": "${TARGET_PATH}",
+            "owning_graph_identity": "${TARGET_PATH}|event_graph|EventGraph|${TARGET_PATH}:EventGraph",
+            "owning_graph_kind": "event_graph",
+            "nodes": [
+              {
+                "id": "BoundaryEntry",
+                "type": "K2Node_Tunnel",
+                "owner_blueprint_path": "${TARGET_PATH}",
+                "owning_graph_identity": "${TARGET_PATH}|collapsed_graph|N2C_ContractCollapsed|${TARGET_PATH}:EventGraph.N2C_ContractCollapsed",
+                "owning_graph_kind": "collapsed_graph",
+                "owning_graph_name": "N2C_ContractCollapsed",
+                "owning_graph_path": "${TARGET_PATH}:EventGraph.N2C_ContractCollapsed",
+                "tunnel_role": "entry",
+                "can_have_inputs": false,
+                "can_have_outputs": true,
+                "editable": true,
+                "graph_boundary_fingerprint": "contract_matrix",
+                "user_defined_pin_signature": [
+                  {
+                    "name": "Exec",
+                    "direction": "output",
+                    "pin_type": {
+                      "category": "exec"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "BoundaryExit",
+                "type": "K2Node_Tunnel",
+                "owner_blueprint_path": "${TARGET_PATH}",
+                "owning_graph_identity": "${TARGET_PATH}|collapsed_graph|N2C_ContractCollapsed|${TARGET_PATH}:EventGraph.N2C_ContractCollapsed",
+                "owning_graph_kind": "collapsed_graph",
+                "owning_graph_name": "N2C_ContractCollapsed",
+                "owning_graph_path": "${TARGET_PATH}:EventGraph.N2C_ContractCollapsed",
+                "tunnel_role": "exit",
+                "can_have_inputs": true,
+                "can_have_outputs": false,
+                "editable": true,
+                "graph_boundary_fingerprint": "contract_matrix",
+                "user_defined_pin_signature": [
+                  {
+                    "name": "Then",
+                    "direction": "input",
+                    "pin_type": {
+                      "category": "exec"
+                    }
+                  }
+                ]
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "BoundaryEntry",
+                "from_pin": "Exec",
+                "to": "BoundaryExit",
+                "to_pin": "Then"
+              }
+            ],
+            "data_edges": [],
+            "collapsed_graph_name": "N2C_ContractCollapsed",
+            "graph_name": "EventGraph",
+            "bound_graph_identity": "${TARGET_PATH}|collapsed_graph|N2C_ContractCollapsed|${TARGET_PATH}:EventGraph.N2C_ContractCollapsed",
+            "bound_graph_kind": "collapsed_graph",
+            "outer_to_inner_pin_mapping": [
+              {
+                "outer_pin": "Exec",
+                "inner_tunnel_role": "entry",
+                "inner_pin": "Exec"
+              },
+              {
+                "outer_pin": "Then",
+                "inner_tunnel_role": "exit",
+                "inner_pin": "Then"
+              }
+            ],
+            "composite_node_id": "Composite",
+            "replace_body": true
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_Composite"
+        ],
+        "graphs_present": [
+          "N2C_ContractCollapsed"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "graph_array_ops",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Array",
+                "type": "K2Node_MakeArray",
+                "input_count": 2,
+                "value_pin_type": {
+                  "type": "int"
+                },
+                "pin_defaults": {
+                  "[0]": "1",
+                  "[1]": "2"
+                }
+              },
+              {
+                "id": "Get",
+                "type": "K2Node_GetArrayItem",
+                "return_by_ref": false,
+                "pin_defaults": {
+                  "Index": "0"
+                }
+              },
+              {
+                "id": "Length",
+                "type": "ArrayLength"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [
+              {
+                "from_node_id": "Array",
+                "from_pin": "Array",
+                "to_node_id": "Get",
+                "to_pin": "Array"
+              },
+              {
+                "from_node_id": "Array",
+                "from_pin": "Array",
+                "to_node_id": "Length",
+                "to_pin": "TargetArray"
+              }
+            ],
+            "import_scope": "ContractMatrix/graph_array_ops/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_MakeArray",
+          "K2Node_GetArrayItem",
+          "K2Node_CallArrayFunction"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "graph_branch_sequence",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Event",
+                "type": "K2Node_CustomEvent",
+                "event_name": "N2C_Flow"
+              },
+              {
+                "id": "Seq",
+                "type": "K2Node_ExecutionSequence",
+                "output_count": 2
+              },
+              {
+                "id": "Branch",
+                "type": "K2Node_IfThenElse",
+                "pin_defaults": {
+                  "Condition": true
+                }
+              }
+            ],
+            "exec_edges": [
+              {
+                "from_node_id": "Event",
+                "from_pin": "then",
+                "to_node_id": "Seq",
+                "to_pin": "execute"
+              },
+              {
+                "from_node_id": "Seq",
+                "from_pin": "then_0",
+                "to_node_id": "Branch",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/graph_branch_sequence/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_ExecutionSequence",
+          "K2Node_IfThenElse"
+        ],
+        "custom_events_present": [
+          "N2C_Flow"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "graph_call_functions",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Pure",
+                "type": "K2Node_CallFunction",
+                "function_path": "/Script/Engine.Actor.K2_GetActorLocation",
+                "function_owner_class": "/Script/Engine.Actor"
+              },
+              {
+                "id": "Print",
+                "type": "K2Node_CallFunction",
+                "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+                "function_owner_class": "/Script/Engine.KismetSystemLibrary",
+                "pin_defaults": {
+                  "InString": "Contract"
+                }
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/graph_call_functions/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_CallFunction"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "graph_cast_self",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Self",
+                "type": "K2Node_Self"
+              },
+              {
+                "id": "Cast",
+                "type": "K2Node_DynamicCast",
+                "class_path": "/Script/Engine.Actor"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [
+              {
+                "from_node_id": "Self",
+                "from_pin": "self",
+                "to_node_id": "Cast",
+                "to_pin": "Object"
+              }
+            ],
+            "import_scope": "ContractMatrix/graph_cast_self/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_Self",
+          "K2Node_DynamicCast"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "graph_create_widget",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Widget",
+                "type": "K2Node_CreateWidget",
+                "class_path": "/Script/UMG.UserWidget"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/graph_create_widget/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_CreateWidget"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "graph_delete_node",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Event",
+                "type": "K2Node_CustomEvent",
+                "event_name": "N2C_DeleteEvent"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/graph_delete_node/setup_patch/01"
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "delete_graph_nodes",
+            "graph_name": "EventGraph",
+            "names": [
+              "N2C_DeleteEvent"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "custom_events_absent": [
+          "N2C_DeleteEvent"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "graph_duplicate_node_id_reject",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Dup",
+                "type": "K2Node_Self"
+              },
+              {
+                "id": "Dup",
+                "type": "K2Node_Knot"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/graph_duplicate_node_id_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "duplicate node id"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "graph_events_parent",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Begin",
+                "type": "K2Node_Event",
+                "event_name": "ReceiveBeginPlay",
+                "event_owner_class": "/Script/Engine.Actor",
+                "event_is_override": true
+              },
+              {
+                "id": "Parent",
+                "type": "K2Node_CallParentFunction",
+                "function_path": "/Script/Engine.Actor.ReceiveBeginPlay",
+                "function_owner_class": "/Script/Engine.Actor",
+                "function_name": "ReceiveBeginPlay"
+              }
+            ],
+            "exec_edges": [
+              {
+                "from_node_id": "Begin",
+                "from_pin": "then",
+                "to_node_id": "Parent",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/graph_events_parent/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_Event",
+          "K2Node_CallParentFunction"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "graph_incompatible_edge_reject",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Self",
+                "type": "K2Node_Self"
+              },
+              {
+                "id": "Print",
+                "type": "K2Node_CallFunction",
+                "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+                "function_owner_class": "/Script/Engine.KismetSystemLibrary"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [
+              {
+                "from_node_id": "Self",
+                "from_pin": "self",
+                "to_node_id": "Print",
+                "to_pin": "execute"
+              }
+            ],
+            "import_scope": "ContractMatrix/graph_incompatible_edge_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "edge_connection_failed"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "graph_input_nodes",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Action",
+                "type": "K2Node_InputAction",
+                "input_action_name": "Jump",
+                "consume_input": true,
+                "execute_when_paused": false,
+                "override_parent_binding": true
+              },
+              {
+                "id": "Key",
+                "type": "K2Node_InputKey",
+                "key_name": "SpaceBar",
+                "shift": false,
+                "ctrl": false,
+                "alt": false,
+                "cmd": false,
+                "consume_input": true,
+                "execute_when_paused": false,
+                "override_parent_binding": true
+              },
+              {
+                "id": "Axis",
+                "type": "K2Node_InputAxisEvent",
+                "input_axis_name": "MoveForward",
+                "consume_input": true,
+                "execute_when_paused": false,
+                "override_parent_binding": true
+              },
+              {
+                "id": "AxisKey",
+                "type": "K2Node_InputAxisKeyEvent",
+                "key_name": "MouseX",
+                "consume_input": true,
+                "execute_when_paused": false,
+                "override_parent_binding": true
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/graph_input_nodes/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_InputAction",
+          "K2Node_InputKey",
+          "K2Node_InputAxisEvent",
+          "K2Node_InputAxisKeyEvent"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "graph_interface_message",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Message",
+                "type": "K2Node_Message",
+                "function_path": "/Script/UMG.UserListEntry.BP_OnEntryReleased",
+                "function_owner_class": "/Script/UMG.UserListEntry"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/graph_interface_message/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_Message"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "graph_knot_edge",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_KnotString",
+            "type": "string",
+            "default_value": "Knot"
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Get",
+                "type": "K2Node_VariableGet",
+                "member_name": "N2C_KnotString"
+              },
+              {
+                "id": "Knot",
+                "type": "K2Node_Knot"
+              },
+              {
+                "id": "Print",
+                "type": "K2Node_CallFunction",
+                "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+                "function_owner_class": "/Script/Engine.KismetSystemLibrary"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [
+              {
+                "from_node_id": "Get",
+                "from_pin": "N2C_KnotString",
+                "to_node_id": "Knot",
+                "to_pin": "InputPin"
+              },
+              {
+                "from_node_id": "Knot",
+                "from_pin": "OutputPin",
+                "to_node_id": "Print",
+                "to_pin": "InString"
+              }
+            ],
+            "import_scope": "ContractMatrix/graph_knot_edge/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_Knot"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "graph_missing_graph_reject",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "DefinitelyMissingGraph",
+            "nodes": [
+              {
+                "id": "Self",
+                "type": "K2Node_Self"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/graph_missing_graph_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "target graph"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "graph_missing_node_id_reject",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "type": "K2Node_Self"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/graph_missing_node_id_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "node without id"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "graph_missing_pin_reject",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Self",
+                "type": "K2Node_Self"
+              },
+              {
+                "id": "Knot",
+                "type": "K2Node_Knot"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [
+              {
+                "from_node_id": "Self",
+                "from_pin": "self",
+                "to_node_id": "Knot",
+                "to_pin": "MissingPin"
+              }
+            ],
+            "import_scope": "ContractMatrix/graph_missing_pin_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "edge_pin_missing"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "graph_rename_custom_event",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Event",
+                "type": "K2Node_CustomEvent",
+                "event_name": "N2C_OldEvent"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/graph_rename_custom_event/setup_patch/01"
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "rename_custom_event",
+            "graph_name": "EventGraph",
+            "old_name": "N2C_OldEvent",
+            "new_name": "N2C_NewEvent"
+          }
+        ]
+      },
+      "expected": {
+        "custom_events_present": [
+          "N2C_NewEvent"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "graph_select",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Index",
+                "type": "K2Node_VariableGet",
+                "member_name": "N2C_SelectIndex"
+              },
+              {
+                "id": "A",
+                "type": "K2Node_VariableGet",
+                "member_name": "N2C_SelectA"
+              },
+              {
+                "id": "B",
+                "type": "K2Node_VariableGet",
+                "member_name": "N2C_SelectB"
+              },
+              {
+                "id": "Select",
+                "type": "K2Node_Select",
+                "index_pin_type": {
+                  "type": "bool"
+                },
+                "option_count": 2
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [
+              {
+                "from_node_id": "Index",
+                "from_pin": "N2C_SelectIndex",
+                "to_node_id": "Select",
+                "to_pin": "Index"
+              },
+              {
+                "from_node_id": "A",
+                "from_pin": "N2C_SelectA",
+                "to_node_id": "Select",
+                "to_pin": "Option 0"
+              },
+              {
+                "from_node_id": "B",
+                "from_pin": "N2C_SelectB",
+                "to_node_id": "Select",
+                "to_pin": "Option 1"
+              }
+            ],
+            "import_scope": "ContractMatrix/graph_select/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_SelectIndex"
+          },
+          {
+            "name": "N2C_SelectA"
+          },
+          {
+            "name": "N2C_SelectB"
+          }
+        ],
+        "node_classes_present": [
+          "K2Node_Select",
+          "K2Node_VariableGet"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": "",
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_SelectIndex",
+            "type": "bool",
+            "default_value": "true"
+          },
+          {
+            "name": "N2C_SelectA",
+            "type": "string",
+            "default_value": "A"
+          },
+          {
+            "name": "N2C_SelectB",
+            "type": "string",
+            "default_value": "B"
+          }
+        ]
+      }
+    },
+    {
+      "id": "graph_spawn_actor",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Event",
+                "type": "K2Node_CustomEvent",
+                "event_name": "N2C_Spawn"
+              },
+              {
+                "id": "Make",
+                "type": "K2Node_CallFunction",
+                "function_path": "/Script/Engine.KismetMathLibrary.MakeTransform",
+                "function_owner_class": "/Script/Engine.KismetMathLibrary",
+                "function_name": "MakeTransform"
+              },
+              {
+                "id": "Spawn",
+                "type": "K2Node_SpawnActorFromClass",
+                "pin_defaults": {
+                  "Class": "/Script/Engine.Actor"
+                }
+              }
+            ],
+            "exec_edges": [
+              {
+                "from_node_id": "Event",
+                "from_pin": "then",
+                "to_node_id": "Spawn",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": [
+              {
+                "from_node_id": "Make",
+                "from_pin": "ReturnValue",
+                "to_node_id": "Spawn",
+                "to_pin": "SpawnTransform"
+              }
+            ],
+            "import_scope": "ContractMatrix/graph_spawn_actor/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_SpawnActorFromClass"
+        ],
+        "custom_events_present": [
+          "N2C_Spawn"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "graph_unknown_node_reject",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Bad",
+                "type": "K2Node_NotImplemented"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/graph_unknown_node_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "status=unsupported"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "macro_add",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_macro",
+            "macro_name": "N2C_ContractMacro",
+            "owner_blueprint_path": "${TARGET_PATH}",
+            "owning_graph_identity": "${TARGET_PATH}|macro|N2C_ContractMacro|${TARGET_PATH}:N2C_ContractMacro",
+            "owning_graph_kind": "macro",
+            "nodes": [
+              {
+                "id": "BoundaryEntry",
+                "type": "K2Node_Tunnel",
+                "owner_blueprint_path": "${TARGET_PATH}",
+                "owning_graph_identity": "${TARGET_PATH}|macro|N2C_ContractMacro|${TARGET_PATH}:N2C_ContractMacro",
+                "owning_graph_kind": "macro",
+                "owning_graph_name": "N2C_ContractMacro",
+                "owning_graph_path": "${TARGET_PATH}:N2C_ContractMacro",
+                "tunnel_role": "entry",
+                "can_have_inputs": false,
+                "can_have_outputs": true,
+                "editable": true,
+                "graph_boundary_fingerprint": "contract_matrix",
+                "user_defined_pin_signature": [
+                  {
+                    "name": "Exec",
+                    "direction": "output",
+                    "pin_type": {
+                      "category": "exec"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "BoundaryExit",
+                "type": "K2Node_Tunnel",
+                "owner_blueprint_path": "${TARGET_PATH}",
+                "owning_graph_identity": "${TARGET_PATH}|macro|N2C_ContractMacro|${TARGET_PATH}:N2C_ContractMacro",
+                "owning_graph_kind": "macro",
+                "owning_graph_name": "N2C_ContractMacro",
+                "owning_graph_path": "${TARGET_PATH}:N2C_ContractMacro",
+                "tunnel_role": "exit",
+                "can_have_inputs": true,
+                "can_have_outputs": false,
+                "editable": true,
+                "graph_boundary_fingerprint": "contract_matrix",
+                "user_defined_pin_signature": [
+                  {
+                    "name": "Then",
+                    "direction": "input",
+                    "pin_type": {
+                      "category": "exec"
+                    }
+                  }
+                ]
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "BoundaryEntry",
+                "from_pin": "Exec",
+                "to": "BoundaryExit",
+                "to_pin": "Then"
+              }
+            ],
+            "data_edges": []
+          }
+        ]
+      },
+      "expected": {
+        "graphs_present": [
+          "N2C_ContractMacro"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "macro_delete",
+      "family": "graphs",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_macro",
+            "macro_name": "N2C_ContractMacro",
+            "owner_blueprint_path": "${TARGET_PATH}",
+            "owning_graph_identity": "${TARGET_PATH}|macro|N2C_ContractMacro|${TARGET_PATH}:N2C_ContractMacro",
+            "owning_graph_kind": "macro",
+            "nodes": [
+              {
+                "id": "BoundaryEntry",
+                "type": "K2Node_Tunnel",
+                "owner_blueprint_path": "${TARGET_PATH}",
+                "owning_graph_identity": "${TARGET_PATH}|macro|N2C_ContractMacro|${TARGET_PATH}:N2C_ContractMacro",
+                "owning_graph_kind": "macro",
+                "owning_graph_name": "N2C_ContractMacro",
+                "owning_graph_path": "${TARGET_PATH}:N2C_ContractMacro",
+                "tunnel_role": "entry",
+                "can_have_inputs": false,
+                "can_have_outputs": true,
+                "editable": true,
+                "graph_boundary_fingerprint": "contract_matrix",
+                "user_defined_pin_signature": [
+                  {
+                    "name": "Exec",
+                    "direction": "output",
+                    "pin_type": {
+                      "category": "exec"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "BoundaryExit",
+                "type": "K2Node_Tunnel",
+                "owner_blueprint_path": "${TARGET_PATH}",
+                "owning_graph_identity": "${TARGET_PATH}|macro|N2C_ContractMacro|${TARGET_PATH}:N2C_ContractMacro",
+                "owning_graph_kind": "macro",
+                "owning_graph_name": "N2C_ContractMacro",
+                "owning_graph_path": "${TARGET_PATH}:N2C_ContractMacro",
+                "tunnel_role": "exit",
+                "can_have_inputs": true,
+                "can_have_outputs": false,
+                "editable": true,
+                "graph_boundary_fingerprint": "contract_matrix",
+                "user_defined_pin_signature": [
+                  {
+                    "name": "Then",
+                    "direction": "input",
+                    "pin_type": {
+                      "category": "exec"
+                    }
+                  }
+                ]
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "BoundaryEntry",
+                "from_pin": "Exec",
+                "to": "BoundaryExit",
+                "to_pin": "Then"
+              }
+            ],
+            "data_edges": []
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "delete_macro",
+            "macro_name": "N2C_ContractMacro"
+          }
+        ]
+      },
+      "expected": {
+        "macros_absent": [
+          "N2C_ContractMacro"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "datatable_missing_identity_reject",
+      "family": "guard_failures",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Row",
+                "type": "K2Node_GetDataTableRow",
+                "data_table_path": "/Game/N2C_Test/Missing.Missing",
+                "row_name_default": "RowA"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/datatable_missing_identity_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "datatable_identity_missing"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "delegate_identity_mismatch_reject",
+      "family": "guard_failures",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Bind",
+                "type": "K2Node_AddDelegate",
+                "delegate_name": "N2C_MissingDispatcher",
+                "delegate_owner_class": "${TARGET_CLASS}"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/delegate_identity_mismatch_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "delegate_identity_mismatch"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "enum_case_mismatch_reject",
+      "family": "guard_failures",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Enum",
+                "type": "K2Node_EnumLiteral",
+                "enum_path": "/Script/Engine.EInputEvent",
+                "enum_value": "N2C_NotAnEnumerator"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/enum_case_mismatch_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "enum_case_mismatch"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "enum_identity_missing_reject",
+      "family": "guard_failures",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Enum",
+                "type": "K2Node_EnumLiteral"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/enum_identity_missing_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "enum_identity_missing"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "function_unsupported_parameter_flags_reject",
+      "family": "guard_failures",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_or_replace_function",
+            "function_name": "N2C_BadParamFlags",
+            "replace_body": true,
+            "inputs": [
+              {
+                "name": "Value",
+                "type": "int",
+                "reference": true,
+                "default_value": "1"
+              }
+            ],
+            "nodes": [
+              {
+                "id": "Entry",
+                "type": "Entry"
+              },
+              {
+                "id": "Return",
+                "type": "Return"
+              }
+            ],
+            "exec_edges": [
+              {
+                "from": "Entry",
+                "from_pin": "then",
+                "to": "Return",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": []
+          }
+        ]
+      },
+      "expected": {
+        "functions_absent": [
+          "N2C_BadParamFlags"
+        ]
+      },
+      "expected_report_contains": [
+        "unsupported_parameter_flags"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "graph_edge_node_missing_reject",
+      "family": "guard_failures",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Self",
+                "type": "K2Node_Self"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [
+              {
+                "from": "Missing",
+                "from_pin": "self",
+                "to": "Self",
+                "to_pin": "self"
+              }
+            ],
+            "import_scope": "ContractMatrix/graph_edge_node_missing_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "edge_node_missing"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "input_action_identity_missing_reject",
+      "family": "guard_failures",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Input",
+                "type": "K2Node_InputAction"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/input_action_identity_missing_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "input_action_identity_missing"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "input_key_identity_missing_reject",
+      "family": "guard_failures",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Input",
+                "type": "K2Node_InputKey"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/input_key_identity_missing_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "input_key_identity_missing"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "member_default_trailing_data_reject",
+      "family": "guard_failures",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_BadTrailingRotator",
+            "type": "struct",
+            "struct_path": "/Script/CoreUObject.Rotator",
+            "default_value": "(Pitch=1,Yaw=2,Roll=3) trailing"
+          }
+        ]
+      },
+      "expected": {
+        "variables_absent": [
+          "N2C_BadTrailingRotator"
+        ]
+      },
+      "expected_report_contains": [
+        "member_default_import_text_trailing_data"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "pin_default_target_missing_reject",
+      "family": "guard_failures",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Branch",
+                "type": "K2Node_IfThenElse",
+                "pin_defaults": {
+                  "N2C_MissingPin": "true"
+                }
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/pin_default_target_missing_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "pin_default_target_missing"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "struct_identity_missing_reject",
+      "family": "guard_failures",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Make",
+                "type": "K2Node_MakeStruct"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/struct_identity_missing_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "struct_identity_missing"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "struct_member_identity_missing_reject",
+      "family": "guard_failures",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Set",
+                "type": "K2Node_SetFieldsInStruct",
+                "struct_path": "${ROW_STRUCT}"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/struct_member_identity_missing_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "struct_member_identity_missing"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "struct_member_mismatch_reject",
+      "family": "guard_failures",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Set",
+                "type": "K2Node_SetFieldsInStruct",
+                "struct_path": "${ROW_STRUCT}",
+                "member_pin_identity": [
+                  {
+                    "pin_name": "N2C_MissingMember"
+                  }
+                ]
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/struct_member_mismatch_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "struct_member_mismatch"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "widget_missing_class_identity_reject",
+      "family": "guard_failures",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Widget",
+                "type": "K2Node_CreateWidget"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/widget_missing_class_identity_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "create_widget_class_identity_missing"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "guard_node_add_component_reject",
+      "family": "guarded_nodes",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Guarded",
+                "type": "K2Node_AddComponent"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/guard_node_add_component_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": "Recognized constructor family must fail safely in strict mode when required UE4.27 context/coverage is unavailable."
+    },
+    {
+      "id": "guard_node_ease_function_reject",
+      "family": "guarded_nodes",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Guarded",
+                "type": "K2Node_EaseFunction"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/guard_node_ease_function_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": "Recognized constructor family must fail safely in strict mode when required UE4.27 context/coverage is unavailable."
+    },
+    {
+      "id": "guard_node_input_touch_reject",
+      "family": "guarded_nodes",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Guarded",
+                "type": "K2Node_InputTouchEvent"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/guard_node_input_touch_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": "Recognized constructor family must fail safely in strict mode when required UE4.27 context/coverage is unavailable."
+    },
+    {
+      "id": "guard_node_local_ref_pose_wrong_asset_reject",
+      "family": "guarded_nodes",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Guarded",
+                "type": "AnimGraphNode_LocalRefPose"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/guard_node_local_ref_pose_wrong_asset_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": "Recognized constructor family must fail safely in strict mode when required UE4.27 context/coverage is unavailable."
+    },
+    {
+      "id": "guard_node_mpc_function_reject",
+      "family": "guarded_nodes",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Guarded",
+                "type": "K2Node_CallMaterialParameterCollectionFunction"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/guard_node_mpc_function_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": "Recognized constructor family must fail safely in strict mode when required UE4.27 context/coverage is unavailable."
+    },
+    {
+      "id": "guard_node_timeline_reject",
+      "family": "guarded_nodes",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Guarded",
+                "type": "K2Node_Timeline"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/guard_node_timeline_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": "Recognized constructor family must fail safely in strict mode when required UE4.27 context/coverage is unavailable."
+    },
+    {
+      "id": "interface_implement",
+      "family": "interfaces",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "implement_interface",
+            "interface_class_path": "${INTERFACE_CLASS}"
+          }
+        ]
+      },
+      "expected": {
+        "interfaces_present": [
+          "${INTERFACE_CLASS}"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "scs_add_component",
+      "family": "scs",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_scs_components",
+            "components": [
+              {
+                "component_name": "N2C_ContractBox",
+                "component_class": "/Script/Engine.BoxComponent",
+                "relative_location": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 50
+                },
+                "relative_rotation": {
+                  "pitch": 0,
+                  "yaw": 0,
+                  "roll": 0
+                },
+                "relative_scale": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "template_defaults": {
+                  "BoxExtent": "(X=20,Y=20,Z=20)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "scs_components_present": [
+          "N2C_ContractBox"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "scs_invalid_class_reject",
+      "family": "scs",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_scs_components",
+            "components": [
+              {
+                "component_name": "N2C_Bad",
+                "component_class": "/Script/Engine.Actor"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "component"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "scs_update_component",
+      "family": "scs",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "add_scs_components",
+            "components": [
+              {
+                "component_name": "N2C_ContractBox",
+                "component_class": "/Script/Engine.BoxComponent",
+                "relative_location": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 50
+                },
+                "relative_rotation": {
+                  "pitch": 0,
+                  "yaw": 0,
+                  "roll": 0
+                },
+                "relative_scale": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "template_defaults": {
+                  "BoxExtent": "(X=20,Y=20,Z=20)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "update_scs_hierarchy",
+            "components": [
+              {
+                "component_name": "N2C_ContractBox",
+                "component_class": "/Script/Engine.BoxComponent",
+                "relative_location": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 125
+                },
+                "relative_rotation": {
+                  "pitch": 0,
+                  "yaw": 0,
+                  "roll": 0
+                },
+                "relative_scale": {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                },
+                "template_defaults": {
+                  "BoxExtent": "(X=20,Y=20,Z=20)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "scs_components_present": [
+          "N2C_ContractBox"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "datatable_linked",
+      "family": "specialized",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_Table",
+            "type": "object",
+            "sub_category_object": "/Script/Engine.DataTable",
+            "default_value": "${DATA_TABLE}"
+          },
+          {
+            "name": "N2C_Row",
+            "type": "struct",
+            "struct_path": "${ROW_STRUCT}"
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Event",
+                "type": "K2Node_CustomEvent",
+                "event_name": "N2C_GetLinkedRow"
+              },
+              {
+                "id": "GetTable",
+                "type": "K2Node_VariableGet",
+                "member_name": "N2C_Table"
+              },
+              {
+                "id": "GetRow",
+                "type": "K2Node_GetDataTableRow",
+                "data_table_pin_linked": true,
+                "row_struct_path": "${ROW_STRUCT}",
+                "row_name_default": "RowA"
+              },
+              {
+                "id": "SetRow",
+                "type": "K2Node_VariableSet",
+                "member_name": "N2C_Row"
+              }
+            ],
+            "exec_edges": [
+              {
+                "from_node_id": "Event",
+                "from_pin": "then",
+                "to_node_id": "GetRow",
+                "to_pin": "execute"
+              },
+              {
+                "from_node_id": "GetRow",
+                "from_pin": "then",
+                "to_node_id": "SetRow",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": [
+              {
+                "from_node_id": "GetTable",
+                "from_pin": "N2C_Table",
+                "to_node_id": "GetRow",
+                "to_pin": "DataTable"
+              },
+              {
+                "from_node_id": "GetRow",
+                "from_pin": "ReturnValue",
+                "to_node_id": "SetRow",
+                "to_pin": "N2C_Row"
+              }
+            ],
+            "import_scope": "ContractMatrix/datatable_linked/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_GetDataTableRow"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "datatable_linked_untyped_reject",
+      "family": "specialized",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "GetRow",
+                "type": "K2Node_GetDataTableRow",
+                "data_table_pin_linked": true,
+                "row_struct_path": "${ROW_STRUCT}"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/datatable_linked_untyped_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "datatable_linked_output_untyped"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "datatable_literal",
+      "family": "specialized",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Event",
+                "type": "K2Node_CustomEvent",
+                "event_name": "N2C_GetRow"
+              },
+              {
+                "id": "GetRow",
+                "type": "K2Node_GetDataTableRow",
+                "data_table_path": "${DATA_TABLE}",
+                "row_struct_path": "${ROW_STRUCT}",
+                "row_name_default": "RowA"
+              }
+            ],
+            "exec_edges": [
+              {
+                "from_node_id": "Event",
+                "from_pin": "then",
+                "to_node_id": "GetRow",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/datatable_literal/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_GetDataTableRow"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "enum_node_family",
+      "family": "specialized",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Literal",
+                "type": "K2Node_EnumLiteral",
+                "enum_path": "/Script/Engine.EInputEvent",
+                "enum_value": "IE_Pressed"
+              },
+              {
+                "id": "Name",
+                "type": "K2Node_GetEnumeratorNameAsString",
+                "enum_path": "/Script/Engine.EInputEvent"
+              },
+              {
+                "id": "Cast",
+                "type": "K2Node_CastByteToEnum",
+                "enum_path": "/Script/Engine.EInputEvent"
+              },
+              {
+                "id": "Equal",
+                "type": "K2Node_EnumEquality",
+                "enum_path": "/Script/Engine.EInputEvent"
+              },
+              {
+                "id": "NotEqual",
+                "type": "K2Node_EnumInequality",
+                "enum_path": "/Script/Engine.EInputEvent"
+              },
+              {
+                "id": "Switch",
+                "type": "K2Node_SwitchEnum",
+                "enum_path": "/Script/Engine.EInputEvent",
+                "enum_cases": []
+              },
+              {
+                "id": "Each",
+                "type": "K2Node_ForEachElementInEnum",
+                "enum_path": "/Script/Engine.EInputEvent"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [
+              {
+                "from_node_id": "Literal",
+                "from_pin": "ReturnValue",
+                "to_node_id": "Name",
+                "to_pin": "Enumerator"
+              },
+              {
+                "from_node_id": "Literal",
+                "from_pin": "ReturnValue",
+                "to_node_id": "Equal",
+                "to_pin": "A"
+              },
+              {
+                "from_node_id": "Literal",
+                "from_pin": "ReturnValue",
+                "to_node_id": "NotEqual",
+                "to_pin": "A"
+              }
+            ],
+            "import_scope": "ContractMatrix/enum_node_family/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_EnumLiteral",
+          "K2Node_GetEnumeratorNameAsString",
+          "K2Node_CastByteToEnum",
+          "K2Node_EnumEquality",
+          "K2Node_EnumInequality",
+          "K2Node_SwitchEnum",
+          "K2Node_ForEachElementInEnum"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "struct_make_set_break",
+      "family": "specialized",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Make",
+                "type": "K2Node_MakeStruct",
+                "struct_path": "${ROW_STRUCT}",
+                "member_pin_identity": [
+                  {
+                    "pin_name": "RowFlag"
+                  },
+                  {
+                    "pin_name": "RowValue"
+                  },
+                  {
+                    "pin_name": "RowLabel"
+                  }
+                ],
+                "pin_defaults": {
+                  "RowFlag": false,
+                  "RowValue": "2.5",
+                  "RowLabel": "Contract"
+                }
+              },
+              {
+                "id": "Set",
+                "type": "K2Node_SetFieldsInStruct",
+                "struct_path": "${ROW_STRUCT}",
+                "member_pin_identity": [
+                  {
+                    "pin_name": "RowFlag"
+                  },
+                  {
+                    "pin_name": "RowValue"
+                  },
+                  {
+                    "pin_name": "RowLabel"
+                  }
+                ],
+                "show_all_fields": true,
+                "pin_defaults": {
+                  "RowValue": "3.5"
+                }
+              },
+              {
+                "id": "Break",
+                "type": "K2Node_BreakStruct",
+                "struct_path": "${ROW_STRUCT}",
+                "member_pin_identity": [
+                  {
+                    "pin_name": "RowFlag"
+                  },
+                  {
+                    "pin_name": "RowValue"
+                  },
+                  {
+                    "pin_name": "RowLabel"
+                  }
+                ]
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [
+              {
+                "from_node_id": "Make",
+                "from_pin": "ST_N2C_Row",
+                "to_node_id": "Set",
+                "to_pin": "StructRef"
+              },
+              {
+                "from_node_id": "Set",
+                "from_pin": "StructOut",
+                "to_node_id": "Break",
+                "to_pin": "ST_N2C_Row"
+              }
+            ],
+            "import_scope": "ContractMatrix/struct_make_set_break/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_MakeStruct",
+          "K2Node_SetFieldsInStruct",
+          "K2Node_BreakStruct"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "struct_missing_reject",
+      "family": "specialized",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Make",
+                "type": "K2Node_MakeStruct",
+                "struct_path": "/Game/N2C_Test/Missing.Missing"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/struct_missing_reject/patch/01"
+          }
+        ]
+      },
+      "expected": {},
+      "expected_report_contains": [
+        "struct_identity_missing"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "ai_controller_blueprint",
+      "family": "subclasses",
+      "fixture_kind": "ai",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_event_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Possess",
+                "type": "K2Node_Event",
+                "event_name": "ReceivePossess",
+                "event_owner_class": "/Script/AIModule.AIController",
+                "event_is_override": true
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/ai_controller_blueprint/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_Event"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "bt_decorator_blueprint",
+      "family": "subclasses",
+      "fixture_kind": "btdecorator",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Self",
+                "type": "K2Node_Self"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/bt_decorator_blueprint/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_Self"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "bt_service_blueprint",
+      "family": "subclasses",
+      "fixture_kind": "btservice",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Self",
+                "type": "K2Node_Self"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/bt_service_blueprint/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_Self"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "bt_task_blueprint",
+      "family": "subclasses",
+      "fixture_kind": "bttask",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Self",
+                "type": "K2Node_Self"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/bt_task_blueprint/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_Self"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "widget_blueprint",
+      "family": "subclasses",
+      "fixture_kind": "widget",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_widget_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Construct",
+                "type": "K2Node_Event",
+                "event_name": "Construct",
+                "event_owner_class": "/Script/UMG.UserWidget",
+                "event_is_override": true
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/widget_blueprint/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_Event"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_array_default",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_ContractArray",
+            "type": "int",
+            "container": "Array",
+            "default_value": "(1,2,3)"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_ContractArray",
+            "default_contains": "1"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_bad_struct_default_reject",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_BadRotator",
+            "type": "struct",
+            "struct_path": "/Script/CoreUObject.Rotator",
+            "default_value": "not-a-rotator"
+          }
+        ]
+      },
+      "expected": {
+        "variables_absent": [
+          "N2C_BadRotator"
+        ]
+      },
+      "expected_report_contains": [
+        "member_default_import_text_invalid"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_bool_add",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_ContractBool",
+            "type": "bool"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_ContractBool"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_change_default",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_ChangeDefault",
+            "type": "int",
+            "default_value": "1"
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_ChangeDefault",
+            "type": "int",
+            "default_value": "99",
+            "category": "N2C/Changed",
+            "flags": {
+              "instance_editable": true,
+              "save_game": true
+            }
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_ChangeDefault",
+            "default_contains": "99"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_class_add",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_ContractClass",
+            "type": "class",
+            "sub_category_object": "/Script/Engine.Actor"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_ContractClass"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_delete",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_DeleteMe",
+            "type": "int",
+            "default_value": "7"
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "delete_variable",
+            "variable_name": "N2C_DeleteMe"
+          }
+        ]
+      },
+      "expected": {
+        "variables_absent": [
+          "N2C_DeleteMe"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_enum_default",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_ContractEnum",
+            "type": "enum",
+            "enum_path": "/Script/Engine.EInputEvent",
+            "default_value": "IE_Pressed"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_ContractEnum",
+            "default_contains": "IE_Pressed"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_float_default",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_ContractFloat",
+            "type": "float",
+            "default_value": "3.5"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_ContractFloat",
+            "default_contains": "3.5"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_get_node",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_GetMe",
+            "type": "int",
+            "default_value": "5"
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Get",
+                "type": "K2Node_VariableGet",
+                "member_name": "N2C_GetMe"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/var_get_node/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_GetMe"
+          }
+        ],
+        "node_classes_present": [
+          "K2Node_VariableGet"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_get_to_function",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_StringToPrint",
+            "type": "string",
+            "default_value": "Hello"
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Get",
+                "type": "K2Node_VariableGet",
+                "member_name": "N2C_StringToPrint"
+              },
+              {
+                "id": "Print",
+                "type": "K2Node_CallFunction",
+                "function_path": "/Script/Engine.KismetSystemLibrary.PrintString",
+                "function_owner_class": "/Script/Engine.KismetSystemLibrary"
+              }
+            ],
+            "exec_edges": [],
+            "data_edges": [
+              {
+                "from_node_id": "Get",
+                "from_pin": "N2C_StringToPrint",
+                "to_node_id": "Print",
+                "to_pin": "InString"
+              }
+            ],
+            "import_scope": "ContractMatrix/var_get_to_function/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "node_classes_present": [
+          "K2Node_VariableGet",
+          "K2Node_CallFunction"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_int_default",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_ContractInt",
+            "type": "int",
+            "default_value": "42"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_ContractInt",
+            "default_contains": "42"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_invalid_type_reject",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_BadType",
+            "type": "definitely_not_a_type"
+          }
+        ]
+      },
+      "expected": {
+        "variables_absent": [
+          "N2C_BadType"
+        ]
+      },
+      "expected_report_contains": [
+        "ERROR:"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_map_default",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_ContractMap",
+            "type": "name",
+            "container": "Map",
+            "default_value": "((Alpha,1),(Beta,2))",
+            "value_type": {
+              "type": "int"
+            }
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_ContractMap",
+            "default_contains": "Alpha"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_missing_enum_reject",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": false,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_BadEnum",
+            "type": "enum",
+            "enum_path": "/Game/N2C_Test/DoesNotExist.DoesNotExist",
+            "default_value": "Missing"
+          }
+        ]
+      },
+      "expected": {
+        "variables_absent": [
+          "N2C_BadEnum"
+        ]
+      },
+      "expected_report_contains": [
+        "enum_member_type_unresolved"
+      ],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_name_default",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_ContractName",
+            "type": "name",
+            "default_value": "Alpha"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_ContractName",
+            "default_contains": "Alpha"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_object_default",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_ContractTable",
+            "type": "object",
+            "sub_category_object": "/Script/Engine.DataTable",
+            "default_value": "${DATA_TABLE}"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_ContractTable",
+            "default_contains": "DT_N2C_Row"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_raw_byte_default",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_ContractByte",
+            "type": "byte",
+            "default_value": "37"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_ContractByte",
+            "default_contains": "37"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_rename",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_OldVariable",
+            "type": "int",
+            "default_value": "1"
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "rename_variable",
+            "old_variable_name": "N2C_OldVariable",
+            "new_variable_name": "N2C_NewVariable",
+            "category": "N2C/Contract"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_NewVariable"
+          }
+        ],
+        "variables_absent": [
+          "N2C_OldVariable"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_rotator_default",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_ContractRotator",
+            "type": "struct",
+            "struct_path": "/Script/CoreUObject.Rotator",
+            "default_value": "(Pitch=10,Yaw=20,Roll=30)"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_ContractRotator",
+            "default_contains": "10"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_set_default",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_ContractSet",
+            "type": "name",
+            "container": "Set",
+            "default_value": "(Alpha,Beta)"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_ContractSet",
+            "default_contains": "Alpha"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_set_node",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "setup_patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_SetMe",
+            "type": "int",
+            "default_value": "1"
+          }
+        ]
+      },
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [
+          {
+            "type": "patch_graph",
+            "graph_name": "EventGraph",
+            "nodes": [
+              {
+                "id": "Event",
+                "type": "K2Node_CustomEvent",
+                "event_name": "N2C_SetEvent"
+              },
+              {
+                "id": "Set",
+                "type": "K2Node_VariableSet",
+                "member_name": "N2C_SetMe",
+                "pin_defaults": {
+                  "N2C_SetMe": "8"
+                }
+              }
+            ],
+            "exec_edges": [
+              {
+                "from_node_id": "Event",
+                "from_pin": "then",
+                "to_node_id": "Set",
+                "to_pin": "execute"
+              }
+            ],
+            "data_edges": [],
+            "import_scope": "ContractMatrix/var_set_node/patch/01"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_SetMe"
+          }
+        ],
+        "node_classes_present": [
+          "K2Node_VariableSet"
+        ],
+        "custom_events_present": [
+          "N2C_SetEvent"
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_soft_refs",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_ContractSoftObject",
+            "type": "softobject",
+            "sub_category_object": "/Script/Engine.Actor"
+          },
+          {
+            "name": "N2C_ContractSoftClass",
+            "type": "softclass",
+            "sub_category_object": "/Script/Engine.Actor"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_ContractSoftObject"
+          },
+          {
+            "name": "N2C_ContractSoftClass"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_string_default",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_ContractString",
+            "type": "string",
+            "default_value": "Contract String"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_ContractString",
+            "default_contains": "Contract String"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_text_default",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_ContractText",
+            "type": "text",
+            "default_value": "Contract Text"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_ContractText",
+            "default_contains": "Contract Text"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_transform_add",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_ContractTransform",
+            "type": "struct",
+            "struct_path": "/Script/CoreUObject.Transform"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_ContractTransform"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    },
+    {
+      "id": "var_vector_default",
+      "family": "variables",
+      "fixture_kind": "actor",
+      "expected_apply": true,
+      "patch": {
+        "schema": "N2C_PATCH_V1",
+        "target_blueprint": "${TARGET_NAME}",
+        "actions": [],
+        "variables": [
+          {
+            "name": "N2C_ContractVector",
+            "type": "struct",
+            "struct_path": "/Script/CoreUObject.Vector",
+            "default_value": "(X=1,Y=2,Z=3)"
+          }
+        ]
+      },
+      "expected": {
+        "variables_present": [
+          {
+            "name": "N2C_ContractVector",
+            "default_contains": "1"
+          }
+        ]
+      },
+      "expected_report_contains": [],
+      "fresh_session_required": true,
+      "reapply_required": true,
+      "notes": ""
+    }
+  ],
+  "coverage": {
+    "actions": [
+      {
+        "token": "add_event_dispatcher",
+        "cases": [
+          "alias_delete_dispatcher",
+          "alias_delete_dispatchers",
+          "alias_delete_event_dispatchers",
+          "delegate_bind_call_remove",
+          "delegate_delete_dispatcher"
+        ]
+      },
+      {
+        "token": "add_event_dispatchers",
+        "cases": [
+          "alias_add_event_dispatchers"
+        ]
+      },
+      {
+        "token": "add_event_graph_nodes",
+        "cases": [
+          "alias_add_event_graph_nodes"
+        ]
+      },
+      {
+        "token": "add_macro",
+        "cases": [
+          "alias_delete_macros",
+          "macro_add",
+          "macro_delete"
+        ]
+      },
+      {
+        "token": "add_member_variables",
+        "cases": [
+          "alias_add_member_variables"
+        ]
+      },
+      {
+        "token": "add_nodes_to_graph",
+        "cases": [
+          "alias_add_nodes_to_graph"
+        ]
+      },
+      {
+        "token": "add_or_replace_function",
+        "cases": [
+          "alias_delete_functions",
+          "alias_move_function_category",
+          "delegate_bind_call_remove",
+          "delegate_delete_dispatcher",
+          "fn_add_impure",
+          "fn_add_pure",
+          "fn_category",
+          "fn_delete",
+          "fn_invalid_name_reject",
+          "fn_multiple_results",
+          "fn_params_locals",
+          "fn_rename",
+          "fn_replace_body"
+        ]
+      },
+      {
+        "token": "add_scs_components",
+        "cases": [
+          "delegate_component_bound",
+          "scs_add_component",
+          "scs_invalid_class_reject",
+          "scs_update_component"
+        ]
+      },
+      {
+        "token": "add_variables",
+        "cases": [
+          "alias_add_variables"
+        ]
+      },
+      {
+        "token": "create_collapsed_graph",
+        "cases": [
+          "collapsed_create",
+          "collapsed_replace"
+        ]
+      },
+      {
+        "token": "delete_dispatcher",
+        "cases": [
+          "alias_delete_dispatcher"
+        ]
+      },
+      {
+        "token": "delete_dispatchers",
+        "cases": [
+          "alias_delete_dispatchers"
+        ]
+      },
+      {
+        "token": "delete_event_dispatcher",
+        "cases": [
+          "delegate_delete_dispatcher"
+        ]
+      },
+      {
+        "token": "delete_event_dispatchers",
+        "cases": [
+          "alias_delete_event_dispatchers"
+        ]
+      },
+      {
+        "token": "delete_event_graph_nodes",
+        "cases": [
+          "alias_delete_event_graph_nodes"
+        ]
+      },
+      {
+        "token": "delete_function",
+        "cases": [
+          "fn_delete"
+        ]
+      },
+      {
+        "token": "delete_functions",
+        "cases": [
+          "alias_delete_functions"
+        ]
+      },
+      {
+        "token": "delete_graph_nodes",
+        "cases": [
+          "graph_delete_node"
+        ]
+      },
+      {
+        "token": "delete_macro",
+        "cases": [
+          "macro_delete"
+        ]
+      },
+      {
+        "token": "delete_macros",
+        "cases": [
+          "alias_delete_macros"
+        ]
+      },
+      {
+        "token": "delete_member_variable",
+        "cases": [
+          "alias_delete_member_variable"
+        ]
+      },
+      {
+        "token": "delete_member_variables",
+        "cases": [
+          "alias_delete_member_variables"
+        ]
+      },
+      {
+        "token": "delete_variable",
+        "cases": [
+          "var_delete"
+        ]
+      },
+      {
+        "token": "delete_variables",
+        "cases": [
+          "alias_delete_variables"
+        ]
+      },
+      {
+        "token": "implement_interface",
+        "cases": [
+          "interface_implement"
+        ]
+      },
+      {
+        "token": "import_scs_hierarchy",
+        "cases": [
+          "alias_import_scs_hierarchy"
+        ]
+      },
+      {
+        "token": "move_function_to_category",
+        "cases": [
+          "alias_move_function_category"
+        ]
+      },
+      {
+        "token": "patch_animation_graph",
+        "cases": [
+          "action_patch_animation_graph_wrong_asset_reject"
+        ]
+      },
+      {
+        "token": "patch_event_graph",
+        "cases": [
+          "action_patch_event_graph"
+        ]
+      },
+      {
+        "token": "patch_graph",
+        "cases": [
+          "bt_decorator_blueprint",
+          "bt_service_blueprint",
+          "bt_task_blueprint",
+          "datatable_linked",
+          "datatable_linked_untyped_reject",
+          "datatable_literal",
+          "delegate_bind_call_remove",
+          "delegate_component_bound",
+          "delegate_missing_identity_reject",
+          "enum_node_family",
+          "graph_array_ops",
+          "graph_branch_sequence",
+          "graph_call_functions",
+          "graph_cast_self",
+          "graph_create_widget",
+          "graph_duplicate_node_id_reject",
+          "graph_events_parent",
+          "graph_incompatible_edge_reject",
+          "graph_input_nodes",
+          "graph_interface_message",
+          "graph_knot_edge",
+          "graph_missing_graph_reject",
+          "graph_missing_node_id_reject",
+          "graph_missing_pin_reject",
+          "graph_select",
+          "graph_spawn_actor",
+          "graph_unknown_node_reject",
+          "guard_node_add_component_reject",
+          "guard_node_ease_function_reject",
+          "guard_node_input_touch_reject",
+          "guard_node_local_ref_pose_wrong_asset_reject",
+          "guard_node_mpc_function_reject",
+          "guard_node_timeline_reject",
+          "struct_make_set_break",
+          "struct_missing_reject",
+          "var_get_node",
+          "var_get_to_function",
+          "var_set_node"
+        ]
+      },
+      {
+        "token": "patch_widget_graph",
+        "cases": [
+          "action_patch_widget_graph"
+        ]
+      },
+      {
+        "token": "rename_custom_event",
+        "cases": [
+          "graph_rename_custom_event"
+        ]
+      },
+      {
+        "token": "rename_function",
+        "cases": [
+          "fn_rename"
+        ]
+      },
+      {
+        "token": "rename_variable",
+        "cases": [
+          "var_rename"
+        ]
+      },
+      {
+        "token": "replace_collapsed_graph",
+        "cases": [
+          "collapsed_replace"
+        ]
+      },
+      {
+        "token": "replace_function_body",
+        "cases": [
+          "fn_missing_replace_reject",
+          "fn_replace_body"
+        ]
+      },
+      {
+        "token": "set_function_category",
+        "cases": [
+          "fn_category"
+        ]
+      },
+      {
+        "token": "update_scs_hierarchy",
+        "cases": [
+          "scs_update_component"
+        ]
+      }
+    ],
+    "nodes": [
+      {
+        "token": "AnimGraphNode_LocalRefPose",
+        "cases": [
+          "guard_node_local_ref_pose_wrong_asset_reject"
+        ]
+      },
+      {
+        "token": "ArrayAdd",
+        "cases": [
+          "NodeToCode.ManualReplay.FlowAndArrays"
+        ]
+      },
+      {
+        "token": "ArrayAddUnique",
+        "cases": [
+          "NodeToCode.ManualReplay.FlowAndArrays"
+        ]
+      },
+      {
+        "token": "ArrayClear",
+        "cases": [
+          "NodeToCode.ManualReplay.FlowAndArrays"
+        ]
+      },
+      {
+        "token": "ArrayContains",
+        "cases": [
+          "NodeToCode.ManualReplay.FlowAndArrays"
+        ]
+      },
+      {
+        "token": "ArrayFind",
+        "cases": [
+          "NodeToCode.ManualReplay.FlowAndArrays"
+        ]
+      },
+      {
+        "token": "ArrayGet",
+        "cases": [
+          "graph_array_ops"
+        ]
+      },
+      {
+        "token": "ArrayLength",
+        "cases": [
+          "graph_array_ops"
+        ]
+      },
+      {
+        "token": "ArrayRemove",
+        "cases": [
+          "NodeToCode.ManualReplay.FlowAndArrays"
+        ]
+      },
+      {
+        "token": "ArrayRemoveItem",
+        "cases": [
+          "NodeToCode.ManualReplay.FlowAndArrays"
+        ]
+      },
+      {
+        "token": "ArraySet",
+        "cases": [
+          "NodeToCode.ManualReplay.FlowAndArrays"
+        ]
+      },
+      {
+        "token": "Delay",
+        "cases": [
+          "NodeToCode.ManualReplay.FlowAndArrays"
+        ]
+      },
+      {
+        "token": "Entry",
+        "cases": [
+          "fn_add_impure"
+        ]
+      },
+      {
+        "token": "K2Node_AddComponent",
+        "cases": [
+          "guard_node_add_component_reject"
+        ]
+      },
+      {
+        "token": "K2Node_AddDelegate",
+        "cases": [
+          "delegate_bind_call_remove"
+        ]
+      },
+      {
+        "token": "K2Node_AssignDelegate",
+        "cases": [
+          "NodeToCode.ManualReplay.Delegates"
+        ]
+      },
+      {
+        "token": "K2Node_BreakStruct",
+        "cases": [
+          "struct_make_set_break"
+        ]
+      },
+      {
+        "token": "K2Node_CallArrayFunction",
+        "cases": [
+          "graph_array_ops"
+        ]
+      },
+      {
+        "token": "K2Node_CallDelegate",
+        "cases": [
+          "delegate_bind_call_remove"
+        ]
+      },
+      {
+        "token": "K2Node_CallFunction",
+        "cases": [
+          "graph_call_functions"
+        ]
+      },
+      {
+        "token": "K2Node_CallFunctionOnMember",
+        "cases": [
+          "NodeToCode.ManualReplay.ContextualEventGraph"
+        ]
+      },
+      {
+        "token": "K2Node_CallMaterialParameterCollectionFunction",
+        "cases": [
+          "guard_node_mpc_function_reject"
+        ]
+      },
+      {
+        "token": "K2Node_CallParentFunction",
+        "cases": [
+          "graph_events_parent"
+        ]
+      },
+      {
+        "token": "K2Node_CastByteToEnum",
+        "cases": [
+          "enum_node_family"
+        ]
+      },
+      {
+        "token": "K2Node_ClearDelegate",
+        "cases": [
+          "delegate_bind_call_remove"
+        ]
+      },
+      {
+        "token": "K2Node_CommutativeAssociativeBinaryOperator",
+        "cases": [
+          "NodeToCode.ManualReplay.FlowAndArrays"
+        ]
+      },
+      {
+        "token": "K2Node_ComponentBoundEvent",
+        "cases": [
+          "delegate_component_bound"
+        ]
+      },
+      {
+        "token": "K2Node_CreateDelegate",
+        "cases": [
+          "delegate_bind_call_remove"
+        ]
+      },
+      {
+        "token": "K2Node_CreateWidget",
+        "cases": [
+          "graph_create_widget"
+        ]
+      },
+      {
+        "token": "K2Node_CustomEvent",
+        "cases": [
+          "graph_branch_sequence"
+        ]
+      },
+      {
+        "token": "K2Node_DynamicCast",
+        "cases": [
+          "graph_cast_self"
+        ]
+      },
+      {
+        "token": "K2Node_EaseFunction",
+        "cases": [
+          "guard_node_ease_function_reject"
+        ]
+      },
+      {
+        "token": "K2Node_EnumEquality",
+        "cases": [
+          "enum_node_family"
+        ]
+      },
+      {
+        "token": "K2Node_EnumInequality",
+        "cases": [
+          "enum_node_family"
+        ]
+      },
+      {
+        "token": "K2Node_EnumLiteral",
+        "cases": [
+          "enum_node_family"
+        ]
+      },
+      {
+        "token": "K2Node_Event",
+        "cases": [
+          "graph_events_parent",
+          "widget_blueprint",
+          "ai_controller_blueprint"
+        ]
+      },
+      {
+        "token": "K2Node_ExecutionSequence",
+        "cases": [
+          "graph_branch_sequence"
+        ]
+      },
+      {
+        "token": "K2Node_ForEachElementInEnum",
+        "cases": [
+          "enum_node_family"
+        ]
+      },
+      {
+        "token": "K2Node_GetArrayItem",
+        "cases": [
+          "graph_array_ops"
+        ]
+      },
+      {
+        "token": "K2Node_GetDataTableRow",
+        "cases": [
+          "datatable_literal",
+          "datatable_linked"
+        ]
+      },
+      {
+        "token": "K2Node_GetEnumeratorNameAsString",
+        "cases": [
+          "enum_node_family"
+        ]
+      },
+      {
+        "token": "K2Node_IfThenElse",
+        "cases": [
+          "graph_branch_sequence"
+        ]
+      },
+      {
+        "token": "K2Node_InputAction",
+        "cases": [
+          "graph_input_nodes"
+        ]
+      },
+      {
+        "token": "K2Node_InputAxisEvent",
+        "cases": [
+          "graph_input_nodes"
+        ]
+      },
+      {
+        "token": "K2Node_InputAxisKeyEvent",
+        "cases": [
+          "graph_input_nodes"
+        ]
+      },
+      {
+        "token": "K2Node_InputKey",
+        "cases": [
+          "graph_input_nodes"
+        ]
+      },
+      {
+        "token": "K2Node_InputTouchEvent",
+        "cases": [
+          "guard_node_input_touch_reject"
+        ]
+      },
+      {
+        "token": "K2Node_Knot",
+        "cases": [
+          "graph_knot_edge"
+        ]
+      },
+      {
+        "token": "K2Node_MacroInstance",
+        "cases": [
+          "NodeToCode.ManualReplay.StandardMacros"
+        ]
+      },
+      {
+        "token": "K2Node_MakeArray",
+        "cases": [
+          "graph_array_ops"
+        ]
+      },
+      {
+        "token": "K2Node_MakeStruct",
+        "cases": [
+          "struct_make_set_break"
+        ]
+      },
+      {
+        "token": "K2Node_Message",
+        "cases": [
+          "graph_interface_message"
+        ]
+      },
+      {
+        "token": "K2Node_RemoveDelegate",
+        "cases": [
+          "delegate_bind_call_remove"
+        ]
+      },
+      {
+        "token": "K2Node_Select",
+        "cases": [
+          "graph_select"
+        ]
+      },
+      {
+        "token": "K2Node_Self",
+        "cases": [
+          "graph_cast_self"
+        ]
+      },
+      {
+        "token": "K2Node_SetFieldsInStruct",
+        "cases": [
+          "struct_make_set_break"
+        ]
+      },
+      {
+        "token": "K2Node_SpawnActorFromClass",
+        "cases": [
+          "graph_spawn_actor"
+        ]
+      },
+      {
+        "token": "K2Node_SwitchEnum",
+        "cases": [
+          "enum_node_family"
+        ]
+      },
+      {
+        "token": "K2Node_Timeline",
+        "cases": [
+          "guard_node_timeline_reject"
+        ]
+      },
+      {
+        "token": "K2Node_Tunnel",
+        "cases": [
+          "macro_add",
+          "collapsed_create"
+        ]
+      },
+      {
+        "token": "K2Node_VariableGet",
+        "cases": [
+          "var_get_node",
+          "var_get_to_function"
+        ]
+      },
+      {
+        "token": "K2Node_VariableSet",
+        "cases": [
+          "var_set_node"
+        ]
+      },
+      {
+        "token": "Return",
+        "cases": [
+          "fn_add_impure"
+        ]
+      }
+    ],
+    "guards": [
+      {
+        "token": "create_delegate_function_selection_lost",
+        "cases": [
+          "delegate_bind_call_remove"
+        ]
+      },
+      {
+        "token": "create_delegate_signature_missing",
+        "cases": [
+          "delegate_missing_identity_reject"
+        ]
+      },
+      {
+        "token": "create_widget_class_default_invalid",
+        "cases": [
+          "graph_create_widget"
+        ]
+      },
+      {
+        "token": "create_widget_class_identity_missing",
+        "cases": [
+          "widget_missing_class_identity_reject"
+        ]
+      },
+      {
+        "token": "datatable_identity_missing",
+        "cases": [
+          "datatable_missing_identity_reject"
+        ]
+      },
+      {
+        "token": "datatable_linked_output_untyped",
+        "cases": [
+          "datatable_linked_untyped_reject"
+        ]
+      },
+      {
+        "token": "datatable_row_type_not_persistent",
+        "cases": [
+          "datatable_linked"
+        ]
+      },
+      {
+        "token": "delegate_identity_mismatch",
+        "cases": [
+          "delegate_identity_mismatch_reject"
+        ]
+      },
+      {
+        "token": "edge_connection_failed",
+        "cases": [
+          "graph_incompatible_edge_reject"
+        ]
+      },
+      {
+        "token": "edge_node_missing",
+        "cases": [
+          "graph_edge_node_missing_reject"
+        ]
+      },
+      {
+        "token": "edge_pin_missing",
+        "cases": [
+          "graph_missing_pin_reject"
+        ]
+      },
+      {
+        "token": "enum_case_mismatch",
+        "cases": [
+          "enum_case_mismatch_reject"
+        ]
+      },
+      {
+        "token": "enum_identity_missing",
+        "cases": [
+          "enum_identity_missing_reject"
+        ]
+      },
+      {
+        "token": "enum_member_type_unresolved",
+        "cases": [
+          "var_missing_enum_reject"
+        ]
+      },
+      {
+        "token": "input_action_identity_missing",
+        "cases": [
+          "input_action_identity_missing_reject"
+        ]
+      },
+      {
+        "token": "input_key_identity_missing",
+        "cases": [
+          "input_key_identity_missing_reject"
+        ]
+      },
+      {
+        "token": "member_default_export_text_failed",
+        "cases": [
+          "var_rotator_default"
+        ]
+      },
+      {
+        "token": "member_default_import_text_invalid",
+        "cases": [
+          "var_bad_struct_default_reject"
+        ]
+      },
+      {
+        "token": "member_default_import_text_trailing_data",
+        "cases": [
+          "member_default_trailing_data_reject"
+        ]
+      },
+      {
+        "token": "member_default_struct_type_missing",
+        "cases": [
+          "var_invalid_type_reject"
+        ]
+      },
+      {
+        "token": "pin_default_invalid",
+        "cases": [
+          "NodeToCode.ManualReplay.ContextualEventGraph"
+        ]
+      },
+      {
+        "token": "pin_default_target_missing",
+        "cases": [
+          "pin_default_target_missing_reject"
+        ]
+      },
+      {
+        "token": "sandbox_apply_failed",
+        "cases": [
+          "NodeToCode.ManualReplay.SandboxPinPreflight"
+        ]
+      },
+      {
+        "token": "sandbox_duplicate_failed",
+        "cases": [
+          "NodeToCode.ManualReplay.SandboxPinPreflight"
+        ]
+      },
+      {
+        "token": "spawn_transform_link_missing",
+        "cases": [
+          "NodeToCode.ManualReplay.ContextualEventGraph"
+        ]
+      },
+      {
+        "token": "struct_identity_missing",
+        "cases": [
+          "struct_identity_missing_reject",
+          "struct_missing_reject"
+        ]
+      },
+      {
+        "token": "struct_member_identity_missing",
+        "cases": [
+          "struct_member_identity_missing_reject"
+        ]
+      },
+      {
+        "token": "struct_member_mismatch",
+        "cases": [
+          "struct_member_mismatch_reject"
+        ]
+      },
+      {
+        "token": "unsupported_parameter_flags",
+        "cases": [
+          "function_unsupported_parameter_flags_reject"
+        ]
+      }
+    ]
+  },
+  "policy": {
+    "new_action_or_node_requires_mapping": true,
+    "all_matrix_cases_require_two_fresh_process_verifications": true,
+    "positive_cases_require_compile_save_hash_persistence_and_idempotent_reapply": true,
+    "negative_cases_require_hash_equal_reject_before_mutation": true,
+    "manual_replay_may_supplement_only_engine_dependency_or_specialized_alias_paths": true
+  }
+}

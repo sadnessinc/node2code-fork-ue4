@@ -1,0 +1,27 @@
+{
+  "schema": "N2C_STATIC_AUDIT_V1",
+  "version": 180,
+  "version_name": "1.2.80-ue427-powershell-progress-parser-hotfix-candidate",
+  "generated_utc": "2026-07-15T22:33:25.269255Z",
+  "scope": {
+    "cross_platform_static_validation": true,
+    "windows_powershell_parser_runtime": false,
+    "ue427_build": false,
+    "editor_automation": false
+  },
+  "changes_verified": [
+    "progress line uses PowerShell format operator instead of unsafe variable-colon interpolation",
+    "CMD runs Test-N2CPowerShellSyntax.ps1 before main orchestrator",
+    "PowerShell and Python validators detect unsafe variable-colon interpolation",
+    "all expected ManualReplay registrations remain present"
+  ],
+  "status": "PASS",
+  "results": {
+    "required_tests": "22/22",
+    "powershell_scripts": "9/9 structurally validated; Windows parser preflight included",
+    "json": "11/11",
+    "cpp_header_csharp_balance": "72/72",
+    "unsafe_variable_colon_interpolation_hits": 0,
+    "package_hygiene": "PASS"
+  }
+}

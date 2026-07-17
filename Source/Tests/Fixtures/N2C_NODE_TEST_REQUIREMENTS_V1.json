@@ -1,0 +1,377 @@
+{
+  "schema": "N2C_NODE_TEST_REQUIREMENTS_V1",
+  "policy": "N2C_NEW_NODE_TEST_GATE",
+  "version": 195,
+  "rule": "Every newly supported importer action token, canonical node constructor family, alias, pin/default storage family, graph family, asset subclass, or reject-before-mutation guard must map to N2C_IMPORT_CONTRACT_MATRIX_V1 and pass Apply -> fresh verify -> idempotent Reapply -> second fresh verify before a release claim.",
+  "requirements": {
+    "positive": [
+      "strict preflight",
+      "real Apply",
+      "compile",
+      "save",
+      "close/unload",
+      "fresh UE process reopen",
+      "persisted semantic assertion",
+      "cleanup"
+    ],
+    "negative_when_applicable": [
+      "missing or invalid identity",
+      "missing pin or rejected connection",
+      "reject before mutation or verified rollback after mutation"
+    ],
+    "release_updates": [
+      "this matrix",
+      "ManualReplay or an explicitly mandatory release suite",
+      "fixture/manifest",
+      "coverage classifier evidence",
+      "current state and release notes",
+      "N2C_AI_JSON_IMPORT_AUTHORING_RULES.md"
+    ]
+  },
+  "capabilities": [
+    {
+      "id": "exhaustive_import_contract_matrix",
+      "status": "verified",
+      "node_types": [
+        "all currently declared supported action tokens",
+        "all canonical constructor families",
+        "member-variable lifecycle/default/container operations",
+        "exec/data pin-to-pin links",
+        "known reject-before-mutation guards"
+      ],
+      "positive_tests": [
+        "NodeToCode.ContractMatrix.Apply",
+        "NodeToCode.ContractMatrix.VerifyFreshFirst",
+        "NodeToCode.ContractMatrix.Reapply",
+        "NodeToCode.ContractMatrix.VerifyFreshSecond"
+      ],
+      "negative_tests": [
+        "NodeToCode.ContractMatrix.Apply",
+        "NodeToCode.ContractMatrix.VerifyFreshFirst",
+        "NodeToCode.ContractMatrix.Reapply",
+        "NodeToCode.ContractMatrix.VerifyFreshSecond"
+      ],
+      "fresh_process_required": true,
+      "release_claim_allowed": true,
+      "evidence": "N2C_IMPORT_CONTRACT_MATRIX_V1.json; 117 independent cases; two fresh UE4.27.2 processes per case; structural hash, compile/save, semantic assertion, idempotence, cleanup."
+    },
+    {
+      "id": "sandbox_pin_edge_preflight",
+      "status": "guarded",
+      "node_types": [
+        "transient Blueprint sandbox",
+        "canonical K2 pin names",
+        "UK2Node_Knot InputPin/OutputPin",
+        "schema connection rejection"
+      ],
+      "positive_tests": [
+        "NodeToCode.ManualReplay.SandboxPinPreflight"
+      ],
+      "negative_tests": [
+        "NodeToCode.ManualReplay.SandboxPinPreflight"
+      ],
+      "fresh_process_required": false,
+      "release_claim_allowed": false,
+      "todo": "Run Version 195 automation on UE4.27.2; then promote changed compile-parity paths."
+    },
+    {
+      "id": "flow_arrays",
+      "status": "verified",
+      "node_types": [
+        "K2Node_ExecutionSequence",
+        "K2Node_IfThenElse",
+        "K2Node_Select",
+        "K2Node_MakeArray",
+        "K2Node_GetArrayItem",
+        "K2Node_CallArrayFunction",
+        "Array aliases",
+        "Delay aliases"
+      ],
+      "positive_tests": [
+        "NodeToCode.ManualReplay.FlowAndArrays"
+      ],
+      "negative_tests": [
+        "NodeToCode.ManualReplay.PreflightRejectsWithoutMutation",
+        "NodeToCode.ManualReplay.SandboxPinPreflight"
+      ],
+      "fresh_process_required": true
+    },
+    {
+      "id": "struct_datatable",
+      "status": "verified",
+      "node_types": [
+        "K2Node_MakeStruct",
+        "K2Node_BreakStruct",
+        "K2Node_SetFieldsInStruct",
+        "K2Node_GetDataTableRow literal",
+        "K2Node_GetDataTableRow linked"
+      ],
+      "positive_tests": [
+        "NodeToCode.ManualReplay.StructAndDataTable"
+      ],
+      "negative_tests": [
+        "NodeToCode.ManualReplay.PreflightRejectsWithoutMutation"
+      ],
+      "fresh_process_required": true,
+      "notes": "Connected canonical MakeStruct/BreakStruct struct-name pins remain required; legacy ReturnValue/Struct aliases are compatibility-only regressions."
+    },
+    {
+      "id": "enum",
+      "status": "verified",
+      "node_types": [
+        "K2Node_EnumLiteral",
+        "K2Node_CastByteToEnum",
+        "K2Node_EnumEquality",
+        "K2Node_EnumInequality",
+        "K2Node_SwitchEnum",
+        "K2Node_GetEnumeratorNameAsString"
+      ],
+      "positive_tests": [
+        "NodeToCode.ManualReplay.Enum"
+      ],
+      "negative_tests": [
+        "NodeToCode.ManualReplay.MissingEnumReject"
+      ],
+      "fresh_process_required": true
+    },
+    {
+      "id": "contextual_event_graph",
+      "status": "verified",
+      "node_types": [
+        "K2Node_Event",
+        "K2Node_InputAction",
+        "K2Node_InputKey",
+        "K2Node_InputAxisEvent",
+        "K2Node_InputAxisKeyEvent",
+        "K2Node_DynamicCast",
+        "K2Node_Self",
+        "K2Node_CallFunction",
+        "K2Node_SpawnActorFromClass",
+        "KismetMathLibrary.MakeTransform",
+        "linked SpawnTransform compile contract"
+      ],
+      "positive_tests": [
+        "NodeToCode.ManualReplay.ContextualEventGraph"
+      ],
+      "negative_tests": [
+        "NodeToCode.ManualReplay.PreflightRejectsWithoutMutation",
+        "NodeToCode.ManualReplay.SandboxPinPreflight",
+        "NodeToCode.ManualReplay.ContextualEventGraph"
+      ],
+      "fresh_process_required": true,
+      "notes": "Version 195 positive path links MakeTransform.ReturnValue to SpawnActor.SpawnTransform; the same case rejects literal/unconnected transforms with spawn_transform_link_missing before mutation."
+    },
+    {
+      "id": "delegates",
+      "status": "verified",
+      "node_types": [
+        "Event dispatcher",
+        "K2Node_AssignDelegate",
+        "K2Node_AddDelegate",
+        "K2Node_RemoveDelegate",
+        "K2Node_CallDelegate",
+        "K2Node_ClearDelegate",
+        "K2Node_CreateDelegate",
+        "K2Node_ComponentBoundEvent"
+      ],
+      "positive_tests": [
+        "NodeToCode.ManualReplay.Delegates"
+      ],
+      "negative_tests": [
+        "NodeToCode.ManualReplay.PreflightRejectsWithoutMutation"
+      ],
+      "fresh_process_required": true,
+      "notes": "Version 195 creates the handler function earlier in the same patch, then binds it through CreateDelegate after OutputDelegate receives a concrete dispatcher signature."
+    },
+    {
+      "id": "function_boundaries",
+      "status": "verified",
+      "node_types": [
+        "K2Node_FunctionEntry",
+        "K2Node_FunctionResult",
+        "pure function internal exec",
+        "multiple result nodes"
+      ],
+      "positive_tests": [
+        "NodeToCode.ManualReplay.FunctionBoundaries"
+      ],
+      "negative_tests": [
+        "NodeToCode.ManualReplay.PreflightRejectsWithoutMutation"
+      ],
+      "fresh_process_required": true
+    },
+    {
+      "id": "macros_graph_boundaries",
+      "status": "verified",
+      "node_types": [
+        "K2Node_MacroInstance",
+        "K2Node_Tunnel",
+        "K2Node_Composite",
+        "collapsed graph"
+      ],
+      "positive_tests": [
+        "NodeToCode.ManualReplay.StandardMacros",
+        "NodeToCode.ManualReplay.GraphBoundaries"
+      ],
+      "negative_tests": [
+        "NodeToCode.ManualReplay.PreflightRejectsWithoutMutation"
+      ],
+      "fresh_process_required": true,
+      "assertions": [
+        "exact exported Composite BoundGraph identity remains accepted",
+        "canonical identity omitting generated K2Node_Composite_<n> remains accepted after save/unload/reload",
+        "repeat import does not create a duplicate Composite node",
+        "transient sandbox validates against the logical source Blueprint identity, not the transient duplicate object path"
+      ],
+      "supplemental_tests": [
+        "NodeToCode.Verification.P0GraphBoundaries.CompositeCanonicalIdentityRepeat"
+      ]
+    },
+    {
+      "id": "widget",
+      "status": "verified",
+      "node_types": [
+        "Widget Blueprint",
+        "K2Node_CreateWidget literal",
+        "K2Node_CreateWidget linked"
+      ],
+      "positive_tests": [
+        "NodeToCode.ManualReplay.Widget"
+      ],
+      "negative_tests": [
+        "NodeToCode.ManualReplay.PreflightRejectsWithoutMutation"
+      ],
+      "fresh_process_required": true
+    },
+    {
+      "id": "ai_blueprint_subclasses",
+      "status": "verified",
+      "node_types": [
+        "AIController Blueprint",
+        "BTTask Blueprint",
+        "BTService Blueprint",
+        "BTDecorator Blueprint"
+      ],
+      "positive_tests": [
+        "NodeToCode.ManualReplay.AIController",
+        "NodeToCode.ManualReplay.BTTask",
+        "NodeToCode.ManualReplay.BTService",
+        "NodeToCode.ManualReplay.BTDecorator"
+      ],
+      "negative_tests": [],
+      "fresh_process_required": true
+    },
+    {
+      "id": "member_defaults_and_raw_byte",
+      "status": "verified",
+      "node_types": [
+        "raw Byte/uint8 member",
+        "enum-backed Byte member",
+        "struct member default canonicalization",
+        "Rotator ImportText/ExportText"
+      ],
+      "positive_tests": [
+        "NodeToCode.ManualReplay.RawByteDefaultReopenExport"
+      ],
+      "negative_tests": [
+        "NodeToCode.ManualReplay.MissingEnumReject",
+        "NodeToCode.ManualReplay.RawByteDefaultReopenExport"
+      ],
+      "fresh_process_required": true,
+      "notes": "Version 195 round-trips raw Byte and normalizes Rotator input, persists it on the generated-class CDO through compile/save/fresh reopen, and exports it canonically; malformed struct and pin defaults are rejected before mutation."
+    },
+    {
+      "id": "rollback_restore",
+      "status": "verified",
+      "node_types": [
+        "preflight no mutation",
+        "post-mutation Undo",
+        "structural equality",
+        "queued disk restore"
+      ],
+      "positive_tests": [
+        "NodeToCode.ManualReplay.RollbackAfterMutation",
+        "NodeToCode.ManualReplay.RollbackStructuralEquality",
+        "NodeToCode.RestoreFirstPass.ManualReplayPendingRestore",
+        "NodeToCode.RestoreSecondPass.ManualReplayPendingRestore"
+      ],
+      "negative_tests": [
+        "NodeToCode.ManualReplay.PreflightRejectsWithoutMutation",
+        "NodeToCode.ManualReplay.SandboxPinPreflight"
+      ],
+      "fresh_process_required": true,
+      "notes": "Deferred disk restore is startup-only; no OnPreExit copy attempt is permitted."
+    },
+    {
+      "id": "editor_ui_contract",
+      "status": "verified",
+      "node_types": [
+        "dialog diagnostics",
+        "toolbar commands"
+      ],
+      "positive_tests": [
+        "NodeToCode.ManualReplay.DialogDiagnostics",
+        "NodeToCode.ManualReplay.ToolbarCommands"
+      ],
+      "negative_tests": [],
+      "fresh_process_required": false
+    },
+    {
+      "id": "animation_graph",
+      "status": "deferred",
+      "node_types": [
+        "AnimGraph node families",
+        "animation state machines",
+        "animation transitions"
+      ],
+      "positive_tests": [],
+      "negative_tests": [],
+      "fresh_process_required": true,
+      "release_claim_allowed": false,
+      "todo": "Full AnimGraph fidelity"
+    },
+    {
+      "id": "niagara_graph_roundtrip",
+      "status": "deferred",
+      "node_types": [
+        "full Niagara graph round-trip"
+      ],
+      "positive_tests": [],
+      "negative_tests": [],
+      "fresh_process_required": true,
+      "release_claim_allowed": false,
+      "todo": "Full Niagara graph round-trip fidelity"
+    },
+    {
+      "id": "schema_native_pin_defaults",
+      "status": "guarded",
+      "node_types": [
+        "all non-wildcard Blueprint input pin defaults",
+        "SpawnActor class literal",
+        "GetDataTableRow literal table",
+        "Tunnel boundary defaults"
+      ],
+      "positive_test": "NodeToCode.ManualReplay.ContextualEventGraph + StructAndDataTable + GraphBoundaries",
+      "negative_test": "SpawnActorClassDefaultReject + RotatorPinDefaultReject",
+      "persistence": "compile/save/unload/fresh-process reopen; class/object defaults stored semantically; member struct defaults verified from CDO/export",
+      "notes": "Authored JSON is converted by UEdGraphSchema_K2::GetPinDefaultValuesFromString and validated as the DefaultValue/DefaultObject/DefaultTextValue tuple.",
+      "release_claim_allowed": false,
+      "fresh_process_required": false
+    }
+  ],
+  "contract_matrix": {
+    "schema": "N2C_IMPORT_CONTRACT_MATRIX_V1",
+    "case_count": 117,
+    "action_token_count": 38,
+    "node_family_count": 63,
+    "runtime_guard_count": 29,
+    "negative_case_count": 36,
+    "phases": [
+      "NodeToCode.ContractMatrix.Apply",
+      "NodeToCode.ContractMatrix.VerifyFreshFirst",
+      "NodeToCode.ContractMatrix.Reapply",
+      "NodeToCode.ContractMatrix.VerifyFreshSecond",
+      "NodeToCode.ContractMatrix.Cleanup"
+    ]
+  }
+}

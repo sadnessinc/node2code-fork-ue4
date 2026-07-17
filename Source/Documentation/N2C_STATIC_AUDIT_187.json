@@ -1,0 +1,46 @@
+{
+  "schema": "N2C_STATIC_AUDIT_SUMMARY_V1",
+  "version": 187,
+  "version_name": "1.2.87-ue427-powershell-json-edge-schema-hotfix-candidate",
+  "result": "PASS",
+  "scope": "Static source/package validation only; no UE4 C++ build or Editor automation for Version 187.",
+  "validated_utc": "2026-07-16T07:24:04.529056+00:00",
+  "checks": {
+    "required_files": "PASS",
+    "json_parse": "PASS (18/18)",
+    "cpp_header_csharp_lexical_balance": "PASS (72/72)",
+    "powershell_delimiter_balance": "PASS (9/9)",
+    "mixed_edge_schema_contract": {
+      "result": "PASS",
+      "node_id_edges": 45,
+      "compact_edges": 2,
+      "property_not_found_risk": "explicit PSObject.Properties normalization"
+    },
+    "final_manual_pin_contract": {
+      "result": "PASS",
+      "errors": [],
+      "counters": {
+        "edge_schema_node_id": 45,
+        "edge_schema_compact": 2,
+        "make_struct_edges": 1,
+        "set_fields_in_edges": 1,
+        "break_struct_edges": 1,
+        "set_fields_out_edges": 1
+      }
+    },
+    "current_run_crash_filter": "PASS",
+    "package_manifest": "PASS"
+  },
+  "runtime_status": {
+    "verified_baseline": "Version 185: UE4.27.2 build PASS, Main ManualReplay 21/21 PASS, restore first/second PASS.",
+    "version_186_attempt": "PowerShell parser preflight and process runner self-test PASS; static validation failed before build on mixed edge schema.",
+    "version_187_build": "NOT_RUN",
+    "version_187_main_automation": "NOT_RUN",
+    "version_187_restore_first_second": "NOT_RUN"
+  },
+  "changes_under_test": [
+    "PowerShell static validator supports from_node_id/to_node_id and from/to edge forms under StrictMode.",
+    "Malformed or mixed edge objects produce explicit schema errors.",
+    "Diagnostic crash collection is limited to the current automation run."
+  ]
+}

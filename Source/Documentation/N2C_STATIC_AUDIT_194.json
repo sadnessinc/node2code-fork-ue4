@@ -1,0 +1,1725 @@
+{
+  "schema": "N2C_STATIC_AUDIT_V1",
+  "version": 194,
+  "version_name": "1.2.94-ue427-powershell-strictmode-collection-hardening-candidate",
+  "scope": "static source/package validation only; no UE4 C++ build or Editor automation",
+  "result": "PASS",
+  "failures": [],
+  "warnings": [],
+  "checks": {
+    "required_files": {
+      "required": 55,
+      "missing": []
+    },
+    "release_metadata": {
+      "version": 194,
+      "version_name": "1.2.94-ue427-powershell-strictmode-collection-hardening-candidate",
+      "dynamic_required": [
+        "N2C_FINAL_MANUAL_ALL_STRICT_SUPPORTED_V194.json",
+        "Source/Tests/Fixtures/ManualReplay/N2C_FINAL_MANUAL_ALL_STRICT_SUPPORTED_V194.json",
+        "Source/Documentation/N2C_RELEASE_NOTES_194.md",
+        "Source/Documentation/N2C_STATIC_AUDIT_194.json",
+        "Source/Documentation/N2C_IMPORT_CONTRACT_MATRIX_CATALOG_194.md"
+      ],
+      "missing": []
+    },
+    "package_hygiene": {
+      "forbidden_directories": [],
+      "forbidden_files": []
+    },
+    "json": {
+      "count": 24,
+      "results": [
+        {
+          "path": "N2C_FINAL_MANUAL_ALL_STRICT_SUPPORTED_V194.json",
+          "result": "PASS"
+        },
+        {
+          "path": "PACKAGE_MANIFEST.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_173.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_178.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_179.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_180.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_181.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_182.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_185.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_186.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_187.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_190.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_191.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_192.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_193.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Documentation/N2C_UNSUPPORTED_NODE_SCAN_20260713.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Tests/Fixtures/Hotfix172/manifest.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Tests/Fixtures/ManualReplay/N2C_FINAL_MANUAL_ALL_STRICT_SUPPORTED_V194.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Tests/Fixtures/ManualReplay/N2C_MANUAL_REPLAY_MANIFEST_V1.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Tests/Fixtures/ManualReplay/enum_missing_negative.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Tests/Fixtures/ManualReplay/raw_byte_positive.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Tests/Fixtures/N2C_IMPORT_CONTRACT_MATRIX_V1.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Tests/Fixtures/N2C_NODE_TEST_REQUIREMENTS_V1.json",
+          "result": "PASS"
+        },
+        {
+          "path": "Source/Tests/Fixtures/N2C_P0_FIXTURE_MANIFEST_V1.json",
+          "result": "PASS"
+        }
+      ],
+      "patch_contract_errors": []
+    },
+    "p0_manifest": {
+      "declared": 83,
+      "actual": 83,
+      "unique": 83,
+      "historical": true
+    },
+    "manual_replay_manifest": {
+      "declared": 23,
+      "actual": 23,
+      "unique": 23,
+      "process_counts": {
+        "main": 21,
+        "restore_first": 1,
+        "restore_second": 1
+      },
+      "tests": [
+        "NodeToCode.ManualReplay.FlowAndArrays",
+        "NodeToCode.ManualReplay.StructAndDataTable",
+        "NodeToCode.ManualReplay.Enum",
+        "NodeToCode.ManualReplay.ContextualEventGraph",
+        "NodeToCode.ManualReplay.Delegates",
+        "NodeToCode.ManualReplay.FunctionBoundaries",
+        "NodeToCode.ManualReplay.StandardMacros",
+        "NodeToCode.ManualReplay.GraphBoundaries",
+        "NodeToCode.ManualReplay.Widget",
+        "NodeToCode.ManualReplay.AIController",
+        "NodeToCode.ManualReplay.BTTask",
+        "NodeToCode.ManualReplay.BTService",
+        "NodeToCode.ManualReplay.BTDecorator",
+        "NodeToCode.ManualReplay.PreflightRejectsWithoutMutation",
+        "NodeToCode.ManualReplay.SandboxPinPreflight",
+        "NodeToCode.ManualReplay.RollbackAfterMutation",
+        "NodeToCode.ManualReplay.RollbackStructuralEquality",
+        "NodeToCode.ManualReplay.DialogDiagnostics",
+        "NodeToCode.ManualReplay.ToolbarCommands",
+        "NodeToCode.ManualReplay.RawByteDefaultReopenExport",
+        "NodeToCode.ManualReplay.MissingEnumReject",
+        "NodeToCode.RestoreFirstPass.ManualReplayPendingRestore",
+        "NodeToCode.RestoreSecondPass.ManualReplayPendingRestore"
+      ],
+      "missing_fixture_files": []
+    },
+    "ai_json_authoring_rules": {
+      "path": "N2C_AI_JSON_IMPORT_AUTHORING_RULES.md",
+      "chars": 20743
+    },
+    "final_manual_pin_contract": {
+      "result": "PASS",
+      "errors": [],
+      "counters": {
+        "edge_schema_node_id": 46,
+        "edge_schema_compact": 2,
+        "stable_patch_graph_scopes": 10,
+        "make_struct_edges": 1,
+        "set_fields_in_edges": 1,
+        "break_struct_edges": 1,
+        "set_fields_out_edges": 1,
+        "spawn_actor_nodes": 1,
+        "spawn_actor_class_defaults": 1
+      }
+    },
+    "final_manual_composite_identity": {
+      "actions": 1,
+      "canonical": true
+    },
+    "new_node_test_gate": {
+      "capabilities": 17,
+      "verified": 13,
+      "deferred": 2
+    },
+    "import_contract_matrix": {
+      "cases": 117,
+      "actions": 38,
+      "nodes": 63,
+      "guards": 29,
+      "negative": 36
+    },
+    "required_tests": {
+      "required": 23,
+      "missing": [],
+      "required_case_markers": 23,
+      "missing_case_markers": [],
+      "headless_harness_missing": []
+    },
+    "importer_contract": {
+      "missing_markers": [],
+      "transaction_cancel_calls": 0
+    },
+    "delegate_pin_contract": {
+      "missing_importer_markers": [],
+      "missing_same_patch_test_markers": []
+    },
+    "manual_apply_compile_parity": {
+      "missing_spawn_markers": [],
+      "missing_member_default_markers": [],
+      "raw_schema_bypass_writes": [],
+      "startup_only_restore": true
+    },
+    "manual_replay_fixes": {
+      "missing_exporter_markers": [],
+      "contextual_input_flags": true,
+      "raw_byte_diagnostics": true
+    },
+    "release_tool_single_source": {
+      "errors": []
+    },
+    "script_contract": {
+      "orchestrator_missing": [],
+      "package_missing": [],
+      "search_missing": [],
+      "verification_missing": [],
+      "project_export_missing": [],
+      "cmd_missing": []
+    },
+    "lexical_balance": {
+      "count": 72,
+      "results": [
+        {
+          "path": "Source/NodeToCode.Build.cs",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Core/N2CAIExport.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Core/N2CCoverage.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Core/N2CEditorIntegration.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Core/N2CMacroReference.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Core/N2CNodeCollector.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Core/N2CNodeTranslator.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Core/N2CPatchImporter.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Core/N2CRoundTripVerification.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Core/N2CSerializer.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Core/N2CSettings.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Core/N2CStructuralSnapshot.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Core/N2CToolbarCommand.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Models/N2CBlueprint.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Models/N2CNode.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Models/N2CPin.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Models/N2CStyle.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/N2CVerificationTests.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/NodeToCode.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Utils/N2CLogger.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Utils/N2CNodeTypeRegistry.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Utils/N2CPinTypeCompatibility.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CArrayProcessor.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CBaseNodeProcessor.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CCastProcessor.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CDelegateProcessor.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CEventProcessor.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CFlowControlProcessor.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CFunctionCallProcessor.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CFunctionEntryProcessor.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CNodeProcessorFactory.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CStructProcessor.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CVariableProcessor.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Utils/Validators/N2CBlueprintValidator.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Utils/Validators/N2CNodeValidator.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Private/Utils/Validators/N2CPinValidator.cpp",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Core/N2CAIExport.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Core/N2CCoverage.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Core/N2CEditorIntegration.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Core/N2CMacroReference.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Core/N2CNodeCollector.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Core/N2CNodeTranslator.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Core/N2CPatchImporter.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Core/N2CRoundTripVerification.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Core/N2CSerializer.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Core/N2CSettings.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Core/N2CStructuralSnapshot.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Core/N2CToolbarCommand.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Models/N2CBlueprint.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Models/N2CLogging.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Models/N2CNode.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Models/N2CPin.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Models/N2CStyle.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/NodeToCode.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Utils/N2CLogger.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Utils/N2CNodeTypeRegistry.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Utils/N2CPinTypeCompatibility.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CArrayProcessor.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CBaseNodeProcessor.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CCastProcessor.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CDelegateProcessor.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CEventProcessor.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CFlowControlProcessor.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CFunctionCallProcessor.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CFunctionEntryProcessor.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CNodeProcessor.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CNodeProcessorFactory.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CStructProcessor.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CVariableProcessor.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Utils/Validators/N2CBlueprintValidator.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Utils/Validators/N2CNodeValidator.h",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Source/Public/Utils/Validators/N2CPinValidator.h",
+          "result": "PASS",
+          "errors": []
+        }
+      ]
+    },
+    "powershell_reserved_variables": {
+      "assignment_hits": [],
+      "forbidden_reference_hits": []
+    },
+    "powershell_interpolation": {
+      "unsafe_hits": []
+    },
+    "powershell_delimiter_balance": {
+      "scope": "basic delimiter check, not execution/parser proof",
+      "count": 9,
+      "results": [
+        {
+          "path": "Scripts/Codex/Audit-N2CProjectExport.ps1",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Scripts/Codex/Build-N2CEditor.ps1",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Scripts/Codex/Invoke-N2CFullValidation.ps1",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Scripts/Codex/Package-N2CPlugin.ps1",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Scripts/Codex/Run-N2CProjectExport.ps1",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Scripts/Codex/Run-N2CVerification.ps1",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Scripts/Codex/Search-UE427Source.ps1",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Scripts/Codex/Test-N2CPowerShellSyntax.ps1",
+          "result": "PASS",
+          "errors": []
+        },
+        {
+          "path": "Scripts/Codex/Validate-N2CFiles.ps1",
+          "result": "PASS",
+          "errors": []
+        }
+      ]
+    },
+    "text_hygiene": {
+      "machine_paths": [],
+      "potential_secrets": []
+    },
+    "ue427_reference_headers": {
+      "status": "NOT_RUN"
+    },
+    "package_manifest": {
+      "status": "PASS",
+      "rows": 192,
+      "errors": []
+    },
+    "inventory": {
+      "file_count": 191,
+      "total_bytes": 3555817,
+      "top_text_files_by_lines": [
+        {
+          "path": "Source/Private/Core/N2CEditorIntegration.cpp",
+          "lines": 11611
+        },
+        {
+          "path": "Source/Private/Core/N2CPatchImporter.cpp",
+          "lines": 9262
+        },
+        {
+          "path": "Source/Tests/Fixtures/N2C_IMPORT_CONTRACT_MATRIX_V1.json",
+          "lines": 6408
+        },
+        {
+          "path": "Source/Documentation/N2C_UNSUPPORTED_NODE_SCAN_20260713.json",
+          "lines": 5606
+        },
+        {
+          "path": "Source/Private/Core/N2CAIExport.cpp",
+          "lines": 4795
+        },
+        {
+          "path": "Source/Private/N2CVerificationTests.cpp",
+          "lines": 4131
+        },
+        {
+          "path": "N2C_FINAL_MANUAL_ALL_STRICT_SUPPORTED_V194.json",
+          "lines": 2721
+        },
+        {
+          "path": "Source/Tests/Fixtures/ManualReplay/N2C_FINAL_MANUAL_ALL_STRICT_SUPPORTED_V194.json",
+          "lines": 2721
+        },
+        {
+          "path": "Source/Private/Core/N2CNodeTranslator.cpp",
+          "lines": 1803
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_193.json",
+          "lines": 1712
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_192.json",
+          "lines": 1655
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_191.json",
+          "lines": 1630
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_190.json",
+          "lines": 1617
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_185.json",
+          "lines": 1512
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_182.json",
+          "lines": 1429
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_181.json",
+          "lines": 1402
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_179.json",
+          "lines": 1340
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_178.json",
+          "lines": 1325
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_173.json",
+          "lines": 1256
+        },
+        {
+          "path": "Scripts/Codex/Invoke-N2CFullValidation.ps1",
+          "lines": 1146
+        }
+      ],
+      "files": [
+        {
+          "path": "CHANGELOG.md",
+          "size": 13979,
+          "sha256": "1b909024f9452764a4bccf3d85f9205f90843f3bad71ae9657c948ab4cbc0055"
+        },
+        {
+          "path": "CODEX_PLUGIN_START_HERE.md",
+          "size": 1124,
+          "sha256": "b8520fc71b92681262526334bc56d3c07963fb30bde4d9705ddc6751da892ac7"
+        },
+        {
+          "path": "LICENSE",
+          "size": 11357,
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        {
+          "path": "N2C_AI_JSON_IMPORT_AUTHORING_RULES.md",
+          "size": 20752,
+          "sha256": "c00013210da02c9f94b7df4651fcffc530f9c9459c4cc5bfe996e052649ebce4"
+        },
+        {
+          "path": "N2C_FINAL_MANUAL_ALL_STRICT_SUPPORTED_V194.json",
+          "size": 91714,
+          "sha256": "7e32b9bb331496b540ac077f8d1aa88c9d8af30b5cc243756aa0c1a409c04653"
+        },
+        {
+          "path": "NodeToCode.uplugin",
+          "size": 1408,
+          "sha256": "fecec2af59264647824321cf798cedcd2e2a6d3c67593fed8760ac75e1c7bee0"
+        },
+        {
+          "path": "README.md",
+          "size": 5683,
+          "sha256": "a635167e036aede4e9c600f05b3440a6c801fc61248a6f6a4fd2f9e68887f489"
+        },
+        {
+          "path": "Resources/Icon128.png",
+          "size": 4261,
+          "sha256": "af78747efd22540ab2a8bdd88b9d787bed76d9f06d3030f7d5660b560f3a0443"
+        },
+        {
+          "path": "Resources/button_icon.png",
+          "size": 1966,
+          "sha256": "a976cf63ccf8ee153df30b4f7297839fff4108ca0a89d545b1b1a0d31500b0a7"
+        },
+        {
+          "path": "Resources/export_arrow_green.png",
+          "size": 741,
+          "sha256": "584e9637b83b671d30793f77df3540b659fc594f2ca2cfa2f48dea25f935de3c"
+        },
+        {
+          "path": "Resources/import_arrow_red.png",
+          "size": 729,
+          "sha256": "6b23486c4d846a7717bc56b05e318218d120975762f49b2a2665f899fc67fade"
+        },
+        {
+          "path": "Scripts/Codex/Audit-N2CProjectExport.ps1",
+          "size": 18375,
+          "sha256": "c3235a010ad7f0ce83ba69b2e79ec7e642e8e3a47b01c9a118d9c5194d7ab2e5"
+        },
+        {
+          "path": "Scripts/Codex/Build-N2CEditor.ps1",
+          "size": 1738,
+          "sha256": "879420310b89a101ef8c304f11fe763f78adb6166f7272c3e0415ff9f2d7fcf5"
+        },
+        {
+          "path": "Scripts/Codex/Invoke-N2CFullValidation.ps1",
+          "size": 57565,
+          "sha256": "de541a886a7bba36d307a080d19bbd0fc19ca8b211b4af14812f453cc8897197"
+        },
+        {
+          "path": "Scripts/Codex/Package-N2CPlugin.ps1",
+          "size": 6452,
+          "sha256": "567f22b93c6cdb8db44493c5305601ee604ea1058d239ca04c03a817c303962e"
+        },
+        {
+          "path": "Scripts/Codex/Run-N2CProjectExport.ps1",
+          "size": 2703,
+          "sha256": "f03bccf0b2f30ce665d2b3a357e7173752ae5d56fbcb7fe3e2b04c067256f94c"
+        },
+        {
+          "path": "Scripts/Codex/Run-N2CVerification.ps1",
+          "size": 3113,
+          "sha256": "b431789c4279ee1e414067d2da475517a7dd2b426b272aac6f38bc495621d0d9"
+        },
+        {
+          "path": "Scripts/Codex/Search-UE427Source.ps1",
+          "size": 1211,
+          "sha256": "baafe4eac0bb57fb366d8b3dee7cf4823d8e650a959d84cc253cf62a368ba1b9"
+        },
+        {
+          "path": "Scripts/Codex/Test-N2CPowerShellSyntax.ps1",
+          "size": 1340,
+          "sha256": "d1c7dcae9f6cdc5d6331167ed586e9c8d6dca394f46c6a88bbee35592c0a295c"
+        },
+        {
+          "path": "Scripts/Codex/Validate-N2CFiles.ps1",
+          "size": 64978,
+          "sha256": "5d323e9cf8b116c8996d189b27df26b765c57593e8ae26ef3ab31012aa2ab421"
+        },
+        {
+          "path": "Scripts/Codex/Validate-N2CImportContractMatrix.py",
+          "size": 7522,
+          "sha256": "eda68e462130b02d2a6d84845e56df76212e3fa388c50521a2abf411be4f3ade"
+        },
+        {
+          "path": "Scripts/Codex/validate_n2c_release.py",
+          "size": 67733,
+          "sha256": "94cbf4cd3d611284ccb9104bb6b1f71575c55a8d500444ed42c45ea07d078d90"
+        },
+        {
+          "path": "Scripts/RUN_N2C_AUTOMATION_AND_PACK.cmd",
+          "size": 2521,
+          "sha256": "4f58a80647ea217c405ea6b6677e82eb86d475a153b4e134a7542015aa5886bf"
+        },
+        {
+          "path": "Source/Documentation/AGENTS.md",
+          "size": 975,
+          "sha256": "f8c10d8fcc30886b1c7272beb37df046640e1656080a6f37fa2d3eb394e0a464"
+        },
+        {
+          "path": "Source/Documentation/BACK2DEAD_PATCH_SCHEMA.md",
+          "size": 6674,
+          "sha256": "2973dbf110124bbd2f75edf89bdd06aee1e410a8e271411b21f50d71cd372bf8"
+        },
+        {
+          "path": "Source/Documentation/N2C_AI_JSON_IMPORT_AUTHORING_RULES.md",
+          "size": 20752,
+          "sha256": "c00013210da02c9f94b7df4651fcffc530f9c9459c4cc5bfe996e052649ebce4"
+        },
+        {
+          "path": "Source/Documentation/N2C_ARCHITECTURE_MAP.md",
+          "size": 2743,
+          "sha256": "bd80cb55e12df0e974cc9fce6a023000ad9851c89916303ab0581e2203f992b1"
+        },
+        {
+          "path": "Source/Documentation/N2C_AUTOMATION_FAILURE_AUDIT_20260716_101223.md",
+          "size": 1314,
+          "sha256": "25f1785b66e077f04eb9bb65b30cac25c5a685282d2ec33290368ac5688404c9"
+        },
+        {
+          "path": "Source/Documentation/N2C_AUTOMATION_FAILURE_AUDIT_20260716_114128.md",
+          "size": 993,
+          "sha256": "20be88244d72181b6ef0a6a5e44ece1b826b4bd9a8a610189eeb427646810ecc"
+        },
+        {
+          "path": "Source/Documentation/N2C_AUTOMATION_FAILURE_AUDIT_20260716_123716.md",
+          "size": 1167,
+          "sha256": "5dde0887c658ac17b372b83f8fc722c0e9ec7a99560734ed8c47c67a96e8048b"
+        },
+        {
+          "path": "Source/Documentation/N2C_AUTOMATION_FAILURE_AUDIT_20260716_125908.md",
+          "size": 2123,
+          "sha256": "560ba8e0b10f162e0eb9b95d9eea582a6ca60209c54814e1dda86703ca3001e1"
+        },
+        {
+          "path": "Source/Documentation/N2C_AUTOMATION_FAILURE_AUDIT_20260716_132757.md",
+          "size": 1101,
+          "sha256": "57dc8928a3c15bb70e75218cbcbd182b2cc9e022ba8328877e2780dff0c0c468"
+        },
+        {
+          "path": "Source/Documentation/N2C_AUTOMATION_FAILURE_AUDIT_20260716_143553.md",
+          "size": 1262,
+          "sha256": "396cc4e9b90ff3099738e19863134d8706090ff2a0f996ea96954df38f540c1e"
+        },
+        {
+          "path": "Source/Documentation/N2C_AUTOMATION_REPORT_20260716_014238.md",
+          "size": 3514,
+          "sha256": "e03098e08842105f8ebf083d02b12c76627a52a5605acab1ed9e17321a9dc55f"
+        },
+        {
+          "path": "Source/Documentation/N2C_AUTOMATION_REPORT_20260716_090558.md",
+          "size": 1023,
+          "sha256": "9d3d6746e8a7a691664f4dd0364b792b7358b0dc4833b43d56c404e9d17129e5"
+        },
+        {
+          "path": "Source/Documentation/N2C_AUTOMATION_REPORT_20260716_092715.md",
+          "size": 3175,
+          "sha256": "4d64930652ec72a40306fdd77fb4c01d82dc4d7515a839168f60989860974bb9"
+        },
+        {
+          "path": "Source/Documentation/N2C_AUTOMATION_RUNNER_HOTFIX_174.md",
+          "size": 1384,
+          "sha256": "ac37072c2ef026e6e2d12882c020ccae3a29e69973541be20017a9e48b730060"
+        },
+        {
+          "path": "Source/Documentation/N2C_AUTOMATION_RUNNER_UX_FIX_175.md",
+          "size": 1921,
+          "sha256": "f29c6cf28e1d8ac79bbbcb60e200db89cc9e707717350ff3dbaa9b087ea1fa83"
+        },
+        {
+          "path": "Source/Documentation/N2C_BACK2DEAD_PRODUCTION_AUDIT_20260714.md",
+          "size": 5099,
+          "sha256": "fc17b4e0d70e77ec3409f33c4a01f2316ae6e6c077bb8c388e0ed0a5b6869c5e"
+        },
+        {
+          "path": "Source/Documentation/N2C_BACK2DEAD_PROJECT_EXPORT_AUDIT_20260713.md",
+          "size": 3058,
+          "sha256": "1e275b7253814245e39293f56a29c5e859985038ea0463af22e8da495b3d8d4d"
+        },
+        {
+          "path": "Source/Documentation/N2C_BLUEPRINT_JSON_WORKFLOW.md",
+          "size": 24217,
+          "sha256": "99087708e6389739aaf48ededc4de0878b352e19d815d1a28522ddad372e50fd"
+        },
+        {
+          "path": "Source/Documentation/N2C_COVERAGE_SIDECAR_V1.md",
+          "size": 1879,
+          "sha256": "9b76b80e001cd17d6f23d1926f5289107125353c8bddbdbe0216b7d3f220f619"
+        },
+        {
+          "path": "Source/Documentation/N2C_CURRENT_STATE.md",
+          "size": 3646,
+          "sha256": "2ffbe7ef5b6e0a304408d54088691c231f679582c96e5e075a844903b2d63398"
+        },
+        {
+          "path": "Source/Documentation/N2C_DOCUMENT_AUTHORITY.md",
+          "size": 787,
+          "sha256": "6e1f21754c64a57adba44ae0db4e1840767df71ad3995e7775c229bd47c4292d"
+        },
+        {
+          "path": "Source/Documentation/N2C_EXTERNAL_MACRO_REFERENCES.md",
+          "size": 1959,
+          "sha256": "68664d71b2d59fa9f13f85b7d15ed870147ed9823b85bf9a80af6669dc0cc41d"
+        },
+        {
+          "path": "Source/Documentation/N2C_FAILED_IMPORT_PROJECT_EXPORT_AUDIT_20260716_031216.md",
+          "size": 2554,
+          "sha256": "e7b1787186fe579907e9ea9ede54e66c63c2708f61ac9831e81393b08950179b"
+        },
+        {
+          "path": "Source/Documentation/N2C_FULL_REVIEW_173.md",
+          "size": 7589,
+          "sha256": "1a62559527e7b2beb6b7b78f94b450e545bcb21dfde110f369d24b276cdcd870"
+        },
+        {
+          "path": "Source/Documentation/N2C_HOTFIX_172.md",
+          "size": 3371,
+          "sha256": "deeb63aa20064f0523101fa5cf92c45d187920ece9bab6296d7e6ef1b0794d4a"
+        },
+        {
+          "path": "Source/Documentation/N2C_IMPORT_CONTRACT_MATRIX_CATALOG_193.md",
+          "size": 6249,
+          "sha256": "3d53d66ab29a9d3cbab06a8bd849379b9f083b8e9a8306308d5b74088da3aba7"
+        },
+        {
+          "path": "Source/Documentation/N2C_IMPORT_CONTRACT_MATRIX_CATALOG_194.md",
+          "size": 6252,
+          "sha256": "7f2ff406aa3723db6acb885d3cdc3ddaea5cb518388ce7b6c0e9c5b36fec4b1b"
+        },
+        {
+          "path": "Source/Documentation/N2C_MANUAL_APPLY_FAILURE_AUDIT_20260716_120508.md",
+          "size": 1972,
+          "sha256": "2f11219a85b89baf19b2dc770776808dfe4756d656fcfe846d3fe16425e0c736"
+        },
+        {
+          "path": "Source/Documentation/N2C_MANUAL_DRY_RUN_STRUCT_PIN_AUDIT_20260716.md",
+          "size": 1270,
+          "sha256": "b93d37f65bf778b24bbba19da3d4363502eb7c705848a7598cff74fc4284adbf"
+        },
+        {
+          "path": "Source/Documentation/N2C_MANUAL_REPLAY_AUTOMATION.md",
+          "size": 1510,
+          "sha256": "e7cca49aca8e1b8a8349ee45d3f48efb5d6c9723f9e48bceb3a07dbeff8a7738"
+        },
+        {
+          "path": "Source/Documentation/N2C_MANUAL_REPLAY_FIXES_PROGRESS_179.md",
+          "size": 1552,
+          "sha256": "2d0117aa99f012de684238cc5bc60f53183d6cd1ce9e88e2f3fbbfc2749b3de5"
+        },
+        {
+          "path": "Source/Documentation/N2C_NIAGARA_EXPORT_STATUS.md",
+          "size": 3046,
+          "sha256": "9ed6cfafdc3bd0064a8cc185d907ad29c40adf7746c2719c7785c72fcefe31bc"
+        },
+        {
+          "path": "Source/Documentation/N2C_NIAGARA_FOLDER_EXPORT.md",
+          "size": 1262,
+          "sha256": "6eb1b6596b3c2f8466125131340a4f94ca3c601de464d74298da4a5c74a99714"
+        },
+        {
+          "path": "Source/Documentation/N2C_NIAGARA_PREVIEW_AND_WORKING_CASES.md",
+          "size": 5940,
+          "sha256": "f675e24d70e3c587a5d1defd7e49f7f0dcc71888ca51acd8f30508c75834c91b"
+        },
+        {
+          "path": "Source/Documentation/N2C_NIAGARA_VFX_REFERENCE_LIBRARY.md",
+          "size": 4976,
+          "sha256": "bf622fe318727974dacabfae27b32159a82110c3cebbf838f575ec5b148b1570"
+        },
+        {
+          "path": "Source/Documentation/N2C_Niagara_Import_Dynamic_Input_Tree_Format.md",
+          "size": 30341,
+          "sha256": "9df2dd50a5e3172a4bc60fdd3165455f716e27cb512e7128b6ad5e5c8ad777e2"
+        },
+        {
+          "path": "Source/Documentation/N2C_P0_3_ROUND_TRIP.md",
+          "size": 2443,
+          "sha256": "e78ba6f1cbf0a0ff1d33568c1f18d3cf7c0725fd0722b47f353cbf1f6e885310"
+        },
+        {
+          "path": "Source/Documentation/N2C_P0_VERIFICATION_REPORT_20260713.md",
+          "size": 3038,
+          "sha256": "aa9567f132a860bf0b807613f70a8a74adae706638d1117b850346dc534ae5b6"
+        },
+        {
+          "path": "Source/Documentation/N2C_POWERSHELL_PARSER_HOTFIX_176.md",
+          "size": 1037,
+          "sha256": "77de00c3e38cfb3beffb6f284a4c7e094cff3498d9073f3ca462800fbef4c39c"
+        },
+        {
+          "path": "Source/Documentation/N2C_POWERSHELL_PROCESS_AUDIT_178.md",
+          "size": 2972,
+          "sha256": "bf04817c381f89caa3b7ed17439136a67c7a3fa4f5afed75e760c3fb9d796a42"
+        },
+        {
+          "path": "Source/Documentation/N2C_POWERSHELL_PROGRESS_PARSER_HOTFIX_180.md",
+          "size": 1232,
+          "sha256": "e5e23f1b0a506d76bb55a138c5deb97b6a5d55581d2509d49df87ee4dab7f435"
+        },
+        {
+          "path": "Source/Documentation/N2C_POWERSHELL_RUNTIME_HOTFIX_177.md",
+          "size": 1602,
+          "sha256": "f9fd11b58f05398afa07fb1e21d7b2dc54d48719431eba486191c05fe294745c"
+        },
+        {
+          "path": "Source/Documentation/N2C_PROGRESS_SELFTEST_CLEANUP_HOTFIX_181.md",
+          "size": 1417,
+          "sha256": "76f71ce5fc9ed2d129e37d8c61556c7f5c64b8a443d525fb818c3491ef767e4b"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_GATE_LOG_AUDIT_182.md",
+          "size": 2389,
+          "sha256": "81ef177823c885ade70492bf92b5e9d7bbb8ba47ea3c206ebd314ab3a795a859"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_173.md",
+          "size": 2120,
+          "sha256": "b3e8a4d3ba5621f82c1b155285496cec9463c7c63775e726dc308911c719d04a"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_174.md",
+          "size": 464,
+          "sha256": "3a0a625e6f263198a59f958588df8488cbd03c7a38103a8157cd547603a77bd3"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_175.md",
+          "size": 1176,
+          "sha256": "cc650db0bbfe40efcc213f38aabb5227b9c52e291b7204aa1f4c277bb9001053"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_176.md",
+          "size": 929,
+          "sha256": "96ddf66d73b906ca1fd28d6d7b9a1821e0cf5bb0c557a227b499e179d416e47a"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_177.md",
+          "size": 967,
+          "sha256": "50a9ec290cacccb50ac13e3c2120bea16522ee44c7a34280d1ae5b4443f04194"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_178.md",
+          "size": 1387,
+          "sha256": "c9f26067a69175e6e6bc14a411880d54287961e4d2fd1b356c7451df432dba6d"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_179.md",
+          "size": 850,
+          "sha256": "60b646aadc494ec879df3f7ef923f546805a9e9e956a7009d2c233d38e10d4e9"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_180.md",
+          "size": 722,
+          "sha256": "0c4159e1d3d98d3cc52537ee107119ac12a9974e0f4ef8dcedc3c31ff53eea51"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_181.md",
+          "size": 835,
+          "sha256": "dc3e00635f62e2fb13e57f1d5614f771adbe35c4a0f41c0f5447b0b85beced96"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_182.md",
+          "size": 1204,
+          "sha256": "ac188894f43ad9faa63b47880467c17012e409401e03b643312e869f856afc7c"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_183.md",
+          "size": 1251,
+          "sha256": "4b7bff9af8f733db6362380c2adeb094e03b3ad1956efd993736810d1398afcc"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_184.md",
+          "size": 1340,
+          "sha256": "d262fc7883c795beee78c8efb25bddb2c645118c70386360634a05683d9613f7"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_185.md",
+          "size": 2137,
+          "sha256": "e5958936404c409b51199f7b24405006801e54b02b6554ff48b8fa25766b5d47"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_186.md",
+          "size": 1446,
+          "sha256": "414bd83ed8b26677cee7fbb5be2a0a98b91ee07cc1ab9bacee5bb0de0bcd2025"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_187.md",
+          "size": 1363,
+          "sha256": "1c42e02a712ac37710dd20aaf907bd73f7a564f5d9be2e2dde12b90f9af7f897"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_188.md",
+          "size": 680,
+          "sha256": "5bbadb91eed39f8f58b105e57aaa77613df80a74d6c6b5c9363962afc91c27e1"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_190.md",
+          "size": 3645,
+          "sha256": "8c172d454a03f74ea3ed4be10787ebaf72d9df35b7a29ceb665b7e06a67ff1ee"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_191.md",
+          "size": 1402,
+          "sha256": "016d639ea29564eeb0889b12a140791072e74bbad3e3c97b6577b8629871c78d"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_192.md",
+          "size": 2351,
+          "sha256": "b7ab687d8416a555839f96ccba17629316a7581b86aa1060e02bbdd5d4cabb53"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_193.md",
+          "size": 3400,
+          "sha256": "9391e7baf55fe43e9964ada700afafa8105429eb7bef4f3db986eea3ef21ab13"
+        },
+        {
+          "path": "Source/Documentation/N2C_RELEASE_NOTES_194.md",
+          "size": 2134,
+          "sha256": "10bf82d58c36707a9ce4d7617fcac518ff0a27fa451f12dc1ffcc358169201b0"
+        },
+        {
+          "path": "Source/Documentation/N2C_ROLLBACK_RESTORE.md",
+          "size": 2224,
+          "sha256": "9e801c56392c1cbcc89430ec50cfdc742ac3d6c584fe6ae023cca4e434788026"
+        },
+        {
+          "path": "Source/Documentation/N2C_STANDARD_MACROS_REFERENCES.md",
+          "size": 1569,
+          "sha256": "ec90e7d257431fb2c84714c9711b7ed3709b6637e2338d8583fff43b37ffca3f"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_173.json",
+          "size": 42302,
+          "sha256": "86e52d36cb686a59057f77848846a6092ba6860c88a2ec63e3a91fb7d54d1ec9"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_178.json",
+          "size": 44948,
+          "sha256": "bf783f891ba200eaa31313ba98ce2657336d531ce4e13b8d7bb8524131b55b2e"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_179.json",
+          "size": 45513,
+          "sha256": "12cb78f93fa4c5138350f9b158fc4a61bfefd7f9ed94fa219687f9e7dac58515"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_180.json",
+          "size": 1002,
+          "sha256": "91483e27c9c3cb60a9712e52eb975de6b899b0bd6c38d188e4c958bc0355d195"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_181.json",
+          "size": 47757,
+          "sha256": "a6fc1b916547092d12cc027d4b2b6a24ef063b6a9bd01041b2be03e23b19f2eb"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_182.json",
+          "size": 48754,
+          "sha256": "7dbd4e3cc15836d8c4d03125d36b761cb5d5b48f12fb3848919a08e5ec095cce"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_185.json",
+          "size": 51887,
+          "sha256": "8914379dac53faa047b892a1b5af1048012bc6c81287317749b6eac8f930b405"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_186.json",
+          "size": 1513,
+          "sha256": "1f6b0b51666111f0930c53b17f93df5f6f1b6f55058c67d7eaded11fdd4ad3ac"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_187.json",
+          "size": 1819,
+          "sha256": "5839c06312af18eb2b128da48dfdc5309db04b41f3b380224ba044fc89a0246b"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_190.json",
+          "size": 55787,
+          "sha256": "b86ccc741b31bf8a6856e99219157c9d76fc03bfbccb5c9dbd209c9efb70e063"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_191.json",
+          "size": 56392,
+          "sha256": "5f7fff76d13f735413b3e4b96ed8874b820ec1c1b1e74a233c41a9f58f5fdb23"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_192.json",
+          "size": 57297,
+          "sha256": "87240923ff5d59fe3cbd53fb1c158c450e02860ce589031ad14b1e9d73f5c3e2"
+        },
+        {
+          "path": "Source/Documentation/N2C_STATIC_AUDIT_193.json",
+          "size": 59324,
+          "sha256": "a0d396d90e42a92d29089d0c10ea40c3814ef7009207ab30dc7c021706d22bdd"
+        },
+        {
+          "path": "Source/Documentation/N2C_TASK_REPORT_TEMPLATE.md",
+          "size": 1465,
+          "sha256": "f939c8cae8be0d12bc567dd6afb24a8b9d9c9933a89244b5b2671d2c3fbb7a2b"
+        },
+        {
+          "path": "Source/Documentation/N2C_TODO.md",
+          "size": 1497,
+          "sha256": "6219ec4863181763b287bbf56cea8c60674051c91961ef13c13f06741e1f349d"
+        },
+        {
+          "path": "Source/Documentation/N2C_UE427_SOURCE_WORKFLOW.md",
+          "size": 1311,
+          "sha256": "782fe35bad55b51bec6737219129248d75aff2a6e07509a585fa2d92c1af2321"
+        },
+        {
+          "path": "Source/Documentation/N2C_UNSUPPORTED_NODE_SCAN_20260713.json",
+          "size": 241285,
+          "sha256": "e0f3c9ed00f7422801d3a248b94679a121cae975c7d58f50454abcb82a04dd22"
+        },
+        {
+          "path": "Source/Documentation/N2C_VERIFICATION_WORKFLOW.md",
+          "size": 3408,
+          "sha256": "020d04d68f750acc23a95b94d50e70a17054f88051b9f51eb9a376860b42d4dd"
+        },
+        {
+          "path": "Source/Documentation/README_DOCUMENTATION_INDEX.md",
+          "size": 1170,
+          "sha256": "4d140f2f2b726963e9ae8dc74a63e41b5d8699e35c2a8a80ac851c29245cfd96"
+        },
+        {
+          "path": "Source/NodeToCode.Build.cs",
+          "size": 3343,
+          "sha256": "06d89939c1de895c0710d605feb3d7c122141804cdbad202cc9f34a166951265"
+        },
+        {
+          "path": "Source/Private/Core/AGENTS.md",
+          "size": 1817,
+          "sha256": "a51ad019bd1e26b6433abb58bd0bfb654da5865763c1a65f25b2d53fb5f5de68"
+        },
+        {
+          "path": "Source/Private/Core/N2CAIExport.cpp",
+          "size": 215962,
+          "sha256": "ad64bf356263b5e465cf1314cfbf01627c6d62e336f11ec529c27c9d5ea955f8"
+        },
+        {
+          "path": "Source/Private/Core/N2CCoverage.cpp",
+          "size": 61315,
+          "sha256": "b08a2fab8ebea67a179ac054da488699062d328ef25bb4105528570b826ea676"
+        },
+        {
+          "path": "Source/Private/Core/N2CEditorIntegration.cpp",
+          "size": 480740,
+          "sha256": "9eff62b143073663a478acf9b92b9365a0199510eaa6974cc460ff2876ab29e6"
+        },
+        {
+          "path": "Source/Private/Core/N2CMacroReference.cpp",
+          "size": 11582,
+          "sha256": "918575f9bff238c791341e367d143c06039266a6ba00d33bd9c261c6cbcf142f"
+        },
+        {
+          "path": "Source/Private/Core/N2CNodeCollector.cpp",
+          "size": 6592,
+          "sha256": "d01033f3100341f3db799c45186552a61841ef8333b7970e15624c70b2b27c8f"
+        },
+        {
+          "path": "Source/Private/Core/N2CNodeTranslator.cpp",
+          "size": 71546,
+          "sha256": "1a5782649936539d7a47cfcfec79a4fb9c56354e0a3623f1695111d4d5d9a11a"
+        },
+        {
+          "path": "Source/Private/Core/N2CPatchImporter.cpp",
+          "size": 420301,
+          "sha256": "bb57a8ee344b6a796536311e9029dee12a426bcf623b5d0bc506fd442c47d092"
+        },
+        {
+          "path": "Source/Private/Core/N2CRoundTripVerification.cpp",
+          "size": 34086,
+          "sha256": "f119cb1ff227470411226f5e24b12ac7dc2a1ca2828d8d09f77ed2919109c956"
+        },
+        {
+          "path": "Source/Private/Core/N2CSerializer.cpp",
+          "size": 28924,
+          "sha256": "6592c9fba91be2dc8840227b278ac6c441d827f2bbd9da797f77952c72a72c7e"
+        },
+        {
+          "path": "Source/Private/Core/N2CSettings.cpp",
+          "size": 917,
+          "sha256": "bf678b71a819a56d639341ed7c35359a20ed35080c1b5c4c6203c49c74c466fb"
+        },
+        {
+          "path": "Source/Private/Core/N2CStructuralSnapshot.cpp",
+          "size": 28014,
+          "sha256": "f46170f44ddd4961accee437df091cb1f54bfc7a156985d2e4d0fe54b7ffc39f"
+        },
+        {
+          "path": "Source/Private/Core/N2CToolbarCommand.cpp",
+          "size": 3304,
+          "sha256": "9e0f38f5c5cec0febcd15bee4d3636b2c0ff7209cc69214865c41247c66d0905"
+        },
+        {
+          "path": "Source/Private/Models/N2CBlueprint.cpp",
+          "size": 881,
+          "sha256": "81dd2908be417cc792a935c86d53c26c823d38bcb4956e57f74bffc6fb3f7b2e"
+        },
+        {
+          "path": "Source/Private/Models/N2CNode.cpp",
+          "size": 305,
+          "sha256": "0c67b0f967449434b648d24e7f619dd04390c4edab8c96c6c2309fed8147f7b0"
+        },
+        {
+          "path": "Source/Private/Models/N2CPin.cpp",
+          "size": 660,
+          "sha256": "488a7e61f630bea475f6e51e2a5621eda50bd258741caad02008e030052c8c88"
+        },
+        {
+          "path": "Source/Private/Models/N2CStyle.cpp",
+          "size": 2379,
+          "sha256": "7327ed19bde5d0f8d96f2882c12dfab1b7f2a6d279a42138f93c03c62f7de2d0"
+        },
+        {
+          "path": "Source/Private/N2CVerificationTests.cpp",
+          "size": 282299,
+          "sha256": "c7beda72f2022b9861d5c1948acd9acd4fc4a97fd218e7a2a15ac381bdb782ac"
+        },
+        {
+          "path": "Source/Private/NodeToCode.cpp",
+          "size": 2516,
+          "sha256": "04bed06e40e67aa9388442c67b03e3b318c6a5c426e70c18c1c4af10eb098485"
+        },
+        {
+          "path": "Source/Private/Utils/N2CLogger.cpp",
+          "size": 4847,
+          "sha256": "55a921cda4e7e48c6bdf41de060f299f7ab97760482acb065fcca60edbbe8397"
+        },
+        {
+          "path": "Source/Private/Utils/N2CNodeTypeRegistry.cpp",
+          "size": 29863,
+          "sha256": "f0379811f7e0b93ecf298d40f0631e527ddc52ea8741233733de37d7714f9b08"
+        },
+        {
+          "path": "Source/Private/Utils/N2CPinTypeCompatibility.cpp",
+          "size": 4168,
+          "sha256": "dd922e698547eb1bc151949b85c5ca4ac1f71de15379f52713b413e121023f37"
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CArrayProcessor.cpp",
+          "size": 6697,
+          "sha256": "18adf3a141909a45e866639f4259f90af38f09bf14ff2e5c7448d52be76cf2d4"
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CBaseNodeProcessor.cpp",
+          "size": 1354,
+          "sha256": "cf8b71684017ed156220553e0a053bb443eeff5f2a8fa1df4f325b1df44aa714"
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CCastProcessor.cpp",
+          "size": 1984,
+          "sha256": "9cb7de56a6256e1a11446087d403dcc3074f6692338912b80fbc7593260917d8"
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CDelegateProcessor.cpp",
+          "size": 3019,
+          "sha256": "917e17d63bb641e2521a2636d003387894c5b8d49197f543208d492bc0c3c2e7"
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CEventProcessor.cpp",
+          "size": 2925,
+          "sha256": "0b6e8124e6439ea5144e536a9e2c7537419b2d6213e9dc194f6d3c490fa0c328"
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CFlowControlProcessor.cpp",
+          "size": 3371,
+          "sha256": "0999351ece21305b8c1bbc2910fcbf0d29c1f755f8851e82746bfef0701f3353"
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CFunctionCallProcessor.cpp",
+          "size": 990,
+          "sha256": "057b452f5adada5f8e8dfe4edbf0a1a9e33d15a77170c723752c674d9532b5f4"
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CFunctionEntryProcessor.cpp",
+          "size": 2313,
+          "sha256": "e8f9ce6869f69ea960154a5c6fe880bd1d6a83b4145a78b9e9c528ebc7bbf194"
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CNodeProcessorFactory.cpp",
+          "size": 7905,
+          "sha256": "0978068bab7981f28c229508c6720eebfad2cb9b1b5c1d211229069b9023ee10"
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CStructProcessor.cpp",
+          "size": 5808,
+          "sha256": "483bacbb431f0d29efff7ec38667ec00c32698a0170f60abc8e65026e8333d4f"
+        },
+        {
+          "path": "Source/Private/Utils/Processors/N2CVariableProcessor.cpp",
+          "size": 2617,
+          "sha256": "0877c6e2ca3f1ea3b78a0a30a49d0327e0808a57b523e645644b0059bfd65387"
+        },
+        {
+          "path": "Source/Private/Utils/Validators/N2CBlueprintValidator.cpp",
+          "size": 9602,
+          "sha256": "d97e06b912051151ff1c6bd2d62f894944c863c21cdebb1b065eb61b9853aef7"
+        },
+        {
+          "path": "Source/Private/Utils/Validators/N2CNodeValidator.cpp",
+          "size": 5691,
+          "sha256": "dcbe2f2220df6987e02d35344c6a511bc260f2909b81bff539f4ad40e30d661d"
+        },
+        {
+          "path": "Source/Private/Utils/Validators/N2CPinValidator.cpp",
+          "size": 6890,
+          "sha256": "f9eeb6101fa058d4fde01fa1f4beeaefcbad4ea17afd704ab5ef91c05b8c142b"
+        },
+        {
+          "path": "Source/Public/Core/N2CAIExport.h",
+          "size": 1794,
+          "sha256": "f8f46dd1fe071cac1b301314283ed2fb865b203fdc4534c136b0ec7462422997"
+        },
+        {
+          "path": "Source/Public/Core/N2CCoverage.h",
+          "size": 2694,
+          "sha256": "3b89b8394aa58637be4ce355f8668319182492cb1770515ade59299b7c429072"
+        },
+        {
+          "path": "Source/Public/Core/N2CEditorIntegration.h",
+          "size": 11133,
+          "sha256": "ed1df49acc0583ffac4a8c4ecc7d50858093d68e470ae247c509a3fdb24585cd"
+        },
+        {
+          "path": "Source/Public/Core/N2CMacroReference.h",
+          "size": 600,
+          "sha256": "8ff369de1059fb159810359d0cdb4568c9fc1ca2c95a35804f82b0517ab832db"
+        },
+        {
+          "path": "Source/Public/Core/N2CNodeCollector.h",
+          "size": 1803,
+          "sha256": "63c54a95121d62c5f0518a49abd53505098d58ec8ea1130fdd37b71c40de2fed"
+        },
+        {
+          "path": "Source/Public/Core/N2CNodeTranslator.h",
+          "size": 5365,
+          "sha256": "dfb593d88e6d422a26672a179d1ab1ab210067bd8c9e728de1059a6a5b726d79"
+        },
+        {
+          "path": "Source/Public/Core/N2CPatchImporter.h",
+          "size": 1353,
+          "sha256": "8f99b586ac7c11030f3a5fb366dfcb3b18b48d54ab62aaf47422d0d6908ad803"
+        },
+        {
+          "path": "Source/Public/Core/N2CRoundTripVerification.h",
+          "size": 2621,
+          "sha256": "6fc012924088dcdb2a2f5715b1bc13662343c36814f41f7b923fac77771b9164"
+        },
+        {
+          "path": "Source/Public/Core/N2CSerializer.h",
+          "size": 2380,
+          "sha256": "6b9221a1d823a028ba1c89ab1bec6a71802f0688adba2c837522471aa9dd8dce"
+        },
+        {
+          "path": "Source/Public/Core/N2CSettings.h",
+          "size": 2716,
+          "sha256": "db25d7d9196be7da3c59345ba9ee34351b2dd090e62f2ee4112402d6fb9ce0b5"
+        },
+        {
+          "path": "Source/Public/Core/N2CStructuralSnapshot.h",
+          "size": 677,
+          "sha256": "e66e05d579b53b683d9c722a0898ed0e51bca461de712746a7160abc08ba1472"
+        },
+        {
+          "path": "Source/Public/Core/N2CToolbarCommand.h",
+          "size": 1495,
+          "sha256": "af058e0c73fbb853a0042457644395b733d6e8b463c29b1793b52928af2ec334"
+        },
+        {
+          "path": "Source/Public/Models/N2CBlueprint.h",
+          "size": 10674,
+          "sha256": "36d53a0e48d451130dde13202524e80efe01720a12acb9bbe9440fea62b2210c"
+        },
+        {
+          "path": "Source/Public/Models/N2CLogging.h",
+          "size": 2089,
+          "sha256": "700bacec0408d5a17fec01bf2384fdd89a29bb653294bbcaf0f8842f2d648f31"
+        },
+        {
+          "path": "Source/Public/Models/N2CNode.h",
+          "size": 10994,
+          "sha256": "e7c771f420fba2aeb929ad8b90c30a19b7e65ebef3d48e22c2886873744d747f"
+        },
+        {
+          "path": "Source/Public/Models/N2CPin.h",
+          "size": 4652,
+          "sha256": "427a21987ad7b08e716f91d95b63b833651771a3fd170ca64e3d6476d9877c55"
+        },
+        {
+          "path": "Source/Public/Models/N2CStyle.h",
+          "size": 813,
+          "sha256": "0fb1691c4204266f1303bd4eeb4e6140627814702cee860ef0ee6eefef0d132c"
+        },
+        {
+          "path": "Source/Public/NodeToCode.h",
+          "size": 769,
+          "sha256": "85e7a7b08f91131c2d963745b765698a189f78996d5098a9a1dd31f8571d9217"
+        },
+        {
+          "path": "Source/Public/Utils/N2CLogger.h",
+          "size": 2823,
+          "sha256": "122cdb9451e6ab10923a7b36dbb065e0ec0451aac2742629bc5f8ca88142d9ab"
+        },
+        {
+          "path": "Source/Public/Utils/N2CNodeTypeRegistry.h",
+          "size": 5508,
+          "sha256": "07361e7cdbbde798aa1e81c6a0883db7f9aec7a64e3ce52b120c1a72df2b637d"
+        },
+        {
+          "path": "Source/Public/Utils/N2CPinTypeCompatibility.h",
+          "size": 903,
+          "sha256": "5fd1472139beedda7648ef722b084c33e0ee2d161f87d09fe5a993652ba57af4"
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CArrayProcessor.h",
+          "size": 885,
+          "sha256": "c3a38b032cfe949ff3f38f1f7470a5cd9be555300d994dc53f757fa8b34a2ba0"
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CBaseNodeProcessor.h",
+          "size": 1336,
+          "sha256": "f40909c0592e324b60994c8821f241ea34794b6fbda7fd4548e96426f35f0492"
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CCastProcessor.h",
+          "size": 817,
+          "sha256": "1ec76b0085a0257f6b163d767ebe2e61e6b65c4d349938d53c58a75d8557214d"
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CDelegateProcessor.h",
+          "size": 937,
+          "sha256": "71b4fd13a1e1475618888a60760d35ea3f93887fa74218e1501903685782c785"
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CEventProcessor.h",
+          "size": 844,
+          "sha256": "4cca779234bf865b0879f91a4288ae1fa430672e1e545c7a5d5adacae4bd3b29"
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CFlowControlProcessor.h",
+          "size": 964,
+          "sha256": "64489ca3c537d2c37841cc77b682a167e1c6e21dbfa3ef86fa1e7a1f4ab9e77d"
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CFunctionCallProcessor.h",
+          "size": 779,
+          "sha256": "1b6b0b2c3cb9746d932dd5b26a70e1e6269bad10cde36aa1ae0b721816e10e37"
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CFunctionEntryProcessor.h",
+          "size": 871,
+          "sha256": "cde72e6aa89eb253a513ed9066ae0d67aaffa83d2d49f1f76cbe63f2c395ee4f"
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CNodeProcessor.h",
+          "size": 805,
+          "sha256": "7848273387e2c11a6f37c4f094fd75c85a5a47545a9e9810f8541e8a5135e2cb"
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CNodeProcessorFactory.h",
+          "size": 1415,
+          "sha256": "15b7123f317fed35a2e7016a3bb8183034e1d9b99d35891a995cb48447f166ca"
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CStructProcessor.h",
+          "size": 860,
+          "sha256": "591c6ce5985dab46c33f8543052bd917903b149fed7d94c2e59540f824293edc"
+        },
+        {
+          "path": "Source/Public/Utils/Processors/N2CVariableProcessor.h",
+          "size": 828,
+          "sha256": "6c1fffa3d55b2671d9fe8bbe16c3dc42152f46fa0844a18a5a1537d172521062"
+        },
+        {
+          "path": "Source/Public/Utils/Validators/N2CBlueprintValidator.h",
+          "size": 1558,
+          "sha256": "742e4eb34dca1e4073be2e5bd87dca0a2292e114f6a0322f063043ecf1f5d552"
+        },
+        {
+          "path": "Source/Public/Utils/Validators/N2CNodeValidator.h",
+          "size": 1032,
+          "sha256": "391588e7a65fdb7b48cfa3c4c68645d6ab7924c42f20f2d8b15d360d3e3aa98f"
+        },
+        {
+          "path": "Source/Public/Utils/Validators/N2CPinValidator.h",
+          "size": 817,
+          "sha256": "ad40da1cc65d998b2f7181cc9c474f9e695def371f5c6010dd3b8445886e4f58"
+        },
+        {
+          "path": "Source/Tests/Fixtures/Hotfix172/README.md",
+          "size": 417,
+          "sha256": "374fe824fe18c816f24077ca24f06493ffde69f7b03129982f3af37cee3acfb3"
+        },
+        {
+          "path": "Source/Tests/Fixtures/Hotfix172/manifest.json",
+          "size": 669,
+          "sha256": "99d1c950a7238b78a01acde84f3fa12f6c27ff95eff8b7e8073aecd60179940a"
+        },
+        {
+          "path": "Source/Tests/Fixtures/ManualReplay/N2C_FINAL_MANUAL_ALL_STRICT_SUPPORTED_V194.json",
+          "size": 91714,
+          "sha256": "7e32b9bb331496b540ac077f8d1aa88c9d8af30b5cc243756aa0c1a409c04653"
+        },
+        {
+          "path": "Source/Tests/Fixtures/ManualReplay/N2C_MANUAL_REPLAY_MANIFEST_V1.json",
+          "size": 8053,
+          "sha256": "0b2e9487950105e743b59d14a29f4b9589e6d02746c8a9df004ffadfd2268906"
+        },
+        {
+          "path": "Source/Tests/Fixtures/ManualReplay/enum_missing_negative.json",
+          "size": 313,
+          "sha256": "a6664b8808f1466ad1e9207995d2f7d2f905270abe8b0eae609c5aa7f8b7ca87"
+        },
+        {
+          "path": "Source/Tests/Fixtures/ManualReplay/raw_byte_positive.json",
+          "size": 276,
+          "sha256": "5c760de297a29d9afb80de71a5ac5b2b7ce5fca4f0a42d2a4e3aa45610136411"
+        },
+        {
+          "path": "Source/Tests/Fixtures/N2C_IMPORT_CONTRACT_MATRIX_V1.json",
+          "size": 174146,
+          "sha256": "99a99169c7889c0ed49845152626c6db2513ff171f5300da5acb8993cf5e7129"
+        },
+        {
+          "path": "Source/Tests/Fixtures/N2C_NODE_TEST_REQUIREMENTS_V1.json",
+          "size": 12873,
+          "sha256": "ba39d6b47d965705530599050a355b5f53bd6ec7d20e48c147639b41f3f38007"
+        },
+        {
+          "path": "Source/Tests/Fixtures/N2C_P0_FIXTURE_MANIFEST_V1.json",
+          "size": 47453,
+          "sha256": "04f4f46f78e38a65166faf343dfc39b7b5f801f5593da0e26f832504282a82ee"
+        }
+      ]
+    }
+  }
+}
